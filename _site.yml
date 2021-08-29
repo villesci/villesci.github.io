@@ -1,0 +1,9 @@
+name: "Andrew Villeneuve"
+output_dir: "."
+navbar:
+  title: "Andrew Villeneuve"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
