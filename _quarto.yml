@@ -17,8 +17,7 @@ website:
         text: Research
       - href: publications.qmd
         text: Publications
-      background: success
-        
+
 format:
   html:
     theme: sandstone
