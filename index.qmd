@@ -1,5 +1,6 @@
 ---
-title: 'Thermal Ecology and Ecological Forecasting'
-title-block-banner: bahama.jpg
+title: 'I am a marine ecologist with interets in thermal ecology, extreme events, and fisheries'
+title-block-banner: "bahama.jpg"
 ---
 
+![Can we predict how marine ecosystems will respond to heatwaves?](mada.jpg){width=3000}

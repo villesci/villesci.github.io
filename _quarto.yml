@@ -6,6 +6,7 @@ website:
   open-graph: true
   title: "Andrew Villeneuve"
   site-url: https://villesci.github.io
+  twitter-card: true
   navbar:
     left:
       - href: index.qmd
@@ -16,6 +17,7 @@ website:
         text: Research
       - href: publications.qmd
         text: Publications
+      background: success
         
 format:
   html:
@@ -24,4 +26,5 @@ format:
     toc: true
 
 editor: visual
+
 
