@@ -5,6 +5,7 @@ project:
 website:
   open-graph: true
   title: "Andrew Villeneuve"
+  site-url: https://villesci.github.io
   navbar:
     left:
       - href: index.qmd
