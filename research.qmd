@@ -1,3 +1,54 @@
 ---
 title: "Research"
 ---
+
+::: panel-tabset
+# Current research
+
+## Forecasting organismal responses to heatwaves
+
+```{r,echo=F}
+library(htmltools)
+htmltools::tags$iframe(
+  src = "images/TDT_gigas_landscape.html", 
+  scrolling = "no", 
+  seamless = "seamless",
+  frameBorder = "0",
+  width = 500,
+  height = 500,
+  sizingPolicy = htmlwidgets::sizingPolicy(
+    viewer.padding = 0,
+    viewer.paneHeight = 500,
+    browser.fill = TRUE
+  )
+)
+```
+
+A thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
+
+Heatwaves, rather than gradual warming about the meteorological mean, are the driving abiotic factor behind marine invertebrate physiological stress. Because they highly variable in duration, magnitude and return time, it is difficult to predict organismal responses using traditional physiological exposure experiments.
+
+I use experiments to parameterize these thermal death time models, but primarily am using a simulation approach to understand how heatwaves of varying magnitude, duration, and return time affect organismal survivorship and metapopulation dynamics. I currently focus on the eastern Oyster *Crassostrea virginica*.
+
+# Previous research
+
+## Marine Local Adaptation - Master's Research
+
+As ecologists attempting to understand the impacts of climate change on marine organisms, we often neglect to consider how evolution may play a role in making organisms either more or less susceptible to climate change impacts. Organisms often have a plastic ability to change their physiology or behavior when subjected to different environmental conditions, but environmental changes that last for longer periods of time may drive evolutionary events, manifesting as a shift in genotypes. Countergradient variation is a type of local adaptation where organisms in cooler environments show comparatively higher growth rates than populations in warmer environments . This may result because of shorter growing seasons at high latitudes, where organisms must exploit small windows of ideal growing conditions. Therefore, if an evolutionary event were to drive a cool genotype organism to a warm genotype as a result of climate change, we can expect to see an overall *decrease* in organismal growth rates. This is an implication that is not fully appreciated in the field. \
+\
+Through my Master's research, I sought to better understand how populations of a single species may react differently to climate change. A common assumption of ecological niche models is trait homogeneity across a species, while in fact populations may inhabit diverse environments and be locally adapted to those conditions. The implication of this locally adapted reality is that some populations will be more resilient to climate change than others. I used the predatory marine snail *Urosalpinx cinerea* to ask these questions about intraspecific variation, specifically quantifying thermal tolerance and growth rates. This snail species is native to the Atlantic coast of the US and is an invasive species on the Pacific coast. In addition, it is a common marine predator on wild and cultured Eastern (*Crassostrea virginica*) and Pacific (*C. gigas*) oysters. My results will therefore not only inform coastal managers of projected *U. cinerea* sensitivity to climate change, but contribute to the growing body of knowledge surrounding how we predict organisms will react to climate change. ​\
+\
+This research was recently published in [*Conservation Physiology* (thermal tolerance and plasticity)](https://academic.oup.com/conphys/article/9/1/coab039/6297054) and [*Proceedings of the Royal Society: B* (growth rates, environmental drivers of adaptation)](https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2021.0741). Research was supported by the [American Malacological Society](https://ams.wildapricot.org/) and the [PADI Foundation](http://www.padifoundation.org/).
+
+This research provided pilot data for a successful NSF-funded grant by my Master's advisor, Brian Cheng. Research continues at UMass with Project Uro!
+
+## **Tropical Aquatic Ecology**
+
+In the summer of 2017 I served as the Aquatic Ecologist for Operation Wallacea at their Dominica field site. In addition to working with high school students performing macroinvertebrate surveys, I developed a research program tracking the migration rates of a species of amphidromous freshwater snail, *Nereina punctulata*, across altitude and river flow rate. These hyper-abundant snails are likely extremely important for the transport of nutrients into oligotrophic headwaters of tropical streams. We found snails increase their migration rate low in the watershed, likely to avoid being swept downstream by freshets and to avoid large predators. Further, large snails were found more often in upstream areas, but smaller snails tended to exploit high flow environments once they had reached a few kilometers upstream. Antillean streams provide a unique opportunity to ask further questions on energy acquisition and predator avoidance. Research on *Nereina* migration is published in *Aquatic Ecology.*
+
+## *Chameleon habitat use*
+
+In the spring of 2015, I performed research on the remote island of Nosy Hara, Madagascar, quantifying population density and habitat use of the cryptic leaf chameleon *Brookesia micra*. I was able to demonstrate novel habitat use by this primarily leaf-litter dwelling genus by showing the presence of this species on limestone outcroppings. Further, I performed the first intensive survey of the island for the species. Findings delivered to MNP, Nosy Hara National Park. See my *Herpetological Conservation and Biology* ​article for more!
+
+\
+:::

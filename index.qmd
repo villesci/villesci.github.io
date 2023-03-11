@@ -1,6 +1,6 @@
 ---
-title: 'I am a marine ecologist with interets in thermal ecology, extreme events, and fisheries'
+title: 'I am a marine ecologist with interests in thermal ecology, extreme events, and fisheries'
 title-block-banner: "bahama.jpg"
 ---
 
-![Can we predict how marine ecosystems will respond to heatwaves?](mada.jpg){width=3000}
+![*Can we predict how marine ecosystems will respond to heatwaves?*](mada.jpg){width="3000"}
