@@ -22,8 +22,11 @@ format:
   html:
     theme: sandstone
     css: styles.css
-    toc: true
+    toc: false
     title-block-banner: "bahama.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
 
 editor: visual
 
