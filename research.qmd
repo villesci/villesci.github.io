@@ -2,7 +2,7 @@
 title: "Research"
 ---
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Current research
 
 ### Forecasting organismal responses to heatwaves

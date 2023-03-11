@@ -23,6 +23,7 @@ format:
     theme: sandstone
     css: styles.css
     toc: true
+    title-block-banner: "bahama.jpg"
 
 editor: visual
 
