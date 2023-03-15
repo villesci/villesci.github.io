@@ -30,22 +30,6 @@ Heatwaves, rather than gradual warming about the meteorological mean, are the dr
 
 I use experiments to parameterize these thermal death time models, but primarily am using a simulation approach to understand how heatwaves of varying magnitude, duration, and return time affect organismal survivorship and metapopulation dynamics. I currently focus on the eastern Oyster *Crassostrea virginica*.
 
-```{r,echo=F}
-library(htmltools)
-htmltools::tags$iframe(
-  src = "C:/Users/drewv/OneDrive - USNH/R files/animated_3dsurf_models/rotate_3d_surf_nonlog.HTML", 
-  scrolling = "no", 
-  seamless = "seamless",
-  frameBorder = "0",
-  width = 500,
-  height = 500,
-  sizingPolicy = htmlwidgets::sizingPolicy(
-    viewer.padding = 0,
-    viewer.paneHeight = 500,
-    browser.fill = TRUE
-  )
-)
-```
 
 ## Previous research
 
