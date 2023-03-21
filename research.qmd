@@ -1,5 +1,8 @@
 ---
 title: "Research"
+format:
+  html:
+    page-layout: full
 ---
 
 ::: panel-tabset
@@ -147,6 +150,8 @@ frameWidget(plot_3dC,width="100%")
 
 
 ```
+
+*Interactive Plotly Widget takes its time to load!*
 
 A thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
 
