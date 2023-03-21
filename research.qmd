@@ -3,25 +3,149 @@ title: "Research"
 ---
 
 ::: panel-tabset
-## Current research
+## Current Research
 
 ### Forecasting organismal responses to heatwaves
 
-```{r,echo=F}
-library(htmltools)
-htmltools::tags$iframe(
-  src = "images/TDT_gigas_landscape.html", 
-  scrolling = "no", 
-  seamless = "seamless",
-  frameBorder = "0",
-  width = 500,
-  height = 500,
-  sizingPolicy = htmlwidgets::sizingPolicy(
-    viewer.padding = 0,
-    viewer.paneHeight = 500,
-    browser.fill = TRUE
-  )
-)
+```{r setup,include=F}
+library(simglm)
+library(tidyverse)
+library(ggplot2)
+library(plotly)
+library(shiny)
+library(plot3D)
+library(zoo)
+library(utils)
+library(animation)
+library(htmlwidgets)
+library(widgetframe)
+Sys.setenv("plotly_username"="arv1038")
+Sys.setenv("plotly_api_key"="WV6qQFP5g27j5qtVS36n")
+
+gigas<-read.csv("raja_gigas.csv")
+
+
+#multiple size classes of gigas, so here we look at smallest ones
+gigassm<-gigas%>%filter(size==10.7)
+gigassm$ramp<-0.1
+static<-data.frame("group"="gigas","t_coma"=gigassm$time,"assay_temp"=gigassm$temp)
+
+new <- data.frame(assay_temp = seq(30, 50, .1))
+fit=lm(log10(t_coma)~assay_temp,data=static)
+
+sim_arguments <- list(
+  formula = log10(t_coma) ~ assay_temp,
+  fixed = list(assay_temp = list(var_type = 'ordinal',new)),
+  error=list(variance=.01),
+  sample_size = nrow(new),
+  reg_weights = c(fit$coefficients[[1]],fit$coefficients[[2]]))
+
+sim_dat<-simulate_fixed(data = NULL, sim_arguments)%>%
+  simulate_error(sim_arguments) %>%
+  generate_response(sim_arguments)
+sim_dat<-sim_dat%>%mutate("assay_temp_factor"=as.factor(assay_temp))%>%
+  dplyr::mutate("t_coma"=10^(.$"log10(t_coma)"))
+#the tolerance landscape function breaks down when you try to look over longer time scales. WE edit it below
+#tolerance.landscape(sim_dat$assay_temp,sim_dat$t_coma)
+
+########for geom_fan
+
+ta<-sim_dat$assay_temp
+time<-sim_dat$t_coma
+#from rezende function
+data <- data.frame(ta,time)
+data <- data[order(data$ta,data$time),]
+
+# Step 1: Calculate CTmax and z from TDT curve
+ta <- as.numeric(levels(as.factor(data$ta)))			
+model <- lm(log10(data$time) ~ data$ta); summary(model)
+ctmax <- -coef(model)[1]/coef(model)[2]
+z <- -1/coef(model)[2]
+
+# Step 2: Calculate average log10 time and Ta (mean x and y for interpolation purposes)
+time.mn <- mean(log10(data$time))
+ta.mn <- mean(data$ta)
+
+# Step 3: Interpolating survival probabilities to make them comparable across treatments 
+#Here, I cut sample size from 1001 to 101 to make plotting way quicker
+time.interpol <- matrix(,101,length(ta))
+for(i in 1:length(ta)){	
+  time <- c(0,sort(data$time[data$ta==ta[i]]))
+  if (length(time)==1){time=(c(0,0.000000001))}
+  p <- seq(0,100,length.out = length(time))
+  time.interpol[,i] <- approx(p,time,n = 101)$y}		
+
+
+# Step 4: Overlap all survival curves into a single one by shifting each curve to mean x and y employing z
+# Step 5: Build expected survival curve with median survival time for each survival probability
+shift <- (10^((ta - ta.mn)/z))
+time.interpol.shift <- t(t(time.interpol)*shift)[-1,]
+surv.pred <- 10^apply(log10(time.interpol.shift),1,median) 	
+
+# Step 6: Expand predicted survival curves to measured Ta (matrix m arranged from lower to higher ta)
+# Step 7: Obtain predicted values comparable to each empirical measurement
+
+
+m <- surv.pred*matrix ((10^((ta.mn - rep(ta, each = 100))/z)), nrow = 100)#cut each and nrow to 100 from 1000
+out <-0
+for(i in 1:length(ta)){
+  time <- c(0,data$time[data$ta==ta[i]])
+  if (length(time)==1){time=(c(0,0.000000001))}
+  p <- seq(0,100,length.out = length(time))
+  out <- c(out,approx(seq(0,100,length.out = 100),m[,i],xout=p[-1])$y)#cut length out to 100
+  if (length(out)==1){out=(c(0,0.000000001))}
+  }
+data$time.pred <- out[-1]
+colnames(m) <- ta
+m <- cbind(surv.prob=seq(1,0.01,-0.01),m) #cut survival prob steps to 0.01
+
+m<-as.matrix(m)
+m2 <- m[,-1]
+rownames(m2) <- m[,1]
+
+
+quant_ex<-as.data.frame(m)%>%gather(temp,time,"30":"50")%>%mutate(temp=as.numeric(temp))%>%
+  mutate(assay_temp_factor=as.factor(temp))
+
+
+#create matrix for 3D plot
+#spread by temperature in column names
+jjz<-quant_ex%>%spread(temp,surv.prob)
+#drop time and factor temp
+jjzz<-jjz[,-c(1:2)]
+
+#We want to interpolate survival for times not calculated
+#first, need to add a 1 and a 0 to first and last rows for na.approx fxn
+jjzz[1,]<-1
+jjzz[nrow(jjz),]<-0
+tryme<-na.approx(jjzz)
+#assign time rownames
+rownames(tryme)<-as.numeric(jjz[,1])
+#define as matrix
+tryme<-data.matrix(tryme)
+#get vectors of axes
+label_temp<-(as.numeric(colnames(tryme)))
+label_time<-(as.numeric(rownames(tryme)))
+
+#Plot with log transformed y axis
+plot_3dC<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surface(contours= list(
+  z = list(
+    show=TRUE,
+    usecolormap=TRUE,
+    highlightcolor="#ff0000",
+    project=list(z=TRUE),
+    start = 0,
+    end = 1, 
+    size = 0.1)))%>%
+  layout(scene = list(xaxis=list(title="Temperature"),yaxis=list(type="log",title="Time (min)"),zaxis=list(title="Survival")))
+
+```
+
+```{r,echo=F,warning=F}
+
+frameWidget(plot_3dC,width="100%")
+
+
 ```
 
 A thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
@@ -30,8 +154,7 @@ Heatwaves, rather than gradual warming about the meteorological mean, are the dr
 
 I use experiments to parameterize these thermal death time models, but primarily am using a simulation approach to understand how heatwaves of varying magnitude, duration, and return time affect organismal survivorship and metapopulation dynamics. I currently focus on the eastern Oyster *Crassostrea virginica*.
 
-
-## Previous research
+## Previous Research
 
 ### Marine Local Adaptation - Master's Research
 
@@ -50,6 +173,6 @@ In the summer of 2017 I served as the Aquatic Ecologist for Operation Wallacea a
 ### Chameleon habitat use
 
 In the spring of 2015, I performed research on the remote island of Nosy Hara, Madagascar, quantifying population density and habitat use of the cryptic leaf chameleon *Brookesia micra*. I was able to demonstrate novel habitat use by this primarily leaf-litter dwelling genus by showing the presence of this species on limestone outcroppings. Further, I performed the first intensive survey of the island for the species. Findings delivered to MNP, Nosy Hara National Park. See my *Herpetological Conservation and Biology* ​article for more!
-
-\
 :::
+
+### 
