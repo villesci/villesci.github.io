@@ -1,2 +1,1 @@
 *.RDs filter=lfs diff=lfs merge=lfs -text
-*.HTML filter=lfs diff=lfs merge=lfs -text
