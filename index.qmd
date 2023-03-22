@@ -1,5 +1,13 @@
 ---
 title: 'I am a marine ecologist working at the nexus of thermal ecology, extreme events, and fisheries'
+format: html
 ---
 
-![*Can we predict how marine ecosystems will respond to heatwaves?*](mada.jpg){width="3000"}
+<style>
+  body {
+  background-image: url('./images/bahamafull.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+ }
+  
+</style>

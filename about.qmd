@@ -31,9 +31,5 @@ Andrew earned his bachelor's in Biology from Bowdoin College in 2016 and his mas
 
 ## CV
 
-
-
-
-
-```
+\`\`\`
 :::

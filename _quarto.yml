@@ -7,7 +7,8 @@ website:
   title: "Andrew Villeneuve"
   site-url: https://villesci.github.io
   twitter-card: true
-  navbar:
+  google-analytics: "UA-359403508"
+  navbar: 
     left:
       - href: index.qmd
         text: Home
@@ -23,10 +24,7 @@ format:
     theme: sandstone
     css: styles.css
     toc: false
-    title-block-banner: "bahama.jpg"
-    title-block-style: default
-    title-block-categories: false
-    title-block-banner-color: body
+    
 
 editor: visual
 

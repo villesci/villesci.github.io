@@ -1,5 +1,12 @@
 ---
 title: "Publications"
+format:
+  html:
+    page-layout: full
+    title-block-banner: "images/bahama.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
 ---
 
 Sasaki, M, JM Barley, S. Gignoux-Wolfsohn, CG Hays, MW Kelly, AB Putnam, SN Sheth, **AR Villeneuve,** BS Cheng. 2022. Greater evolutionary divergence of thermal limits within marine than terrestrial species. *Nature Climate Change* 12: 1175-1180 *PDF on request* \| [Link](https://www.nature.com/articles/s41558-022-01534-y)\

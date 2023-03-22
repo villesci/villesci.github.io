@@ -3,6 +3,10 @@ title: "Research"
 format:
   html:
     page-layout: full
+    title-block-banner: "images/bahama.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
 ---
 
 ::: panel-tabset
@@ -149,8 +153,6 @@ plot_3d
 
 ```
 
-
-
 A thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
 
 Heatwaves, rather than gradual warming about the meteorological mean, are the driving abiotic factor behind marine invertebrate physiological stress. Because they highly variable in duration, magnitude and return time, it is difficult to predict organismal responses using traditional physiological exposure experiments.
@@ -169,13 +171,43 @@ This research was recently published in [*Conservation Physiology* (thermal tol
 
 This research provided pilot data for a successful NSF-funded grant by my Master's advisor, Brian Cheng. Research continues at UMass with Project Uro!
 
+::: {.{#layout-nrow=2, .ncol=1}} ![](images/AMS%20Banner%20Complete.png){fig-align="center" width="200"} ![](images/padi.jpg){fig-align="center" width="200"}
+:::
+
 ### Tropical Aquatic Ecology
+
+![Tagged Nerite snails to track migration rate](images/dom.JPG){fig-align="center" width="300"}
 
 In the summer of 2017 I served as the Aquatic Ecologist for Operation Wallacea at their Dominica field site. In addition to working with high school students performing macroinvertebrate surveys, I developed a research program tracking the migration rates of a species of amphidromous freshwater snail, *Nereina punctulata*, across altitude and river flow rate. These hyper-abundant snails are likely extremely important for the transport of nutrients into oligotrophic headwaters of tropical streams. We found snails increase their migration rate low in the watershed, likely to avoid being swept downstream by freshets and to avoid large predators. Further, large snails were found more often in upstream areas, but smaller snails tended to exploit high flow environments once they had reached a few kilometers upstream. Antillean streams provide a unique opportunity to ask further questions on energy acquisition and predator avoidance. Research on *Nereina* migration is published in *Aquatic Ecology.*
 
 ### Chameleon habitat use
 
+![The world's second smallest lizard, Brookesia micra](images/brookesia.JPG){fig-align="center" width="300"}
+
 In the spring of 2015, I performed research on the remote island of Nosy Hara, Madagascar, quantifying population density and habitat use of the cryptic leaf chameleon *Brookesia micra*. I was able to demonstrate novel habitat use by this primarily leaf-litter dwelling genus by showing the presence of this species on limestone outcroppings. Further, I performed the first intensive survey of the island for the species. Findings delivered to MNP, Nosy Hara National Park. See my *Herpetological Conservation and Biology* ​article for more!
+
+## Field Work
+
+![](images/spirula.JPG){width="1000"}
+
+-   2019, 2022. East Coast of the United States, Urosalpinx cinerea ​broodstock collection.
+
+-   2019\. Gloucester, Massachusetts. Gloucester Marine Station, University of Massachusetts. Local adaptation in a marine snail.
+
+-   2018\. Hurricane Island, Maine. Hurricane Island Center for Science and Leadership. Scallop aquaculture.
+
+-   2017\. Rosalie, Dominica. Operation Wallacea. Macroinvertebrate diversity and freshwater snail migration.
+
+-   2016\. Curaçao, Netherlands Antilles. Smithsonian Institute, National Museum of Natural History. Cryptic reef biodiversity project support.
+
+-   2016\. El Dorado and Stanislaus National Forests, California. The Wilderness Society. Wilderness land cataloging and mapping.
+
+-   2015\. Nosy Hara, Madagascar. School for International Training. Brookesia ​chameleon habitat use. ​
+
+-   2014\. Kent Island, New Brunswick, Canada. Bowdoin Science Station. Intertidal biodiversity and invasive species cataloging.
+
+-   2012\. Deep Creek, Eleuthera, The Bahamas. Cape Eleuthera Institute. Cage aquaculture and lionfish surveying.
+
 :::
 
 ### 
