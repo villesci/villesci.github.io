@@ -1,5 +1,5 @@
 ---
-title: 'I am a marine ecologist with interests in thermal ecology, extreme events, and fisheries'
+title: 'I am a marine ecologist working at the nexus of thermal ecology, extreme events, and fisheries'
 ---
 
 ![*Can we predict how marine ecosystems will respond to heatwaves?*](mada.jpg){width="3000"}

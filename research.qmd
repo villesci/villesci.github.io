@@ -10,7 +10,7 @@ format:
 
 ### Forecasting organismal responses to heatwaves
 
-```{r setup,include=F}
+```{r, include=F}
 library(simglm)
 library(tidyverse)
 library(ggplot2)
