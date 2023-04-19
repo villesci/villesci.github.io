@@ -108,4 +108,10 @@ While I would argue that LT50 is not a very useful measure of thermal tolerance 
 
 Let me know if you have any improvements or comments.
 
-
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
