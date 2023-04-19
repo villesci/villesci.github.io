@@ -153,7 +153,7 @@ plot_3d
 
 ```
 
-A thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
+The interactive widget above displays a thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
 
 Heatwaves, rather than gradual warming about the meteorological mean, are the driving abiotic factor behind marine invertebrate physiological stress. Because they highly variable in duration, magnitude and return time, it is difficult to predict organismal responses using traditional physiological exposure experiments.
 
@@ -177,49 +177,15 @@ This research provided pilot data for a successful NSF-funded grant by my Master
 
 ![Tagged Nerite snails to track migration rate](images/dom.JPG){fig-align="center" width="300"}
 
-In the summer of 2017 I served as the Aquatic Ecologist for Operation Wallacea at their Dominica field site. In addition to working with high school students performing macroinvertebrate surveys, I developed a research program tracking the migration rates of a species of amphidromous freshwater snail, *Nereina punctulata*, across altitude and river flow rate. These hyper-abundant snails are likely extremely important for the transport of nutrients into oligotrophic headwaters of tropical streams. We found snails increase their migration rate low in the watershed, likely to avoid being swept downstream by freshets and to avoid large predators. Further, large snails were found more often in upstream areas, but smaller snails tended to exploit high flow environments once they had reached a few kilometers upstream. Antillean streams provide a unique opportunity to ask further questions on energy acquisition and predator avoidance. Research on *Nereina* migration is published in *Aquatic Ecology.*
+In the summer of 2017 I served as the Aquatic Ecologist for Operation Wallacea at their Dominica field site. In addition to working with high school students performing macroinvertebrate surveys, I developed a research program tracking the migration rates of a species of amphidromous freshwater snail, *Nereina punctulata*, across altitude and river flow rate. These hyper-abundant snails are likely extremely important for the transport of nutrients into oligotrophic headwaters of tropical streams. We found snails increase their migration rate low in the watershed, likely to avoid being swept downstream by freshets and to avoid large predators. Further, large snails were found more often in upstream areas, but smaller snails tended to exploit high flow environments once they had reached a few kilometers upstream. Antillean streams provide a unique opportunity to ask further questions on energy acquisition and predator avoidance. Research on *Nereina* migration is published in [*Aquatic Ecology*](https://link.springer.com/article/10.1007/s10452-019-09683-7)*.*
 
 ### Chameleon habitat use
 
 ![The world's second smallest lizard, *Brookesia micra*](images/brookesia.JPG){fig-align="center" width="300"}
 
-In the spring of 2015, I performed research on the remote island of Nosy Hara, Madagascar, quantifying population density and habitat use of the cryptic leaf chameleon *Brookesia micra*. I was able to demonstrate novel habitat use by this primarily leaf-litter dwelling genus by showing the presence of this species on limestone outcroppings. Further, I performed the first intensive survey of the island for the species. Findings delivered to MNP, Nosy Hara National Park. See my *Herpetological Conservation and Biology* ​article for more!
+In the spring of 2015, I performed research on the remote island of Nosy Hara, Madagascar, quantifying population density and habitat use of the cryptic leaf chameleon *Brookesia micra*. I was able to demonstrate novel habitat use by this primarily leaf-litter dwelling genus by showing the presence of this species on limestone outcroppings. Further, I performed the first intensive survey of the island for the species. Findings delivered to MNP, Nosy Hara National Park. See my [Herpetological Conservation and Biology](https://www.researchgate.net/profile/Andrew-Villeneuve/publication/319456344_Habitat_Selection_and_Population_Density_of_the_World's_Smallest_Chameleon_Brookesia_micra_on_Nosy_Hara_Madagascar/links/59ac114d458515d09cd89828/Habitat-Selection-and-Population-Density-of-the-Worlds-Smallest-Chameleon-Brookesia-micra-on-Nosy-Hara-Madagascar.pdf) ​article for more!
 
 ## Field Work
-
-```{=html}
-<style type="text/css" media="screen">
-.inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
-.inat-widget-header {margin-bottom: 10px;}
-.inat-widget td {vertical-align: top; padding-bottom: 10px;}
-.inat-label { color: #888; }
-.inat-meta { font-size: smaller; margin-top: 3px; line-height: 1.2;}
-.inat-observation-body, .inat-user-body { padding-left: 10px; }
-.inat-observation-image {text-align: center;}
-.inat-observation-image, .inat-user-image { width: 48px; display: inline-block; }
-.inat-observation-image img, .inat-user-image img { max-width: 48px; }
-.inat-observation-image img { vertical-align: middle; }
-.inat-widget-small .inat-observation-image { display:block; float: left; margin: 0 3px 3px 0; height:48px;}
-.inat-label, .inat-value, .inat-user { font-family: "Trebuchet MS", Arial, sans-serif; }
-.inat-user-body {vertical-align: middle;}
-.inat-widget td.inat-user-body {vertical-align: middle;}
-.inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
-</style>
-```
-::: inat-widget
-```         
-<div class="inat-widget-header">
-  <a href="https://www.inaturalist.org"><img alt="iNaturalist" src="https://www.inaturalist.org/assets/logo-small.gif" /></a>  
-</div>
-```
-
-```{=html}
-<script type="text/javascript" charset="utf-8" src="https://www.inaturalist.org/observations/drewvilleneuve.widget?layout=large&limit=3&order=desc&order_by=observed_on"></script>
-```
-|                                                                                                                                                     |                                                                                                     |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| [![](https://static.inaturalist.org/attachments/users/icons/1160923/thumb.png?1564676609)](https://www.inaturalist.org/observations/drewvilleneuve) | [**View drewvilleneuve's observations »**](https://www.inaturalist.org/observations/drewvilleneuve) |
-:::
 
 ![](images/spirula.JPG){width="1000"}
 
