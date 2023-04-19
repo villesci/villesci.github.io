@@ -187,6 +187,7 @@ In the spring of 2015, I performed research on the remote island of Nosy Hara, M
 
 ## Field Work
 
+```{=html}
 <style type="text/css" media="screen">
 .inat-widget { font-family: Georgia, serif; padding: 10px; line-height: 1;}
 .inat-widget-header {margin-bottom: 10px;}
@@ -204,25 +205,21 @@ In the spring of 2015, I performed research on the remote island of Nosy Hara, M
 .inat-widget td.inat-user-body {vertical-align: middle;}
 .inat-widget .inat-footer td.inat-value {vertical-align: middle; padding-left: 10px;}
 </style>
-<div class="inat-widget">
-    <div class="inat-widget-header">
-      <a href="https://www.inaturalist.org"><img alt="iNaturalist" src="https://www.inaturalist.org/assets/logo-small.gif" /></a>  
-    </div>
-  <script type="text/javascript" charset="utf-8" src="https://www.inaturalist.org/observations/drewvilleneuve.widget?layout=large&limit=3&order=desc&order_by=observed_on"></script>
-  <table class="inat-footer">
-    <tr class="inat-user">
-        <td class="inat-user-image">
-          <a border="0" href="https://www.inaturalist.org/observations/drewvilleneuve"><img class="usericon" src="https://static.inaturalist.org/attachments/users/icons/1160923/thumb.png?1564676609" /></a>
-        </td>
-      <td class="inat-value">
-        <strong>
-            <a href="https://www.inaturalist.org/observations/drewvilleneuve">View drewvilleneuve's observations »</a>
-        </strong>
-      </td>
-    </tr>
-  </table>
+```
+::: inat-widget
+```         
+<div class="inat-widget-header">
+  <a href="https://www.inaturalist.org"><img alt="iNaturalist" src="https://www.inaturalist.org/assets/logo-small.gif" /></a>  
 </div>
+```
 
+```{=html}
+<script type="text/javascript" charset="utf-8" src="https://www.inaturalist.org/observations/drewvilleneuve.widget?layout=large&limit=3&order=desc&order_by=observed_on"></script>
+```
+|                                                                                                                                                     |                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| [![](https://static.inaturalist.org/attachments/users/icons/1160923/thumb.png?1564676609)](https://www.inaturalist.org/observations/drewvilleneuve) | [**View drewvilleneuve's observations »**](https://www.inaturalist.org/observations/drewvilleneuve) |
+:::
 
 ![](images/spirula.JPG){width="1000"}
 
