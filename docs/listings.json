@@ -2,5 +2,11 @@
   {
     "listing": "/posts/posts.html",
     "items": []
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/2023-04-13-first-post/index.html"
+    ]
   }
 ]
