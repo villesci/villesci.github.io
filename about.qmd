@@ -34,5 +34,4 @@ Andrew earned his bachelor's in Biology from Bowdoin College in 2016 and his mas
 ```{=html}
 <iframe src="images/villeneuve_cv2.pdf" title="CV" width="960" height="500"></iframe>
 ```
-
 :::
