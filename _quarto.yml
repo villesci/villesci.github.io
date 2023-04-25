@@ -7,7 +7,7 @@ website:
   title: "Andrew Villeneuve"
   site-url: https://villesci.github.io
   twitter-card: true
-  google-analytics: "UA-359403508"
+  google-analytics: "G-S82TX4CM9T"
   navbar: 
     left:
       - href: index.qmd
