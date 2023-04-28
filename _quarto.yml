@@ -7,7 +7,10 @@ website:
   title: "Andrew Villeneuve"
   site-url: https://villesci.github.io
   twitter-card: true
-  google-analytics: "G-S82TX4CM9T"
+  favicon: 'images/bahamafull.jpg'
+  google-analytics: 
+    tracking-id: "G-S82TX4CM9T"
+    anonymize-ip: true
   navbar: 
     left:
       - href: index.qmd
@@ -20,6 +23,11 @@ website:
         text: Publications
       - href: posts.qmd
         text: Blog
+    right:
+      -icon: github
+      href: "https://github.com/villesci"
+      -icon: twitter
+      href: "https://twitter.com/villeneuvesci"
 
 format:
   html:
