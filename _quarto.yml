@@ -24,10 +24,10 @@ website:
       - href: posts.qmd
         text: Blog
     right:
-      -icon: github
-      href: "https://github.com/villesci"
-      -icon: twitter
-      href: "https://twitter.com/villeneuvesci"
+      - icon: github
+        href: "https://github.com/villesci"
+      - icon: twitter
+        href: "https://twitter.com/villeneuvesci"
 
 format:
   html:

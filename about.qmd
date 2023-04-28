@@ -10,6 +10,15 @@ about:
     - text: GitHub
       icon: github
       url: "https://github.com/villesci"
+    - text: Email
+      icon: envelope
+      href: mailto:drew.villeneuve@unh.edu
+    - text: LinkedIn
+      icon: linkedin
+      href: https://www.linkedin.com/in/andrew-villeneuve-70103343/
+    - text: Mastodon
+      icon: mastodon
+      href: https://ecoevo.social/@Villesci
 ---
 
 ::: panel-tabset
