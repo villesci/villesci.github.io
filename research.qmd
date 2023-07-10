@@ -187,7 +187,7 @@ In the spring of 2015, I performed research on the remote island of Nosy Hara, M
 
 ## Field Work
 
-![](images/spirula.JPG){width="1000"}
+![](images/spirula.JPG){width="400" fig-align="center"}
 
 -   2019, 2022. East Coast of the United States, *Urosalpinx cinerea ​*broodstock collection.
 
