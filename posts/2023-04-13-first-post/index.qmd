@@ -84,7 +84,7 @@ Let's try this function out on some raw data. I stumbled across a very cool pape
 
 ![Fig. 2 Survival data of *C. rhizophorae* over emersion treatments. Data from @littlewood1989 .](littlewood_fig3.PNG){width="300"}
 
-I extracted survival using [Webplot Digitzier](https://automeris.io/WebPlotDigitizer/) (an amazing tool for anyone conducting metanalysis). Once I have a spreadsheet of survival, I can quickly read it into R and extract LT50 measures, and produce plots of survival curves. 
+I extracted survival using [Webplot Digitzier](https://automeris.io/WebPlotDigitizer/) (an amazing tool for anyone conducting metanalysis). Once I have a spreadsheet of survival, I can quickly read it into R and extract LT50 measures, and produce plots of survival curves.
 
 ```{r,echo=T,message=F,warning=F}
 littlewood_rhizo<-read.csv("rhizo_surv.csv")
@@ -102,12 +102,13 @@ Calculated LT50 values are also produced from this function.
 rhizolt
 ```
 
-These LT50 measures are pretty close to what @littlewood1989 calculated! 
+These LT50 measures are pretty close to what @littlewood1989 calculated!
 
 While I would argue that LT50 is not a very useful measure of thermal tolerance (a future blog topic), this allows us to see that aerial exposure duration seems to cause a large decrease in LT50!
 
 Let me know if you have any improvements or comments.
 
+```{=html}
 <script src="https://utteranc.es/client.js"
         repo="[ENTER REPO HERE]"
         issue-term="pathname"
@@ -115,3 +116,4 @@ Let me know if you have any improvements or comments.
         crossorigin="anonymous"
         async>
 </script>
+```
