@@ -1,15 +1,14 @@
 ---
-  title: "Madagascar Field Season, 2023 Wrapup"
+title: "Madagascar Field Season, 2023 Wrapup"
 description: "Fine-scale temperature data in reef flat environments"
 author:
   - name: Andrew Villeneuve
-url: https://villesci.github.io/
-  orcid: 0000-0001-7303-5931
-affiliation: PhD Student, Quantitative Marine Ecology Lab, University of New Hampshire
-affiliation-url: https://quantmarineecolab.github.io/
-  date: 10-03-2023
+    url: https://villesci.github.io/
+    orcid: 0000-0001-7303-5931
+    affiliation: PhD Student, Quantitative Marine Ecology Lab, University of New Hampshire
+    affiliation-url: https://quantmarineecolab.github.io/
+date: 10-03-2023
 categories: [fieldwork, experiments, heatwaves] # self-defined categories
-bibliography: references.bib
 ---
 
 In July 2023, QMEL PI Dr. Easton White and I joined our collaborator Dr. Mez Baker-Médard (ONJA lab, Middlebury College) in Madagascar to take part in field surveys related to our [joint lab NSF project](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1923707&HistoricalAwards=false). The overarching goal of this grant is to understand how different social and gender dynamics within fishing villages affect the social adhesion, efficacy, and diversity of marine protected areas (MPAs). This work is driven by Dr. Baker-Médard's incredible team of Malagasy students and field technicians who have been collecting social and ecological data in the island's south for years. In 2023, the goal shifted from the long, linear barrier-reef system of the dry southern coast to the rocky fringing reef systems of the wet north.
