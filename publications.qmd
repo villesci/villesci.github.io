@@ -9,6 +9,8 @@ format:
     title-block-banner-color: body
 ---
 
+**Villeneuve, AR**, ER White. 2024. Predicting organismal response to marine heatwaves using mechanistic thermal landscape models. EcoEvoArxiv Preprint. Submitted to Journal of Animal Ecology. *\|* [Preprint Link](https://doi.org/10.32942/X29W4W)
+
 Sasaki, M, JM Barley, S. Gignoux-Wolfsohn, CG Hays, MW Kelly, AB Putnam, SN Sheth, **AR Villeneuve,** BS Cheng. 2022. Greater evolutionary divergence of thermal limits within marine than terrestrial species. *Nature Climate Change* 12: 1175-1180 *PDF on request* \| [Link](https://www.nature.com/articles/s41558-022-01534-y)\
 **\
 **Barley, JM, BS Cheng, M Sasaki, S Gignoux-Wolfsohn, CG Hays, AB Putnam, S Sheth, **AR Villeneuve**, MW Kelly. 2021. Limited plasticity in thermally tolerant populations: evidence for a trade-off. Proceedings of the Royal Society B 288(1958): 20210765. *PDF on request \|* [Link](https://pubmed.ncbi.nlm.nih.gov/34493077/)\

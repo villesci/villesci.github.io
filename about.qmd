@@ -19,7 +19,6 @@ about:
     - text: Mastodon
       icon: mastodon
       href: https://ecoevo.social/@Villesci
-
 ---
 
 ::: panel-tabset
