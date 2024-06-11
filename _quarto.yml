@@ -31,7 +31,8 @@ website:
 
 format:
   html:
-    theme: sandstone
+    theme: 
+    - sandstone
     css: styles.css
     toc: false
     

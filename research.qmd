@@ -14,7 +14,7 @@ format:
 
 ### Forecasting organismal responses to heatwaves
 
-```{r, include=F}
+```{r, include=F, fig.show="none"}
 library(simglm)
 library(tidyverse)
 library(ggplot2)
@@ -151,9 +151,10 @@ plot_3d<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surfac
 
 plot_3d
 
+
 ```
 
-The interactive widget above displays a thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast indiviudal and population-level responses to heatwave events. Why predict over heatwaves?
+The interactive widget above displays a thermal tolerance landscape of the Eastern oyster *Crassostrea virginica* displaying population survivorship as a function of temperature magnitude and exposure duration. I use these models to forecast individual and population-level responses to heatwave events. Why predict over heatwaves?
 
 Heatwaves, rather than gradual warming about the meteorological mean, are the driving abiotic factor behind marine invertebrate physiological stress. Because they highly variable in duration, magnitude and return time, it is difficult to predict organismal responses using traditional physiological exposure experiments.
 
