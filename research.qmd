@@ -14,7 +14,7 @@ format:
 
 ### Forecasting organismal responses to heatwaves
 
-```{r, include=F, fig.show="none"}
+```{r, include=F, eval=F,fig.show="none"}
 library(simglm)
 library(tidyverse)
 library(ggplot2)
@@ -145,10 +145,12 @@ plot_3d<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surfac
     end = 1, 
     size = 0.1)))%>%
   layout(scene = list(xaxis=list(title="Temperature"),yaxis=list(title="Time (min)"),zaxis=list(title="Survival")))%>%partial_bundle()
+
+saveRDS(plot_3d,'docs/research_files/plot_3d')
 ```
 
 ```{r,echo=F}
-
+plot_3d<-readRDS('docs/research_files/plot_3d')
 plot_3d
 
 
@@ -190,9 +192,9 @@ In the spring of 2015, I performed research on the remote island of Nosy Hara, M
 
 ![](images/spirula.JPG){width="400" fig-align="center"}
 
--   2023. Northwest and Southwest Madagascar. Intertidal biodiversity surveying and temperature logger deployment.
+-   2023\. Northwest and Southwest Madagascar. Intertidal biodiversity surveying and temperature logger deployment.
 
--   2019, 2022. East Coast of the United States, *Urosalpinx cinerea ​*broodstock collection.
+-   2019, 2022\. East Coast of the United States, *Urosalpinx cinerea ​*broodstock collection.
 
 -   2019\. Gloucester, Massachusetts. Gloucester Marine Station, University of Massachusetts. Local adaptation in a marine snail.
 
