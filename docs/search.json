@@ -67,7 +67,7 @@
     "href": "posts.html",
     "title": "Thinking about thermal ecology and climate change",
     "section": "",
-    "text": "New Article in Journal of Animal Ecology - predicting survival over marine heatwaves\n\n\n\nheatwaves\n\n\npublication\n\n\n\nHeatwaves can be bad! But how bad?\n\n\n\nAndrew Villeneuve\n\n\nJun 11, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nMadagascar Field Season, 2023 Wrapup\n\n\n\nfieldwork\n\n\nexperiments\n\n\nheatwaves\n\n\n\nFine-scale temperature data in reef flat environments\n\n\n\nAndrew Villeneuve\n\n\nOct 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR tips: A function to obtain LT50 and LT50TDT from mortality data\n\n\n\nR\n\n\nexperiments\n\n\n\nNeed to get LT50 measures from your data quickly?\n\n\n\nAndrew Villeneuve\n\n\nApr 13, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "New Article in Journal of Animal Ecology - predicting survival over marine heatwaves\n\n\n\nheatwaves\n\n\npublication\n\n\n\nHeatwaves can be bad! But how bad?\n\n\n\nAndrew Villeneuve\n\n\nJun 11, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nMadagascar Field Season, 2023 Wrapup\n\n\n\nfieldwork\n\n\nexperiments\n\n\nheatwaves\n\n\n\nFine-scale temperature data in reef flat environments\n\n\n\nAndrew Villeneuve\n\n\nOct 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nR tips: A function to obtain LT50 and LT50TDT from mortality data\n\n\n\nR\n\n\nexperiments\n\n\n\nNeed to get LT50 measures from your data quickly?\n\n\n\nAndrew Villeneuve\n\n\nApr 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nOysters feeling the heat: Interview with News Center Maine\n\n\n\nmedia\n\n\nexperiments\n\n\nheatwaves\n\n\noysters\n\n\n\nMedia coverage of our ongoing extreme event work\n\n\n\nAndrew Villeneuve\n\n\nApr 13, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-10-03-field season wrapup/index.html",
@@ -89,5 +89,19 @@
     "title": "New Article in Journal of Animal Ecology - predicting survival over marine heatwaves",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nOne thing I wish I cautioned more in my paper was that acute and chronic tolerance may not be an inherent tradeoff (see Rezende, Castañeda, and Santos (2014), Castañeda, Rezende, and Santos (2015) , Jørgensen, Malte, and Overgaard (2019), Kovacevic, Latombe, and Chown (2019) for the full debate). I am not picking sides at this point, other than saying there’s room for research from a more adaptive underpinnings angle in non-model species. The fact remains that variation in acute and chronic tolerance exists, and we don’t have any good explanations as to why that is so.↩︎"
+  },
+  {
+    "objectID": "posts/2024-22-10-News/index.html",
+    "href": "posts/2024-22-10-News/index.html",
+    "title": "Oysters feeling the heat: Interview with News Center Maine",
+    "section": "",
+    "text": "News Center Maine recently spoke with myself and my PI Easton White about our ongoing work building modeling tools to understand the impacts of extreme thermal events (heatwaves, coldwaves) on oyster populations in New Hampshire. The video attracted my first climate change denialist troll in the comments, which I feel may be a right of passage."
+  },
+  {
+    "objectID": "posts/2024-22-10-News/index.html#hello-world",
+    "href": "posts/2024-22-10-News/index.html#hello-world",
+    "title": "Oysters feeling the heat: Interview with News Center Maine",
+    "section": "",
+    "text": "#"
   }
 ]

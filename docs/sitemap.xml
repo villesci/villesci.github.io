@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://villesci.github.io/publications.html</loc>
-    <lastmod>2024-09-23T19:22:24.282Z</lastmod>
+    <lastmod>2024-10-22T17:16:30.921Z</lastmod>
   </url>
   <url>
     <loc>https://villesci.github.io/index.html</loc>
@@ -47,5 +47,9 @@
   <url>
     <loc>https://villesci.github.io/posts/2024-6-11- New JAE Article/index.html</loc>
     <lastmod>2024-06-11T19:12:00.063Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/posts/2024-22-10-News/index.html</loc>
+    <lastmod>2024-10-22T20:26:27.534Z</lastmod>
   </url>
 </urlset>

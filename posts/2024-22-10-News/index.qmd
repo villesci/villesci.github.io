@@ -1,0 +1,16 @@
+---
+title: "Oysters feeling the heat: Interview with News Center Maine"
+description: "Media coverage of our ongoing extreme event work"
+author:
+  - name: Andrew Villeneuve
+    url: https://villesci.github.io/
+    orcid: 0000-0001-7303-5931
+    affiliation: PhD Candidate, Quantitative Marine Ecology Lab, University of New Hampshire
+    affiliation-url: https://quantmarineecolab.github.io/
+date: 04-13-2023
+categories: [media, experiments, heatwaves, oysters] # self-defined categories
+---
+
+{{< video https://www.youtube.com/embed/lJZUh5JNAck?si=sWkUSw0jtmcVcMfd >}}
+
+News Center Maine recently spoke with myself and my PI Easton White about our ongoing work building modeling tools to understand the impacts of extreme thermal events (heatwaves, coldwaves) on oyster populations in New Hampshire. The video attracted my first climate change denialist troll in the comments, which I feel may be a right of passage.
