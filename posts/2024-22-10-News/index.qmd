@@ -7,10 +7,12 @@ author:
     orcid: 0000-0001-7303-5931
     affiliation: PhD Candidate, Quantitative Marine Ecology Lab, University of New Hampshire
     affiliation-url: https://quantmarineecolab.github.io/
-date: 04-13-2023
+date: 10-22-2024
 categories: [media, experiments, heatwaves, oysters] # self-defined categories
 ---
 
 {{< video https://www.youtube.com/embed/lJZUh5JNAck?si=sWkUSw0jtmcVcMfd >}}
 
 News Center Maine recently spoke with myself and my PI Easton White about our ongoing work building modeling tools to understand the impacts of extreme thermal events (heatwaves, coldwaves) on oyster populations in New Hampshire. The video attracted my first climate change denialist troll in the comments, which I feel may be a right of passage.
+
+![Despite what some youtube comments would let you believe, the world's oceans like the Gulf of Maine are rapidly warming due to the exponential release of greenhouse gases into the atmosphere from human activity.](gom_mhw.png)
