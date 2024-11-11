@@ -19,6 +19,8 @@ about:
     - text: Mastodon
       icon: mastodon
       href: https://ecoevo.social/@Villesci
+    - text: Bluesky
+      href: https://bsky.app/profile/villesci.bsky.social/
 ---
 
 ::: panel-tabset

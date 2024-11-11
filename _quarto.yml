@@ -19,7 +19,7 @@ website:
         text: About
       - href: research.qmd
         text: Research
-      - href: publications.qmd
+      - href: publications2.qmd
         text: Publications
       - href: posts.qmd
         text: Blog

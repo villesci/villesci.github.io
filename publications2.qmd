@@ -1,0 +1,28 @@
+---
+title: 'Publications'
+page-layout: full
+title-block-banner: true
+date-format: 'MMMM,<br>YYYY'
+format:
+  html:
+    page-layout: full
+    title-block-banner: "images/bahama.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
+listing:
+  contents:
+    - publications.yml
+  page-size: 10
+  sort: 'issued desc'
+  type: table
+  categories: false
+  sort-ui: [date, title, journal-title, position, first]
+  filter-ui: [date, title, journal-title]
+  fields: [date, title, journal-title, first, position]
+  field-display-names:
+    date: Issued
+    journal-title: Journal
+    position: Rank
+    first: 'First'
+---
