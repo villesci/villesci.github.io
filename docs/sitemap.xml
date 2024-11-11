@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://villesci.github.io/posts.html</loc>
-    <lastmod>2023-04-19T20:10:00.652Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2024-6-11- New JAE Article/index.html</loc>
-    <lastmod>2024-10-22T20:46:26.023Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2024-22-10-News/index.html</loc>
-    <lastmod>2024-10-22T20:36:10.892Z</lastmod>
-  </url>
-  <url>
     <loc>https://villesci.github.io/publications.html</loc>
-    <lastmod>2024-11-11T16:31:15.860Z</lastmod>
+    <lastmod>2024-11-11T18:07:27.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/publications2.html</loc>
+    <lastmod>2024-11-11T18:01:48.415Z</lastmod>
   </url>
   <url>
     <loc>https://villesci.github.io/research.html</loc>
     <lastmod>2024-09-23T19:32:42.394Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/publications/index.html</loc>
-    <lastmod>2024-11-11T15:20:28.124Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/about.html</loc>
-    <lastmod>2024-11-11T16:15:16.517Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/publications2.html</loc>
-    <lastmod>2024-11-11T15:59:25.529Z</lastmod>
   </url>
 </urlset>

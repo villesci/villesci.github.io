@@ -1,22 +1,29 @@
 ---
-title: 'Publications (0 + 9)'
+title: 'Publications'
 page-layout: full
 title-block-banner: true
-image: /assets/images/social-profile.png
-date-format: 'MMMM,<br>YYYY'
-listing:
-  contents:
-    - publications.yml
-  page-size: 10
-  sort: 'issued desc'
-  type: table
-  categories: false
-  sort-ui: [date, title, journal-title, position, first]
-  filter-ui: [date, title, journal-title]
-  fields: [date, title, journal-title, first, position]
-  field-display-names:
-    date: Issued
-    journal-title: Journal
-    position: Rank
-    first: 'First'
+
+format:
+  html:
+    page-layout: full
+    title-block-banner: "images/bahama.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
 ---
+
+```{r ,echo=F,warning=F,message=F}
+source("_common.R")
+
+
+# Update local copy of "pubs" Google sheet
+# write_csv(get_pubs(), here::here('content', 'pubs.csv'))
+
+# Get local copy of pubs
+# pubs <- read_csv(here::here('content', 'pubs.csv'))
+
+# Get pubs from Google sheet
+pubs <- get_pubs()
+```
+
+`r make_pub_list(pubs, "peer_reviewed")`
