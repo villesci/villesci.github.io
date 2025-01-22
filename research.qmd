@@ -1,5 +1,9 @@
 ---
 title: "Research"
+project:
+  files-exclude:
+    - research_files/plot_3d.RDs
+  freeze: auto
 format:
   html:
     page-layout: full
@@ -146,11 +150,12 @@ plot_3d<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surfac
     size = 0.1)))%>%
   layout(scene = list(xaxis=list(title="Temperature"),yaxis=list(title="Time (min)"),zaxis=list(title="Survival")))%>%partial_bundle()
 
-saveRDS(plot_3d,'docs/research_files/plot_3d')
+saveRDS(plot_3d,'research_files/plot_3d.RDs')
 ```
 
 ```{r,echo=F}
-plot_3d<-readRDS('docs/research_files/plot_3d')
+
+plot_3d<-readRDS("research_files/plot_3d.RDs")
 plot_3d
 
 
