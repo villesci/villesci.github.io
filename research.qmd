@@ -26,8 +26,8 @@ library(utils)
 library(animation)
 library(htmlwidgets)
 library(widgetframe)
-#Sys.setenv("plotly_username"="arv1038")
-#Sys.setenv("plotly_api_key"="WV6qQFP5g27j5qtVS36n")
+Sys.setenv("plotly_username"="arv1038")
+Sys.setenv("plotly_api_key"="WV6qQFP5g27j5qtVS36n")
 
 gigas<-read.csv("raja_gigas.csv")
 
@@ -150,7 +150,6 @@ saveRDS(plot_3d,'research_files/plot_3d.RDs')
 ```
 
 ```{r,echo=F,eval=T}
-
 plot_3d<-readRDS("research_files/plot_3d.RDs")
 plot_3d
 
