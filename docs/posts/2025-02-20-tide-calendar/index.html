@@ -97,6 +97,7 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-df479d6c4d77d0e0dfbcb5361179d7fd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -196,10 +197,9 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://bsky.app/profile/villesci.bsky.social"> <i class="bi bi-bluesky" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/villesci.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> Bluesky</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -267,8 +267,8 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 
 
 
-<p>Ask any intertidal ecologist what they think of first when planning fieldwork, and they will respond with “when are the low tides?”. Indeed, we love studying intertidal systems because they are such an accessible window into the marine world, while adding the added dynamics of tidal cycles onto how organisms respond to their environment and other organisms.</p>
-<p>What any intertidal ecologist will also tell you is that tides wait for no one. The low tides we often seek to access to the lowest tidal elevations for longer periods of time do not abide by the frivolous 9-5 schedule humans like to keep. Many an intertidal ecologist has stories of working at 3:30 AM in a cold drizzle because that simply is the best time to work for the next few weeks.</p>
+<p>Ask any intertidal ecologist what they think of first when planning fieldwork, and they will respond with “when are the low tides?” Indeed, we love studying intertidal systems because they are such an accessible window into the marine world, while adding the dynamics of tidal cycles onto how species respond to their environment and other organisms.</p>
+<p>What any intertidal ecologist will also tell you is that tides wait for no one. The tides we often seek to access to the lowest tidal elevations for longer periods of time do not abide by the frivolous 9-5 schedule humans like to keep. Many an intertidal ecologist has stories of working at 3:30 AM in a cold drizzle because that simply is the best time to work for the next few weeks.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="kent.jpg" class="img-fluid figure-img"></p>
@@ -332,7 +332,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.70    0.04    3.09 </code></pre>
+   0.67    0.07    3.21 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -364,7 +364,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(rtide_output_seavey<span class="ot">&lt;-</span><span class="fu">tide_height</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">stations =</span> <span class="st">"Seavey Island, Portsmouth Harbor, New Hampshire"</span> ,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">minutes =</span> <span class="dv">6</span>L, <span class="co">#nice! We can select our precision</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">minutes =</span> <span class="dv">6</span>L, <span class="co">#nice! We can select our frequency. TO keep it standard in this post, let's do every 6mins</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2025-05-01"</span>),</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2025-09-30"</span>),</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tz =</span> <span class="st">"America/New_York"</span>,</span>
@@ -372,7 +372,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  20.13    2.00   22.46 </code></pre>
+  19.48    2.11   21.92 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -390,7 +390,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </section>
 <section id="marinetides" class="level2">
 <h2 class="anchored" data-anchor-id="marinetides"><code>MarineTides</code></h2>
-<p>MarineTides is a very robust r package for getting ride information because 1) it uses data.table and is thus faster, and 2) allows the user to download subordiante data! This to me is critical, as it allows us to get a much closer station to our field site. Unfortunately, it only returns tide high and lows for subordinate sites, rather than predictions on a minute-basis.</p>
+<p><code>MarineTides</code> is a very robust r package for getting ride information because 1) it uses data.table and is thus faster, and 2) allows the user to download subordiante data! This to me is critical, as it allows us to get a much closer station to our field site. Unfortunately, it only returns tide high and lows for subordinate sites, rather than predictions on a minute-basis.</p>
 <p>I do know the CO-OPS name for the subordinate site of interest is at Dover Point, so let’s get data from both Seavey Island and Dover Point</p>
 <p>Below we get the tide data from Seavey Island</p>
 <div class="cell">
@@ -409,7 +409,7 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   2.61    0.06    2.92 </code></pre>
+   1.67    0.06    1.74 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -455,7 +455,7 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.85    0.08    0.94 </code></pre>
+   0.72    0.03    0.80 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -477,8 +477,8 @@ For subordinate stations, only high and low tide values will be computed.</code>
 6: 2025-05-02 10:57:00 -0.15398555 [m]</code></pre>
 </div>
 </div>
-<p>So not only is this fast, but it gets us information on both harmonic and subordinate sites! So, I know why the programmers of MarineTides did not give us the capacity to predict tides from subordinate sites - we can only set subordinate site offsets based on the timing of high or low tides. If we tried to predict a subordinate station, we basically would just shift the time and height based on the offset. <em>BUT</em> we could do it, as long as we acknowledge that the tide harmonics are not calculated for these sites, and thus the shape of the tidal series in between extreme are not known. To quote the XTide developer David Flater, “<em>All subordinate station predictions are approximate</em>”</p>
-<p>Quick gut check to make sure our timezones are correct, and to see if any one method seems to depart from the other! They all look good, note again rnoaa has an earlier start date due to that GMT data fetch.</p>
+<p>So not only is this fast, but it gets us information on both harmonic and subordinate sites! So, I know why the programmers of <code>MarineTides</code> did not give us the capacity to predict tides from subordinate sites - we can only set subordinate site offsets based on the timing of high or low tides. If we tried to predict a subordinate station, we basically would just shift the time and height based on the offset. <em>BUT</em> we could do it, as long as we acknowledge that the tide harmonics are not calculated for these sites, and thus the shape of the tidal series in between extreme are not known. To quote the XTide developer David Flater, “<em>All subordinate station predictions are approximate</em>”</p>
+<p>Quick gut check to make sure our timezones are correct, and to see if any one method seems to depart from the other! They all look good, note again <code>rnoaa</code> has an earlier start date due to that GMT data fetch.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
