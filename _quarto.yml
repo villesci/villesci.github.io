@@ -26,8 +26,8 @@ website:
     right:
       - icon: github
         href: "https://github.com/villesci"
-      - icon: twitter
-        href: "https://twitter.com/villeneuvesci"
+      - text: "{{< iconify fa6-brands:bluesky >}} Bluesky"
+        href: "https://bsky.app/profile/villesci.bsky.social"
 
 format:
   html:

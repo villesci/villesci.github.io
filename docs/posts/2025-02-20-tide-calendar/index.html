@@ -197,7 +197,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/villeneuvesci"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://bsky.app/profile/villesci.bsky.social"> <i class="bi bi-bluesky" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -286,38 +286,55 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <li><p><code>MarineTides</code> has the most extensive database of tide sites, including subordinate sites, in both the US and internationally. It also draws on the same dataset as <a href="https://flaterco.com/xtide/">XTide</a>.</p></li>
 </ul>
 <p>As a note, the authors of <code>rtide</code> also created a <a href="https://poissonconsulting.shinyapps.io/rtide/">shiny app</a> from which you can download tide data using rtide with a GUI!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install the packages if you have not already</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(remotes)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"arestrom/MarineTides"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rnoaa"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rtide"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rnoaa)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MarineTides)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rtide)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(data.table)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ical)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(glue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="rnoaa" class="level2">
 <h2 class="anchored" data-anchor-id="rnoaa"><code>rnoaa</code></h2>
 <p>First, let’s download data using rnoaa. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dl_months<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">date_index=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">begin_dates=</span><span class="fu">c</span>(<span class="dv">20250501</span>,<span class="dv">20250601</span>,<span class="dv">20250701</span>,<span class="dv">20250801</span>,<span class="dv">20250901</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">end_dates=</span><span class="fu">c</span>(<span class="dv">20250530</span>,<span class="dv">20250630</span>,<span class="dv">20250731</span>,<span class="dv">20250831</span>,<span class="dv">20250930</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>site_id<span class="ot">=</span><span class="dv">8419870</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>rnoaa_func<span class="ot">&lt;-</span><span class="cf">function</span>(time_df){</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  rnoaa_output<span class="ot">&lt;-</span><span class="fu">coops_search</span>(<span class="at">station_name =</span> site_id,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">begin_date =</span> time_df<span class="sc">$</span>begin_dates,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">end_date=</span>time_df<span class="sc">$</span>end_dates,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">product =</span> <span class="st">"predictions"</span>, <span class="co">#we want tide PREDICTIONs. If we watned past heights, could use "hourly_height")</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">datum =</span> <span class="st">"MLLW"</span>, <span class="co">#MLLW datum, which is standard at Seavey</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">units =</span> <span class="st">"metric"</span>)<span class="sc">$</span>predictions<span class="sc">%&gt;%</span><span class="co"># we will convert this to feet for us Americans later :)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">datetime=</span>t,<span class="at">tide_height=</span>v)<span class="sc">%&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">datetime=</span><span class="fu">with_tz</span>(<span class="fu">as.POSIXct</span>(datetime,<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>,<span class="at">tz=</span><span class="st">"GMT"</span>)),<span class="at">tz=</span><span class="st">"America/New_York"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  rnoaa_output_seavey<span class="ot">&lt;-</span>dl_months<span class="sc">%&gt;%</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(date_index)<span class="sc">%&gt;%</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_modify</span>(<span class="sc">~</span><span class="fu">rnoaa_func</span>(.x))<span class="sc">%&gt;%</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dl_months<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">date_index=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">begin_dates=</span><span class="fu">c</span>(<span class="dv">20250501</span>,<span class="dv">20250601</span>,<span class="dv">20250701</span>,<span class="dv">20250801</span>,<span class="dv">20250901</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">end_dates=</span><span class="fu">c</span>(<span class="dv">20250530</span>,<span class="dv">20250630</span>,<span class="dv">20250731</span>,<span class="dv">20250831</span>,<span class="dv">20250930</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>site_id<span class="ot">=</span><span class="dv">8419870</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rnoaa_func<span class="ot">&lt;-</span><span class="cf">function</span>(time_df){</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  rnoaa_output<span class="ot">&lt;-</span><span class="fu">coops_search</span>(<span class="at">station_name =</span> site_id,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">begin_date =</span> time_df<span class="sc">$</span>begin_dates,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">end_date=</span>time_df<span class="sc">$</span>end_dates,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">product =</span> <span class="st">"predictions"</span>, <span class="co">#we want tide PREDICTIONs. If we watned past heights, could use "hourly_height")</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">datum =</span> <span class="st">"MLLW"</span>, <span class="co">#MLLW datum, which is standard at Seavey</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">units =</span> <span class="st">"metric"</span>)<span class="sc">$</span>predictions<span class="sc">%&gt;%</span><span class="co"># we will convert this to feet for us Americans later :)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">datetime=</span>t,<span class="at">tide_height=</span>v)<span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">datetime=</span><span class="fu">with_tz</span>(<span class="fu">as.POSIXct</span>(datetime,<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>,<span class="at">tz=</span><span class="st">"GMT"</span>)),<span class="at">tz=</span><span class="st">"America/New_York"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  rnoaa_output_seavey<span class="ot">&lt;-</span>dl_months<span class="sc">%&gt;%</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(date_index)<span class="sc">%&gt;%</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_modify</span>(<span class="sc">~</span><span class="fu">rnoaa_func</span>(.x))<span class="sc">%&gt;%</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.58    0.05    2.82 </code></pre>
+   0.70    0.04    3.09 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   date_index datetime            tide_height tz              
@@ -336,8 +353,8 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="rtide"><code>rtide</code></h2>
 <p>Let’s try to do the same with rtide, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let’s get the Seavey Island data again.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stations<span class="ot">&lt;-</span>rtide<span class="sc">::</span><span class="fu">tide_stations</span>()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stations[<span class="fu">str_detect</span>(stations, <span class="st">"New Hampshire"</span>)] <span class="co">#some tidyverse magic to search for our state. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stations<span class="ot">&lt;-</span>rtide<span class="sc">::</span><span class="fu">tide_stations</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stations[<span class="fu">str_detect</span>(stations, <span class="st">"New Hampshire"</span>)] <span class="co">#some tidyverse magic to search for our state. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Dover, Cocheco River, Piscataqua River, New Hampshire"
 [2] "Fort Point, Portsmouth Harbor, New Hampshire"         
@@ -345,19 +362,19 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(rtide_output_seavey<span class="ot">&lt;-</span><span class="fu">tide_height</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">stations =</span> <span class="st">"Seavey Island, Portsmouth Harbor, New Hampshire"</span> ,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">minutes =</span> <span class="dv">6</span>L, <span class="co">#nice! We can select our precision</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2025-05-01"</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2025-09-30"</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tz =</span> <span class="st">"America/New_York"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">harmonics =</span> rtide<span class="sc">::</span>harmonics</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(rtide_output_seavey<span class="ot">&lt;-</span><span class="fu">tide_height</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">stations =</span> <span class="st">"Seavey Island, Portsmouth Harbor, New Hampshire"</span> ,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">minutes =</span> <span class="dv">6</span>L, <span class="co">#nice! We can select our precision</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2025-05-01"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2025-09-30"</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tz =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">harmonics =</span> rtide<span class="sc">::</span>harmonics</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  17.33    1.45   18.85 </code></pre>
+  20.13    2.00   22.46 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Station                                         DateTime            TideHeight
@@ -377,13 +394,13 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <p>I do know the CO-OPS name for the subordinate site of interest is at Dover Point, so let’s get data from both Seavey Island and Dover Point</p>
 <p>Below we get the tide data from Seavey Island</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_seavey<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Seavey Island"</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data_interval =</span> <span class="st">"6-min"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_seavey<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Seavey Island"</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data_interval =</span> <span class="st">"6-min"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Seavey Island is a reference station. Tide heights are
 calculated from Seavey Island harmonic constituents. 
@@ -392,9 +409,9 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   1.31    0.01    1.37 </code></pre>
+   2.61    0.06    2.92 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   station_code  station_name reference_station_code tide_type
          &lt;char&gt;        &lt;char&gt;                 &lt;char&gt;    &lt;char&gt;
@@ -416,12 +433,12 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <p>Let’s do it again, but for a subordinate site Dover Point.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_dover<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Dover Point"</span>,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_dover<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Dover Point"</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Dover Point is a subordinate station. The reference station, 
 Portland, is located 76.35 km. away. Tide levels are 
@@ -438,9 +455,9 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.57    0.00    0.56 </code></pre>
+   0.85    0.08    0.94 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   station_code station_name reference_station_code tide_type
          &lt;char&gt;       &lt;char&gt;                 &lt;char&gt;    &lt;char&gt;
@@ -519,15 +536,15 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </ol>
 <p>Let’s get started. I ended up using data I downloaded from XTide (), so it may be formatted differently than if you use another source. One important feature we implemented is an additional time offset from the subordinate station (physical oceanographers cringe here) based on our field observations of when low tide occurs at Adams Point compared to Dover Point. We add 45 minutes to the entire tide series to make it approximate our actual field site.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"2025summer_dover.csv"</span>,<span class="at">col.names=</span><span class="fu">c</span>(<span class="st">"site"</span>,<span class="st">"date"</span>,<span class="st">"time"</span>,<span class="st">"tide"</span>),<span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"character"</span>,<span class="st">"Date"</span>,<span class="st">"character"</span>,<span class="st">"numeric"</span>))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span><span class="fu">as.POSIXct</span>(<span class="fu">paste0</span>(dover_2025<span class="sc">$</span>date,<span class="st">" "</span>,dover_2025<span class="sc">$</span>time),<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#in our case, Adam's Point (our field site) is 45 minutes after DOver Point</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>datetime<span class="sc">+</span><span class="fu">minutes</span>(<span class="dv">45</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>time<span class="ot">&lt;-</span><span class="fu">hm</span>(dover_2025<span class="sc">$</span>time)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>tide_f<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>tide<span class="sc">/</span><span class="fl">0.3048</span> <span class="co">#meters to feet</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"2025summer_dover.csv"</span>,<span class="at">col.names=</span><span class="fu">c</span>(<span class="st">"site"</span>,<span class="st">"date"</span>,<span class="st">"time"</span>,<span class="st">"tide"</span>),<span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"character"</span>,<span class="st">"Date"</span>,<span class="st">"character"</span>,<span class="st">"numeric"</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span><span class="fu">as.POSIXct</span>(<span class="fu">paste0</span>(dover_2025<span class="sc">$</span>date,<span class="st">" "</span>,dover_2025<span class="sc">$</span>time),<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#in our case, Adam's Point (our field site) is 45 minutes after DOver Point</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>datetime<span class="sc">+</span><span class="fu">minutes</span>(<span class="dv">45</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>time<span class="ot">&lt;-</span><span class="fu">hm</span>(dover_2025<span class="sc">$</span>time)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>tide_f<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>tide<span class="sc">/</span><span class="fl">0.3048</span> <span class="co">#meters to feet</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s extract the information I want from this tidal series to go into a calendar. I decided to filter intertidal fieldwork based on:</p>
 <ul>
@@ -538,28 +555,28 @@ For subordinate stations, only high and low tide values will be computed.</code>
 <li><p>minimum required time in intertidal</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>start_time<span class="ot">&lt;-</span><span class="st">"08:00:00"</span> <span class="co">#start time</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>end_time<span class="ot">&lt;-</span><span class="st">"18:00:00"</span> <span class="co">#quitting time</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>work_days<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Monday"</span>,<span class="st">"Tuesday"</span>,<span class="st">"Wednesday"</span>,<span class="st">"Thursday"</span>,<span class="st">"Friday"</span>)<span class="co">#days we want to work</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>workable_tide_height<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co">#height, here in feet, below which we can work</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>minimum_workable_session<span class="ot">&lt;-</span><span class="dv">30</span> <span class="co">#time in minutes</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>dover_summ<span class="ot">&lt;-</span>dover_2025<span class="sc">%&gt;%</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span><span class="co">#stats by each day</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(time<span class="sc">&gt;</span><span class="fu">hms</span>(start_time) <span class="sc">&amp;</span> time<span class="sc">&lt;</span><span class="fu">hms</span>(end_time))<span class="sc">%&gt;%</span><span class="co">#filter out times we don't want to work</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">weekdays</span>(date) <span class="sc">%in%</span> work_days)<span class="sc">%&gt;%</span><span class="co">#include  days of week we can work</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(tide_f<span class="sc">&lt;=</span>workable_tide_height)<span class="sc">%&gt;%</span><span class="co">#filter our tide times that are too high for us to work</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"total_mins"</span><span class="ot">=</span><span class="fu">difftime</span>(<span class="fu">max</span>(datetime),<span class="fu">min</span>(datetime),<span class="at">units=</span><span class="st">"mins"</span>),<span class="co">#total time we can work in the intertidal, in minutes, given above filters</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min_ht"</span><span class="ot">=</span><span class="fu">min</span>(tide_f),<span class="co">#low tide height</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"low_tide_time"</span><span class="ot">=</span>datetime[<span class="fu">which.min</span>(tide_f)],<span class="co">#timing of the low tide</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_start"</span><span class="ot">=</span>datetime[<span class="dv">1</span>],<span class="co">#timestamp when tide goes below our threshold</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_end"</span><span class="ot">=</span><span class="fu">last</span>(datetime),<span class="co">#timestamp when tide goes above our threshold</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"workable_tide_height"</span><span class="ot">=</span>workable_tide_height<span class="co">#print this here for use later</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>)<span class="sc">%&gt;%</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(total_mins<span class="sc">&gt;</span>minimum_workable_session)<span class="sc">%&gt;%</span><span class="co">#remove sessions that are less than our minimum requirement</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dover_summ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>start_time<span class="ot">&lt;-</span><span class="st">"08:00:00"</span> <span class="co">#start time</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>end_time<span class="ot">&lt;-</span><span class="st">"18:00:00"</span> <span class="co">#quitting time</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>work_days<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Monday"</span>,<span class="st">"Tuesday"</span>,<span class="st">"Wednesday"</span>,<span class="st">"Thursday"</span>,<span class="st">"Friday"</span>)<span class="co">#days we want to work</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>workable_tide_height<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co">#height, here in feet, below which we can work</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>minimum_workable_session<span class="ot">&lt;-</span><span class="dv">30</span> <span class="co">#time in minutes</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>dover_summ<span class="ot">&lt;-</span>dover_2025<span class="sc">%&gt;%</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date)<span class="sc">%&gt;%</span><span class="co">#stats by each day</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(time<span class="sc">&gt;</span><span class="fu">hms</span>(start_time) <span class="sc">&amp;</span> time<span class="sc">&lt;</span><span class="fu">hms</span>(end_time))<span class="sc">%&gt;%</span><span class="co">#filter out times we don't want to work</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">weekdays</span>(date) <span class="sc">%in%</span> work_days)<span class="sc">%&gt;%</span><span class="co">#include  days of week we can work</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(tide_f<span class="sc">&lt;=</span>workable_tide_height)<span class="sc">%&gt;%</span><span class="co">#filter our tide times that are too high for us to work</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"total_mins"</span><span class="ot">=</span><span class="fu">difftime</span>(<span class="fu">max</span>(datetime),<span class="fu">min</span>(datetime),<span class="at">units=</span><span class="st">"mins"</span>),<span class="co">#total time we can work in the intertidal, in minutes, given above filters</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min_ht"</span><span class="ot">=</span><span class="fu">min</span>(tide_f),<span class="co">#low tide height</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"low_tide_time"</span><span class="ot">=</span>datetime[<span class="fu">which.min</span>(tide_f)],<span class="co">#timing of the low tide</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_start"</span><span class="ot">=</span>datetime[<span class="dv">1</span>],<span class="co">#timestamp when tide goes below our threshold</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_end"</span><span class="ot">=</span><span class="fu">last</span>(datetime),<span class="co">#timestamp when tide goes above our threshold</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"workable_tide_height"</span><span class="ot">=</span>workable_tide_height<span class="co">#print this here for use later</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>)<span class="sc">%&gt;%</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(total_mins<span class="sc">&gt;</span>minimum_workable_session)<span class="sc">%&gt;%</span><span class="co">#remove sessions that are less than our minimum requirement</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dover_summ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   date       total_mins min_ht low_tide_time       fieldwork_start    
@@ -575,42 +592,42 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <p>Now that we have the required summary statistics, let’s create our .ics file using the <span class="citation" data-cites="ical">(<a href="#ref-ical" role="doc-biblioref">Meissner 2019</a>)</span> package. I did use a LLM to help me create the code from here on out, so trust but verify if you do this yourself. The function below takes as input our calendar parameters (date, start time of field work, end time of field work, the minimum tide height, and the total amount of time available below our threshold for field work. In the “DESCRIPTION” field, I filled out some information that will print the minimum height and total time of field work, as well as information relevant to our field work such as the time offset I used. The “LOCATION” tab can be filled out with a description or an address, which some online calendars will recognize and provide a geotagged location!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>create_ics_event <span class="ot">&lt;-</span> <span class="cf">function</span>(date, start_time, end_time, min_ht, total_mins,workable_tide_height) {</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assign categories based on tide depth. Some online calendars will allow the .ics file to control the color of the event, but in my experience with google calendar and outlook this is not possible. </span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  category <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Red"</span>,</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="dv">0</span>  <span class="sc">~</span> <span class="st">"Orange"</span>,</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="fl">0.5</span> <span class="sc">~</span> <span class="st">"Yellow"</span>,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>       <span class="sc">~</span> <span class="st">"Blue"</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glue</span>(<span class="st">"BEGIN:VEVENT</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="st">DTSTART:{format(start_time, '%Y%m%dT%H%M%S')}</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="st">DTEND:{format(end_time, '%Y%m%dT%H%M%S')}</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="st">SUMMARY:Fieldwork - Low Tide Monitoring</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="st">DESCRIPTION:Low tide reached {min_ht} meters. Exposure lasted {total_mins}. Event start and stop indicate</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="st">when tide drops below or rises above {workable_tide_height}ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. </span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="st">LOCATION:Adam's Point</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="st">CATEGORIES:{category}</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="st">END:VEVENT"</span>)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>create_ics_event <span class="ot">&lt;-</span> <span class="cf">function</span>(date, start_time, end_time, min_ht, total_mins,workable_tide_height) {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assign categories based on tide depth. Some online calendars will allow the .ics file to control the color of the event, but in my experience with google calendar and outlook this is not possible. </span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  category <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Red"</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="dv">0</span>  <span class="sc">~</span> <span class="st">"Orange"</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="fl">0.5</span> <span class="sc">~</span> <span class="st">"Yellow"</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>       <span class="sc">~</span> <span class="st">"Blue"</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glue</span>(<span class="st">"BEGIN:VEVENT</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="st">DTSTART:{format(start_time, '%Y%m%dT%H%M%S')}</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="st">DTEND:{format(end_time, '%Y%m%dT%H%M%S')}</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="st">SUMMARY:Fieldwork - Low Tide Monitoring</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="st">DESCRIPTION:Low tide reached {min_ht} meters. Exposure lasted {total_mins}. Event start and stop indicate</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="st">when tide drops below or rises above {workable_tide_height}ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. </span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="st">LOCATION:Adam's Point</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="st">CATEGORIES:{category}</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="st">END:VEVENT"</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can apply the function to our summary dataframe, and write the formatted file to an .ics file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ics_events <span class="ot">&lt;-</span> dover_summ <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_start =</span> fieldwork_start, </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_end =</span> fieldwork_end</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">event =</span> <span class="fu">create_ics_event</span>(date, event_start, event_end, min_ht, total_mins,workable_tide_height)) <span class="sc">%&gt;%</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(event)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a single ICS file - this is needed to tell the calendar program that we are uploading an entire calendar</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>ics_content <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BEGIN:VCALENDAR"</span>, <span class="st">"VERSION:2.0"</span>, ics_events, <span class="st">"END:VCALENDAR"</span>)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to a .ics file</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(ics_content, <span class="st">"fieldwork_schedule_2025.ics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ics_events <span class="ot">&lt;-</span> dover_summ <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_start =</span> fieldwork_start, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_end =</span> fieldwork_end</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">event =</span> <span class="fu">create_ics_event</span>(date, event_start, event_end, min_ht, total_mins,workable_tide_height)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(event)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a single ICS file - this is needed to tell the calendar program that we are uploading an entire calendar</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ics_content <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BEGIN:VCALENDAR"</span>, <span class="st">"VERSION:2.0"</span>, ics_events, <span class="st">"END:VCALENDAR"</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to a .ics file</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(ics_content, <span class="st">"fieldwork_schedule_2025.ics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="use-notes" class="level1">

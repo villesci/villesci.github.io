@@ -4,9 +4,6 @@ image: drew.jpg
 about: 
   template: solana
   links: 
-    - text: Twitter
-      icon: twitter
-      url: "https://twitter.com/villeneuvesci"
     - text: GitHub
       icon: github
       url: "https://github.com/villesci"
@@ -19,7 +16,7 @@ about:
     - text: Mastodon
       icon: mastodon
       href: https://ecoevo.social/@Villesci
-    - text: Bluesky
+    - text: "{{< iconify fa6-brands:bluesky >}} Bluesky"
       href: https://bsky.app/profile/villesci.bsky.social/
 ---
 

@@ -34,7 +34,7 @@ There are many methods for downloading tide prediction data. The `rnoaa` [@rnoaa
 
 As a note, the authors of `rtide` also created a [shiny app](https://poissonconsulting.shinyapps.io/rtide/) from which you can download tide data using rtide with a GUI!
 
-```{r,eval=F,echo=F}
+```{r,eval=F,echo=T}
 #install the packages if you have not already
 require(remotes)
 remotes::install_github("arestrom/MarineTides")
@@ -42,7 +42,7 @@ install.packages("rnoaa")
 install.packages("rtide")
 ```
 
-```{r setup, include=F}
+```{r setup,message=FALSE,warning=FALSE}
 require(rnoaa)
 require(MarineTides)
 require(rtide)
