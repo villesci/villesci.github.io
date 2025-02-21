@@ -24,15 +24,15 @@ Recently, another grad student and myself were trying to figure out how many day
 
 # Getting Tide prediction data
 
-There are many methods for downloading tide prediction data. The [@rnoaa], [@rtide], and [@MarineTides] packages are three convenient in-R methods to download data.
+There are many methods for downloading tide prediction data. The `rnoaa` [@rnoaa], `rtide` [@rtide], and `MarineTides` [@MarineTides] packages are three convenient in-R methods to download data.
 
--   [@rnoaa] provides access to harmonic-only sites, which are great if those are close enough to your field site
+-   `rnoaa` provides access to harmonic-only sites, which are great if those are close enough to your field site
 
--   [@rtide] provides a faster interface that directly uses the tidal harmonics, not requiring an internet connection, and works over more sites. It draws on the same dataset as [XTide](https://flaterco.com/xtide/), a UNIX-based program with a very extensive set of tide stations. However, the package authors have only included harmonics stations in the dataset.
+-   `rtide` provides a faster interface that directly uses the tidal harmonics, not requiring an internet connection, and works over more sites. It draws on the same dataset as [XTide](https://flaterco.com/xtide/), a UNIX-based program with a very extensive set of tide stations. However, the package authors have only included harmonics stations in the dataset.
 
--   [@MarineTides] has the most extensive database of tide sites, including subordinate sites, in both the US and internationally. It also draws on the same dataset as [XTide](https://flaterco.com/xtide/).
+-   `MarineTides` has the most extensive database of tide sites, including subordinate sites, in both the US and internationally. It also draws on the same dataset as [XTide](https://flaterco.com/xtide/).
 
-As a note, the authors of [@rtide] also created a [shiny app](https://poissonconsulting.shinyapps.io/rtide/) from which you can download tide data using rtide with a GUI!
+As a note, the authors of `rtide` also created a [shiny app](https://poissonconsulting.shinyapps.io/rtide/) from which you can download tide data using rtide with a GUI!
 
 ```{r,eval=F,echo=F}
 #install the packages if you have not already
@@ -42,7 +42,7 @@ install.packages("rnoaa")
 install.packages("rtide")
 ```
 
-```{r,echo=F,warning=F,results='hide',echo=F}
+```{r setup, include=F}
 require(rnoaa)
 require(MarineTides)
 require(rtide)
@@ -53,7 +53,7 @@ require(ical)
 require(glue)
 ```
 
-## rnoaa
+## `rnoaa`
 
 First, let's download data using rnoaa. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.
 
@@ -87,7 +87,7 @@ head(rnoaa_output_seavey)
 
 Note that the output of rnoaa defaults to every 6 minutes (10 obs/hour), which is an odd way to slice data IMO. You could always go back and select every 15 minutes, or interpolate to every minute. Also note that the datetime comes back to us in GMT only, so we must force a time zone conversion to eastern time. This does mean you won't get the full last day of your time series due to the shift in the timezone, so worth adding an extra day just in case
 
-## rtide
+## `rtide`
 
 Let's try to do the same with rtide, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let's get the Seavey Island data again.
 
@@ -110,13 +110,13 @@ system.time(rtide_output_seavey<-tide_height(
 head(rtide_output_seavey)
 ```
 
-## MarineTides
+## `MarineTides`
 
 MarineTides is a very robust r package for getting ride information because 1) it uses data.table and is thus faster, and 2) allows the user to download subordiante data! This to me is critical, as it allows us to get a much closer station to our field site. Unfortunately, it only returns tide high and lows for subordinate sites, rather than predictions on a minute-basis.
 
-I do know the CO-OPS name for the subordinate site of interest is at Dover Point, so let's confirm it's there. Let's get data from both Seavey Island and Dover Point
+I do know the CO-OPS name for the subordinate site of interest is at Dover Point, so let's get data from both Seavey Island and Dover Point
 
-```{r}
+```{r, eval=F,echo=F,include=F}
 MarineTides::identify_station("Seavey Island",verbose=TRUE)
 MarineTides::identify_station("Dover Point",verbose=TRUE)
 
@@ -163,7 +163,7 @@ all<-bind_rows(rnoaa_output_seavey_filt,rtide_output_seavey_filt,MarineTides_out
 ggplot(data=all,aes(x=datetime,y=tide_height,color=package))+geom_line()+labs(title="Tide Package Comparison",x="Datetime",y="Tide Height (m)",color="Package")
 ```
 
-## XTIDE
+## XTide
 
 [XTide](https://flaterco.com/xtide/) is an awesome UNIX tide prediction program that I use for much of our intertidal work because it provides predictions over harmonic *and* subordinate stations. Nifty!
 
