@@ -29,6 +29,7 @@ jobs:
           R -e "install.packages('knitr')"
           R -e "install.packages('gsheet')"
           R -e "install.packages('brglm')"
+          R -e "install.packages('tidyverse')"
           R -e "pkgs <- unique(renv::dependencies()); install.packages(pkgs)"
 
       - name: Render Quarto site
