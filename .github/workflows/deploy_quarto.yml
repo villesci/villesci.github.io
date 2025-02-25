@@ -29,7 +29,7 @@ jobs:
           R -e "install.packages('knitr')"
           R -e "install.packages('gsheet')"
           R -e "install.packages('brglm')"
-          pkgs <- unique(renv::dependencies()); install.packages(pkgs)
+          R -e "pkgs <- unique(renv::dependencies()); install.packages(pkgs)"
 
       - name: Render Quarto site
         run: quarto render
