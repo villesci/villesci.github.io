@@ -18,7 +18,7 @@ Occasionally on my blog, I will try and share some of the coding tips, tricks, a
 
 Using the code I used for this LT50 analysis (which was published in @villeneuve2021 ), I wanted to put together a function that automates a lot of the coding to extract LT50 measures from experimental groups. This is particularly useful in the context of scraping thermal limit data from older papers that maybe do not report or calculate LT50 from survivorship data at given temperatures.
 
-```{r,message=F,warning=F}
+```{r setup, message=F,warning=F}
 #A function to obtain LT50 values from survivorship curves across multiple temperature exposures
 #columns in dataframe should contain a temp, survival, and exposure (in minutes) column
 library(MASS)
@@ -54,7 +54,7 @@ lt50fun<-function(data){
   
   data<-(rbind(data%>%mutate("type"="obs"),lt50df))
   
-  fit<-brglm(survival~temp*exposure,data=data,family="binomial")
+  fit<-brglm::brglm(survival~temp*exposure,data=data,family="binomial")
   pred_fit<-data.frame(temp=seq(min(data$temp),max(data$temp),
                                 len=500),exposure=rep(unique(data$exposure),each=500))
   pred_fit$survival<-predict(fit, pred_fit,type="response")
