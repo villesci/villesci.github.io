@@ -13,6 +13,7 @@ format:
 ---
 
 ```{r ,echo=F,warning=F,message=F}
+library(gsheet)
 source("_common.R")
 
 
