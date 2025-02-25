@@ -305,7 +305,8 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </div>
 <section id="rnoaa" class="level2">
 <h2 class="anchored" data-anchor-id="rnoaa"><code>rnoaa</code></h2>
-<p>First, let’s download data using rnoaa. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.</p>
+<p>First, let’s download data using <code>rnoaa</code>. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.</p>
+<p><strong>NOTE</strong> It looks like rnoaa is not being supported, and some functions are broken :( This code still works, but hopefully they come up with a replacement package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dl_months<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">date_index=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">begin_dates=</span><span class="fu">c</span>(<span class="dv">20250501</span>,<span class="dv">20250601</span>,<span class="dv">20250701</span>,<span class="dv">20250801</span>,<span class="dv">20250901</span>),</span>
@@ -332,7 +333,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.64    0.03    3.00 </code></pre>
+   0.99    0.06    3.14 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -351,7 +352,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </section>
 <section id="rtide" class="level2">
 <h2 class="anchored" data-anchor-id="rtide"><code>rtide</code></h2>
-<p>Let’s try to do the same with rtide, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let’s get the Seavey Island data again.</p>
+<p>Let’s try to do the same with <code>rtide</code>, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let’s get the Seavey Island data again.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stations<span class="ot">&lt;-</span>rtide<span class="sc">::</span><span class="fu">tide_stations</span>()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stations[<span class="fu">str_detect</span>(stations, <span class="st">"New Hampshire"</span>)] <span class="co">#some tidyverse magic to search for our state. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -372,7 +373,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  18.19    1.72   20.06 </code></pre>
+  26.73    2.44   30.54 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -409,7 +410,7 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   1.47    0.03    1.50 </code></pre>
+   1.70    0.05    1.83 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -455,7 +456,7 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.63    0.03    0.67 </code></pre>
+   0.77    0.00    0.77 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

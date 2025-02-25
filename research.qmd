@@ -14,7 +14,7 @@ format:
 
 ### Forecasting organismal responses to heatwaves
 
-```{r, include=F, eval=F,fig.show="none"}
+```{r, include=F, eval=T,fig.show="none"}
 library(simglm)
 library(tidyverse)
 library(ggplot2)
@@ -146,11 +146,10 @@ plot_3d<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surfac
     size = 0.1)))%>%
   layout(scene = list(xaxis=list(title="Temperature"),yaxis=list(title="Time (min)"),zaxis=list(title="Survival")))%>%partial_bundle()
 
-saveRDS(plot_3d,'research_files/plot_3d.RDs')
+#saveRDS(plot_3d,'research_files/plot_3d.RDs')
 ```
 
 ```{r,echo=F,eval=T}
-plot_3d<-readRDS("research_files/plot_3d.RDs")
 plot_3d
 
 

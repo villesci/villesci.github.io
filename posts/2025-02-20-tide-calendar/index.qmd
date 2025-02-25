@@ -285,7 +285,6 @@ ggplot(dover_summ, aes(x = wday(date, label = TRUE, week_start = 1),  # Ensures 
 
 ```
 
-
 Now that we have the required summary statistics, let's create our .ics file using the [@ical] package. I did use a LLM to help me create the code from here on out, so trust but verify if you do this yourself. The function below takes as input our calendar parameters (date, start time of field work, end time of field work, the minimum tide height, and the total amount of time available below our threshold for field work. In the "DESCRIPTION" field, I filled out some information that will print the minimum height and total time of field work, as well as information relevant to our field work such as the time offset I used. The "LOCATION" tab can be filled out with a description or an address, which some online calendars will recognize and provide a geotagged location!
 
 ```{r}
