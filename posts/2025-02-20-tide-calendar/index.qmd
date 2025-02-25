@@ -89,7 +89,7 @@ Note that the output of rnoaa defaults to every 6 minutes (10 obs/hour), which i
 
 ## `rtide`
 
-Let's try to do the same with rtide, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let's get the Seavey Island data again.
+Let's try to do the same with `rtide`, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let's get the Seavey Island data again.
 
 ```{r}
 stations<-rtide::tide_stations()
