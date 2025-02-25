@@ -32,6 +32,7 @@ jobs:
           R -e "install.packages('brglm')"
           R -e "install.packages('tidyverse')"
           R -e "install.packages('simglm')"
+          R -e "install.packages('plotly')"
           R -e "pkgs <- unique(renv::dependencies()); install.packages(pkgs)"
 
       - name: Render Quarto site
