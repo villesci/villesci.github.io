@@ -55,7 +55,9 @@ require(glue)
 
 ## `rnoaa`
 
-First, let's download data using rnoaa. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.
+First, let's download data using `rnoaa`. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.
+
+**NOTE** It looks like rnoaa is not being supported, and some functions are broken :( This code still works, but hopefully they come up with a replacement package.
 
 ```{r,warning=F}
 dl_months<-data.frame(date_index=1:5,
