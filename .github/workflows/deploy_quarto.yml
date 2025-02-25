@@ -23,7 +23,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e 'install.packages(c("tidyverse", "rmarkdown", "quarto"))'
+          Rscript -e 'pkgs <- unique(c(renv::dependencies()$Package)); install.packages(pkgs)'
 
       - name: Render Quarto site
         run: quarto render
