@@ -34,6 +34,7 @@ jobs:
           R -e "install.packages('simglm')"
           R -e "install.packages('plotly')"
           R -e "install.packages('shiny')"
+          R -e "install.packages('widgetframe')"
           R -e "pkgs <- unique(renv::dependencies()); install.packages(pkgs)"
 
       - name: Render Quarto site
