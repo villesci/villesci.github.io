@@ -12,7 +12,7 @@ format:
     title-block-banner-color: body
 ---
 
-```{r ,echo=F,warning=F,message=F}
+```{r setup,echo=F,warning=F,message=F}
 library(gsheet)
 source("_common.R")
 
