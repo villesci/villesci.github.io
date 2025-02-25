@@ -25,6 +25,7 @@ jobs:
         run: |
           R -e "install.packages('renv')"
           R -e "install.packages('rmarkdown')"
+          R -e "install.packages('markdown')"
           R -e "install.packages('quarto')"
           R -e "install.packages('knitr')"
           R -e "install.packages('gsheet')"
