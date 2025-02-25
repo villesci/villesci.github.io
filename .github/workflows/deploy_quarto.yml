@@ -23,7 +23,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          R -e "install.packages('renv)"
+          R -e "install.packages('renv')"
           R -e "pkgs <- unique(c(renv::dependencies()$Package)); install.packages(pkgs)"
 
       - name: Render Quarto site
