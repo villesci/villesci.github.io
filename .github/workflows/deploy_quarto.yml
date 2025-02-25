@@ -27,7 +27,7 @@ jobs:
           R -e "install.packages('rmarkdown')"
           R -e "install.packages('quarto')"
           R -e "install.packages('knitr')"
-          R -e "pkgs <- unique(c(renv::dependencies()$Package)); install.packages(pkgs)"
+          R -e "pkgs <- unique(c(renv::dependencies()$Package, quarto::quarto_dependencies())); install.packages(pkgs)"
 
       - name: Render Quarto site
         run: quarto render
