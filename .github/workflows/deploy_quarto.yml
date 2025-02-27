@@ -23,7 +23,8 @@ jobs:
 
       - name: Install R packages
         run: |
-          R -e "install.packages(c('renv','quarto','grateful','brglm','gsheet','animation','tidyverse','markdown','simglm','plotly','shiny'))"
+          R -e "install.packages(c('renv','quarto','grateful','brglm','gsheet',
+          'animation','tidyverse','markdown','simglm','plotly','shiny','plot3D','htmlwidgets','widgetframe'))"
           R -e "pkgs <- unique(renv::dependencies()$Package); install.packages(pkgs)"
 
       - name: Render Quarto site
