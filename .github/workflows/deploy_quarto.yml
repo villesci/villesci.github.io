@@ -24,6 +24,7 @@ jobs:
       - name: Install R packages
         run: |
           R -e "install.packages(c('renv','quarto','grateful'))"
+          R -e "remotes::install_github('yihui/animation')"
           R -e "pk<-grateful::scan_packages(); install.packages(pk$pkg)"
           R -e "pkgs <- unique(renv::dependencies()); install.packages(pkgs)"
 
