@@ -215,7 +215,7 @@ Once we have the tidal data from a site we want, we can begin creating a field c
 
 3)  I want my calendar event to contain information about the length of time the tide is below my chosen height (1ft), as well as the time of dead low and the length of the low tide.
 
-Let's get started. I ended up using data I downloaded from XTide (), so it may be formatted differently than if you use another source. One important feature we implemented is an additional time offset from the subordinate station (physical oceanographers cringe here) based on our field observations of when low tide occurs at Adams Point compared to Dover Point. We add 45 minutes to the entire tide series to make it approximate our actual field site.
+Let's get started. I ended up using data I downloaded from XTide, so it may be formatted differently than if you use another source. One important feature we implemented is an additional time offset from the subordinate station (physical oceanographers cringe here) based on our field observations of when low tide occurs at Adams Point compared to Dover Point. We add 45 minutes to the entire tide series to make it approximate our actual field site.
 
 ```{r,warning=F}
 
