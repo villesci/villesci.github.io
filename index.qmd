@@ -3,6 +3,7 @@ title: ''
 format: html
 ---
 
+```{=html}
 <style>
   body {
   background-image: url('./images/bahamafull.jpg');
@@ -11,5 +12,6 @@ format: html
  }
   
 </style>
+```
 
-# I am a marine ecologist working at the nexus of thermal ecology, extreme events, and aquatic systems
+# I am a marine ecologist working at the nexus of thermal ecology, extreme events, and forecasting
