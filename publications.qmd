@@ -15,6 +15,7 @@ format:
 ```{r setup,echo=F,warning=F,message=F}
 library(animation)
 library(gsheet)
+library(markdown)
 library(tidyverse)
 source("_common.R")
 
