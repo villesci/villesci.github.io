@@ -35,7 +35,9 @@ jobs:
           use-public-rspm: true
 
       - name: Install R packages
-        run: R -e "renv::restore()"
+        run: |
+          R -e "install.packages('renv')"
+          R -e "renv::restore()"
 
       - name: Render Quarto site
         run: quarto render
