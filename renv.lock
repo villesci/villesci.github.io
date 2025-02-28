@@ -109,19 +109,6 @@
       ],
       "Hash": "e7bdd9ee90e96921ca8a0f1972d66682"
     },
-    "V8": {
-      "Package": "V8",
-      "Version": "4.2.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Rcpp",
-        "curl",
-        "jsonlite",
-        "utils"
-      ],
-      "Hash": "ebee37dadb0a8f5086663825d2c33076"
-    },
     "XML": {
       "Package": "XML",
       "Version": "3.99-0.13",
