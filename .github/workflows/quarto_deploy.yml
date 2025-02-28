@@ -36,9 +36,13 @@ jobs:
 
       - name: Install R packages
         run: |
-          R -e "install.packages(c('renv','quarto','grateful','brglm','gsheet',
+          if [ -f "renv.lock" ]; then
+            R -e "renv::restore()"
+          else
+            R -e "install.packages(c('renv','quarto','grateful','brglm','gsheet',
           'animation','tidyverse','markdown','simglm','plotly','shiny','plot3D','htmlwidgets','widgetframe','zoo','utils'))"
-          R -e "pkgs <- unique(renv::dependencies()$Package); install.packages(pkgs)"
+            R -e "pkgs <- unique(renv::dependencies()$Package); install.packages(pkgs)"
+          fi
 
       - name: Render Quarto site
         run: quarto render
@@ -46,7 +50,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: docs
 
   deploy:
     environment:
