@@ -6,7 +6,7 @@ title-block-banner: true
 format:
   html:
     page-layout: full
-    title-block-banner: "images/bahama.jpg"
+    title-block-banner: "/images/bahama.jpg"
     title-block-style: default
     title-block-categories: false
     title-block-banner-color: body

@@ -33,6 +33,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          
+      - name: Copy Images
+        run: cp -r images/ docs/images/
+
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
