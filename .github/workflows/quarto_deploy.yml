@@ -21,13 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libudunits2-dev
-          sudo apt-get install -y libv8-dev
-          sudo apt-get install -y libmagick++-dev
-
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
@@ -43,13 +36,10 @@ jobs:
 
       - name: Install R packages
         run: |
-          if [ -f "renv.lock" ]; then
-            R -e "renv::restore()"
-          else
             R -e "install.packages(c('renv','quarto','grateful','brglm','gsheet',
           'animation','tidyverse','markdown','simglm','plotly','shiny','plot3D','htmlwidgets','widgetframe','zoo','utils'))"
             R -e "pkgs <- unique(renv::dependencies()$Package); install.packages(pkgs)"
-          fi
+          
 
       - name: Render Quarto site
         run: quarto render
