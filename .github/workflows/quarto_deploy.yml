@@ -41,7 +41,7 @@ jobs:
 
       - name: Install R packages
         run: |
-            R -e "install.packages(c('renv','quarto'))
+            R -e "install.packages(c('renv','quarto'))"
             R -e "renv::restore()"
           
       - name: Render Quarto site
