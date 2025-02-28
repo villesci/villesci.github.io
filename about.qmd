@@ -1,6 +1,6 @@
 ---
 title: 'About'
-image: drew.jpg
+image: images/drew.jpg
 about: 
   template: solana
   links: 
