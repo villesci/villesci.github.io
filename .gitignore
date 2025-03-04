@@ -22,4 +22,5 @@ research_files/
 lock_file
 /.quarto/_freeze/
 /.quarto/xref/
+.github
 
