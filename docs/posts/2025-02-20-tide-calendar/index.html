@@ -333,7 +333,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   1.00    0.07    4.24 </code></pre>
+   0.76    0.03    3.39 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -373,7 +373,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  40.25    1.24   42.35 </code></pre>
+  26.77    0.40   27.31 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -410,7 +410,7 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   2.08    0.05    2.16 </code></pre>
+   1.29    0.06    1.34 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -456,7 +456,7 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.97    0.02    1.04 </code></pre>
+   0.57    0.00    0.53 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -545,7 +545,7 @@ For subordinate stations, only high and low tide values will be computed.</code>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>clean_time) </span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#in our case, Adam's Point (our field site) is 45 minutes after DOver Point</span></span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>datetime<span class="sc">+</span><span class="fu">minutes</span>(<span class="dv">45</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>time<span class="ot">&lt;-</span><span class="fu">hm</span>(dover_2025<span class="sc">$</span>time)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>time<span class="ot">&lt;-</span><span class="fu">hms</span>(<span class="fu">strftime</span>(dover_2025<span class="sc">$</span>datetime,<span class="at">format=</span><span class="st">"%H:%M:%S"</span>))</span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#This is a little tricky, but we need to group by tide cycle rather than date, in case there are more than two low tides that fit our parameters. We accomplish this by looking for when our timeseries switches signs of the first derivative, which we interpret as a maxima, or high tide. </span></span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ht_date<span class="ot">&lt;-</span>dover_2025[<span class="fu">which</span>(<span class="fu">diff</span>(<span class="fu">sign</span>(<span class="fu">diff</span>(dover_2025<span class="sc">$</span>tide)))<span class="sc">==-</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>,<span class="st">"datetime"</span>]</span>
@@ -596,10 +596,10 @@ For subordinate stations, only high and low tide values will be computed.</code>
        &lt;int&gt; &lt;drtn&gt;      &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;             
 1          1 180 mins   -3.00  2025-05-01 10:45:00 2025-05-01 09:15:00
 2          3 150 mins   -1.68  2025-05-02 11:45:00 2025-05-02 10:30:00
-3         26  45 mins    0.580 2025-05-14 09:15:00 2025-05-14 09:00:00
-4         28  45 mins    0.758 2025-05-15 09:45:00 2025-05-15 09:30:00
-5         53  75 mins   -3.55  2025-05-28 09:00:00 2025-05-28 09:00:00
-6         55 135 mins   -3.26  2025-05-29 09:30:00 2025-05-29 09:00:00
+3         24  60 mins    0.530 2025-05-13 08:45:00 2025-05-13 08:15:00
+4         26  60 mins    0.580 2025-05-14 09:15:00 2025-05-14 08:45:00
+5         28  45 mins    0.758 2025-05-15 09:45:00 2025-05-15 09:30:00
+6         42  45 mins    0.747 2025-05-22 15:30:00 2025-05-22 15:00:00
 # ℹ 2 more variables: fieldwork_end &lt;dttm&gt;, workable_tide_height &lt;dbl&gt;</code></pre>
 </div>
 </div>

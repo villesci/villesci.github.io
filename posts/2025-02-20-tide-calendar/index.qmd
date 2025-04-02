@@ -227,7 +227,7 @@ dover_2025 <- dover_2025 %>%
   select(-clean_time) 
 #in our case, Adam's Point (our field site) is 45 minutes after DOver Point
 dover_2025$datetime<-dover_2025$datetime+minutes(45)
-dover_2025$time<-hm(dover_2025$time)
+dover_2025$time<-hms(strftime(dover_2025$datetime,format="%H:%M:%S"))
 
 #This is a little tricky, but we need to group by tide cycle rather than date, in case there are more than two low tides that fit our parameters. We accomplish this by looking for when our timeseries switches signs of the first derivative, which we interpret as a maxima, or high tide. 
 ht_date<-dover_2025[which(diff(sign(diff(dover_2025$tide)))==-2)+1,"datetime"]
