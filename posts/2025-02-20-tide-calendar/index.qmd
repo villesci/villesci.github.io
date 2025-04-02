@@ -219,15 +219,30 @@ Let's get started. I ended up using data I downloaded from XTide, so it may be f
 
 ```{r,warning=F}
 
-dover_2025<-read.csv("2025summer_dover.csv",col.names=c("site","date","time","tide"),colClasses = c("character","Date","character","numeric"))
+dover_2025<-read.csv("2025summer_dover.csv",col.names=c("site","date","time","tide"),colClasses = c("character","Date",NA,"numeric"))
 
-dover_2025$datetime<-as.POSIXct(paste0(dover_2025$date," ",dover_2025$time),format="%Y-%m-%d %H:%M")
-
+dover_2025 <- dover_2025 %>%
+  mutate(clean_time = sub(" EDT", "", time),
+         datetime = as.POSIXct(paste(date, clean_time), format="%Y-%m-%d %I:%M %p", tz="America/New_York")) %>%
+  select(-clean_time) 
 #in our case, Adam's Point (our field site) is 45 minutes after DOver Point
 dover_2025$datetime<-dover_2025$datetime+minutes(45)
 dover_2025$time<-hm(dover_2025$time)
 
+#This is a little tricky, but we need to group by tide cycle rather than date, in case there are more than two low tides that fit our parameters. We accomplish this by looking for when our timeseries switches signs of the first derivative, which we interpret as a maxima, or high tide. 
+ht_date<-dover_2025[which(diff(sign(diff(dover_2025$tide)))==-2)+1,"datetime"]
+#assign status where 1 is HT and 0 is everything else
+dover_2025$status<-ifelse(dover_2025$datetime %in% ht_date,"1","0")
+#starting from zero, assign status incremently
+dover_2025 <- dover_2025 %>%
+  mutate(
+    tide_cycle = cumsum(status == 1)  # Increment when ht == 1
+  )
+
 dover_2025$tide_f<-dover_2025$tide/0.3048 #meters to feet
+
+
+
 
 ```
 
@@ -252,7 +267,7 @@ minimum_workable_session<-30 #time in minutes
 
 
 dover_summ<-dover_2025%>%
-  group_by(date)%>%#stats by each day
+  group_by(tide_cycle)%>%#stats by each day
   dplyr::filter(time>hms(start_time) & time<hms(end_time))%>%#filter out times we don't want to work
     dplyr::filter(weekdays(date) %in% work_days)%>%#include  days of week we can work
   dplyr::filter(tide_f<=workable_tide_height)%>%#filter our tide times that are too high for us to work
@@ -271,12 +286,12 @@ head(dover_summ)
 I'd be remiss if I didn't try some fun data viz in ggplot. I wish we could make a calendar like this! But good for getting broad strokes on what days have the biggest tides.
 
 ```{r}
-ggplot(dover_summ, aes(x = wday(date, label = TRUE, week_start = 1),  # Ensures Monday starts first
-                       y = week(date), 
+ggplot(dover_summ, aes(x = wday(low_tide_time, label = TRUE, week_start = 1),  # Ensures Monday starts first
+                       y = week(low_tide_time), 
                        fill = total_mins)) +
   geom_tile(color = "black") +
   scale_fill_viridis_c() +
-  facet_wrap(~ month(date, label = TRUE, abbr = FALSE), scales = "free_y", ncol = 3) +  # Split by month
+  facet_wrap(~ month(low_tide_time, label = TRUE, abbr = FALSE), scales = "free_y", ncol = 3) +  # Split by month
   labs(x = "Day of Week", 
        y = "Week of Year", 
        fill = "Minutes of Low Tide Exposure",title="Adams Point Tides <1ft and >30min duration") +
