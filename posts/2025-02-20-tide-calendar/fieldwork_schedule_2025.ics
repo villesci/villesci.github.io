@@ -19,10 +19,19 @@ LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250514T090000
+DTSTART:20250513T081500
+DTEND:20250513T091500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.530360892388451 meters. Exposure lasted 60. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Blue
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250514T084500
 DTEND:20250514T094500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached 0.580164041994751 meters. Exposure lasted 45. Event start and stop indicate
+DESCRIPTION:Low tide reached 0.580164041994751 meters. Exposure lasted 60. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Blue
@@ -37,31 +46,49 @@ LOCATION:Adam's Point
 CATEGORIES:Blue
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250528T090000
-DTEND:20250528T101500
+DTSTART:20250522T150000
+DTEND:20250522T154500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -3.54902559055118 meters. Exposure lasted 75. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250529T090000
-DTEND:20250529T111500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -3.255593832021 meters. Exposure lasted 135. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250529T211500
-DTEND:20250529T221500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached 0.598877952755905 meters. Exposure lasted 60. Event start and stop indicate
+DESCRIPTION:Low tide reached 0.746604330708661 meters. Exposure lasted 45. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Blue
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250523T154500
+DTEND:20250523T170000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.3688812335958 meters. Exposure lasted 75. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Yellow
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250527T081500
+DTEND:20250527T093000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -3.29119094488189 meters. Exposure lasted 75. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250528T081500
+DTEND:20250528T101500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -3.68311023622047 meters. Exposure lasted 120. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250529T081500
+DTEND:20250529T111500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -3.255593832021 meters. Exposure lasted 180. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20250530T091500
@@ -71,6 +98,15 @@ DESCRIPTION:Low tide reached -2.44332677165354 meters. Exposure lasted 165. Even
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250612T083000
+DTEND:20250612T091500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.64745406824147 meters. Exposure lasted 45. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Blue
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20250613T090000
@@ -101,27 +137,54 @@ CATEGORIES:Yellow
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20250618T123000
-DTEND:20250618T133000
+DTEND:20250618T134500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached 0.339097769028871 meters. Exposure lasted 60. Event start and stop indicate
+DESCRIPTION:Low tide reached 0.339097769028871 meters. Exposure lasted 75. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Yellow
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250626T090000
-DTEND:20250626T100000
+DTSTART:20250619T133000
+DTEND:20250619T143000
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -2.29195209973753 meters. Exposure lasted 60. Event start and stop indicate
+DESCRIPTION:Low tide reached 0.48260498687664 meters. Exposure lasted 60. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Yellow
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250620T143000
+DTEND:20250620T151500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.711489501312336 meters. Exposure lasted 45. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Blue
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250625T081500
+DTEND:20250625T090000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -1.94839895013123 meters. Exposure lasted 45. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250627T090000
+DTSTART:20250626T081500
+DTEND:20250626T100000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -2.65394356955381 meters. Exposure lasted 105. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250627T081500
 DTEND:20250627T104500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -2.3792093175853 meters. Exposure lasted 105. Event start and stop indicate
+DESCRIPTION:Low tide reached -2.3792093175853 meters. Exposure lasted 150. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
@@ -131,6 +194,15 @@ DTSTART:20250630T110000
 DTEND:20250630T123000
 SUMMARY:Fieldwork - Low Tide Monitoring
 DESCRIPTION:Low tide reached 0.0439796587926509 meters. Exposure lasted 90. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Yellow
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250711T081500
+DTEND:20250711T091500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.367700131233596 meters. Exposure lasted 60. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Yellow
@@ -172,6 +244,24 @@ LOCATION:Adam's Point
 CATEGORIES:Orange
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20250718T130000
+DTEND:20250718T140000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached 0.517936351706037 meters. Exposure lasted 60. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Blue
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250725T081500
+DTEND:20250725T093000
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -1.68317585301837 meters. Exposure lasted 75. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20250728T094500
 DTEND:20250728T113000
 SUMMARY:Fieldwork - Low Tide Monitoring
@@ -190,40 +280,22 @@ LOCATION:Adam's Point
 CATEGORIES:Blue
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250811T090000
+DTSTART:20250811T081500
 DTEND:20250811T103000
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.37471456692913 meters. Exposure lasted 90. Event start and stop indicate
+DESCRIPTION:Low tide reached -1.37471456692913 meters. Exposure lasted 135. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250811T210000
-DTEND:20250811T221500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -0.0358366141732283 meters. Exposure lasted 75. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Orange
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250812T090000
+DTSTART:20250812T084500
 DTEND:20250812T111500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.54226377952756 meters. Exposure lasted 135. Event start and stop indicate
+DESCRIPTION:Low tide reached -1.54226377952756 meters. Exposure lasted 150. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250812T213000
-DTEND:20250812T231500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -0.509878608923884 meters. Exposure lasted 105. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Orange
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20250813T094500
@@ -235,28 +307,10 @@ LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250813T221500
-DTEND:20250814T000000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -0.646427165354331 meters. Exposure lasted 105. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Orange
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20250814T103000
 DTEND:20250814T123000
 SUMMARY:Fieldwork - Low Tide Monitoring
 DESCRIPTION:Low tide reached -0.720462598425197 meters. Exposure lasted 120. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Orange
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250814T231500
-DTEND:20250815T010000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -0.524872047244095 meters. Exposure lasted 105. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Orange
@@ -271,22 +325,13 @@ LOCATION:Adam's Point
 CATEGORIES:Yellow
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250825T090000
+DTSTART:20250825T083000
 DTEND:20250825T101500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -0.128533464566929 meters. Exposure lasted 75. Event start and stop indicate
+DESCRIPTION:Low tide reached -0.128533464566929 meters. Exposure lasted 105. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Orange
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250825T211500
-DTEND:20250825T220000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached 0.783818897637795 meters. Exposure lasted 45. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Blue
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20250826T093000
@@ -298,37 +343,28 @@ LOCATION:Adam's Point
 CATEGORIES:Blue
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250909T090000
+DTSTART:20250908T081500
+DTEND:20250908T091500
+SUMMARY:Fieldwork - Low Tide Monitoring
+DESCRIPTION:Low tide reached -1.38871719160105 meters. Exposure lasted 60. Event start and stop indicate
+when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
+LOCATION:Adam's Point
+CATEGORIES:Red
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250909T081500
 DTEND:20250909T100000
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.75296916010499 meters. Exposure lasted 60. Event start and stop indicate
+DESCRIPTION:Low tide reached -1.84522309711286 meters. Exposure lasted 105. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250909T210000
-DTEND:20250909T223000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.97979658792651 meters. Exposure lasted 90. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250910T090000
+DTSTART:20250910T081500
 DTEND:20250910T104500
 SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.81396653543307 meters. Exposure lasted 105. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250910T210000
-DTEND:20250910T231500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -2.32116797900262 meters. Exposure lasted 135. Event start and stop indicate
+DESCRIPTION:Low tide reached -1.81396653543307 meters. Exposure lasted 150. Event start and stop indicate
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Red
@@ -343,15 +379,6 @@ LOCATION:Adam's Point
 CATEGORIES:Red
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20250911T213000
-DTEND:20250912T000000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -2.12083333333333 meters. Exposure lasted 150. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20250912T101500
 DTEND:20250912T120000
 SUMMARY:Fieldwork - Low Tide Monitoring
@@ -359,23 +386,5 @@ DESCRIPTION:Low tide reached -0.409944225721785 meters. Exposure lasted 105. Eve
 when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
 LOCATION:Adam's Point
 CATEGORIES:Orange
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250912T223000
-DTEND:20250913T003000
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached -1.46248031496063 meters. Exposure lasted 120. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Red
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250923T210000
-DTEND:20250923T214500
-SUMMARY:Fieldwork - Low Tide Monitoring
-DESCRIPTION:Low tide reached 0.475400262467192 meters. Exposure lasted 45. Event start and stop indicate
-when tide drops below or rises above 1ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. 
-LOCATION:Adam's Point
-CATEGORIES:Yellow
 END:VEVENT
 END:VCALENDAR

@@ -2,6 +2,8 @@
 title: "Research"
 format:
   html:
+    toc: true
+    toc-depth: 2
     page-layout: full
     title-block-banner: "images/bahama.jpg"
     title-block-style: default
@@ -134,6 +136,11 @@ label_temp<-(as.numeric(colnames(tryme)))
 label_time<-(as.numeric(rownames(tryme)))
 
 #Plot with log transformed y axis
+#conver to rgl
+library(rgl)
+
+
+
 plot_3d<-plot_ly(z=tryme,x=label_temp,y=label_time,colors="RdYlBu")%>%add_surface(contours= list(
   z = list(
     show=TRUE,
@@ -159,6 +166,12 @@ The interactive widget above displays a thermal tolerance landscape of the Easte
 Heatwaves, rather than gradual warming about the meteorological mean, are the driving abiotic factor behind marine invertebrate physiological stress. Because they highly variable in duration, magnitude and return time, it is difficult to predict organismal responses using traditional physiological exposure experiments.
 
 I use experiments to parameterize these thermal death time models, but primarily am using a simulation approach to understand how heatwaves of varying magnitude, duration, and return time affect organismal survivorship and metapopulation dynamics. I currently focus on the eastern Oyster *Crassostrea virginica*.
+
+### Fine-scale temperature variation in the intertidal
+
+![Temperature logger deployment](images/temperature_logger.jpg){fig-align="center" width="300"}
+
+The ocean is really hard to measure. The intertidal zone is a dynamic environment, and the temperature of the water and air can vary widely over short distances and time scales. I am interested in understanding how these fine-scale temperature variations affect the physiology of marine organisms, particularly in the context of climate change. My efforts are both descriptive (our Madagascar thermal environments project) and predictive (oyster mortality work in New Hampshire). Mismatches in the scales at which we measure the environment (often, in oceans, tens of kilometers) and at which we measure indvidual response (often single populations) can lead to inaccuracies in how we predict organismal responses to climate change.
 
 ## Previous Research
 

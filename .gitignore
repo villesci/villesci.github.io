@@ -21,4 +21,6 @@ research_files/
 lock_file
 /.quarto/_freeze/
 /.quarto/xref/
-
+_cite
+_data
+.venv
