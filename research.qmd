@@ -165,11 +165,11 @@ I use experiments to parameterize these thermal death time models, but primarily
 
 ### Fine-scale temperature variation in the intertidal
 
-![An Electricblue temperature logger and intertidal oysters in Great Bay, NH](images/temp_loggers.JPEG){fig-align="center" width="300"}
+![An Electricblue temperature logger and intertidal oysters in Great Bay, NH](images/temp_loggers.JPEG){fig-align="center" width="600"}
 
 The ocean is really hard to measure. The intertidal zone is a dynamic environment, and the temperature of the water and air can vary widely over short distances and time scales. I am interested in understanding how these fine-scale temperature variations affect the physiology of marine organisms, particularly in the context of climate change. My efforts are both descriptive (our Madagascar thermal environments project) and predictive (oyster mortality work in New Hampshire). Mismatches in the scales at which we measure the environment (often, in oceans, tens of kilometers) and at which we measure indvidual response (often single populations) can lead to inaccuracies in how we predict organismal responses to climate change.
 
-![I use wavelet analysis to understand periodicities within the thermal environment. Here, we see the impacts of tidal (8 hour) and solar (24 hour) cycles on a reef in Madagascar.](images/wavelet.png)
+![I use wavelet analysis to understand periodicities within the thermal environment. Here, we see the impacts of tidal (8 hour) and solar (24 hour) cycles on a reef in Madagascar.](images/wavelet.png){fig-align="center" ,width="600"}
 
 ## Previous Research
 
