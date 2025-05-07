@@ -1,6 +1,9 @@
 /*-- scss:defaults --*/
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&display=swap');
 
+  body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo', sans-serif;
+}
 
 h2 {
   color: #2c3e50;
@@ -27,11 +30,26 @@ body.homepage {
   background-attachment: fixed;
   color: white;
   text-align: center;
-  padding-top: 60px;
 }
   
-  body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Exo', sans-serif;
+body {
+  padding-top: 60px !important;
+}
+nav.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+
+main.content {
+  margin-top: 60px; /* Ensure the main content also starts below the navbar */
+}
+
+nav.navbar {
+  position: fixed; /* Keep the navbar fixed at the top */
+  top: 0;
+  width: 100%; /* Ensure it spans the width of the page */
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
   
@@ -78,6 +96,10 @@ body.homepage {
   position: relative; /* <-- THIS is the key fix */
   width: 100%;
   height: 500px; /* Optional: adjust as needed to make space for positioned images */
+}
+
+.silhouette-wrapper {
+  position: absolute;
 }
 
 .intro {

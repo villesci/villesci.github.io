@@ -4,7 +4,7 @@ format: html
 ---
 
 ```{=html}
-<body class="homepage nav-fixed fullcontent quarto-light" data-bs-offset="60" style="padding-top: 100px;">
+<body class="homepage nav-relative fullcontent quarto-light" data-bs-offset="60">
 <div class="glassmorphism">
   <div class="intro">
     I am a marine ecologist working at the nexus of thermal ecology, extreme events, and forecasting
@@ -13,7 +13,7 @@ format: html
 
 <div class="silhouette-links">
   <!-- Image 1 -->
-  <div class="silhouette-wrapper" style="top: 0px; left: 0px; position: absolute;">
+  <div class="silhouette-wrapper" style="top: 10px; left: 20px; position: absolute;">
     <div class="tooltip">About</div>
     <a href="about.html">
       <img src="images/seastar.png" alt="About" class="silhouette">
@@ -21,7 +21,7 @@ format: html
   </div>
 
   <!-- Image 2 -->
-  <div class="silhouette-wrapper" style="top: 180px; left: 200px; position: absolute;">
+  <div class="silhouette-wrapper" style="top: 150px; left: 200px; position: absolute;">
     <div class="tooltip">Research</div>
     <a href="research.html">
       <img src="images/shawl.PNG" alt="Research" class="silhouette">
@@ -29,7 +29,7 @@ format: html
   </div>
 
   <!-- Image 3 -->
-  <div class="silhouette-wrapper" style="top: 40px; left: 900px; position: absolute;">
+  <div class="silhouette-wrapper" style="top: 40px; left: 600px; position: absolute;">
     <div class="tooltip">Publications</div>
     <a href="publications.html">
       <img src="images/uro2.png" alt="Publications" class="silhouette">
@@ -37,7 +37,7 @@ format: html
   </div>
 
   <!-- Image 4 -->
-  <div class="silhouette-wrapper" style="top: 180px; left: 900px; position: absolute;">
+  <div class="silhouette-wrapper" style="top: 180px; left: 700px; position: absolute;">
     <div class="tooltip">Contact</div>
     <a href="contact.html">
       <img src="images/crab.png" alt="Contact" class="silhouette">
