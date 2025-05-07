@@ -18,31 +18,41 @@ h2 {
   height: 500px; /* Adjust based on your needs */
 }
 
-  body {
-    background-image: url('images/tarifa.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    text-align: center;
-    padding-top: 120px;
-    font-family: 'Exo',sans-serif;
-  }
+/* Specific styles for the homepage */
+body.homepage {
+  background-image: url('images/tarifa.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  padding-top: 60px;
+}
   
   body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Exo', sans-serif;
 }
 
   
-  .glassmorphism {
+.glassmorphism {
   background: rgba(255, 255, 255, 0.1);  /* Light, semi-transparent background */
-  backdrop-filter: blur(15px);            /* Apply blur for the glass effect */
+  backdrop-filter: blur(15px);           /* Apply blur for the glass effect */
   border-radius: 20px;                   /* Rounded corners for the box */
-  padding: 40px;
-  margin: 0 auto;
+  padding: 20px;                         /* Reduced padding */
+  margin: 0 auto;                        /* Center the box horizontally */
   max-width: 800px;                      /* Limit the width */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
   position: relative;
   z-index: 1;
+  box-sizing: border-box;                /* Include padding and border in size */
+}
+
+/* Optional: Adjust text properties */
+.glassmorphism .intro {
+  margin: 0;                             /* Remove margin around the text */
+  padding: 0;                            /* Remove padding around the text */
+  line-height: 1.5;                      /* Adjust line spacing */
 }
 
   .intro {

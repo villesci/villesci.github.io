@@ -4,8 +4,7 @@ format: html
 ---
 
 ```{=html}
-<link rel="stylesheet" href="styles.css">
-
+<body class="homepage nav-fixed fullcontent quarto-light" data-bs-offset="60" style="padding-top: 100px;">
 <div class="glassmorphism">
   <div class="intro">
     I am a marine ecologist working at the nexus of thermal ecology, extreme events, and forecasting
