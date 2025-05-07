@@ -1,4 +1,7 @@
 /*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&display=swap');
+
+
 h2 {
   color: #2c3e50;
   font-weight: bold;
@@ -8,3 +11,109 @@ h2 {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.container {
+  position: relative;
+  width: 100%; /* Full width of the page */
+  height: 500px; /* Adjust based on your needs */
+}
+
+  body {
+    background-image: url('images/tarifa.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding-top: 120px;
+    font-family: 'Exo',sans-serif;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo', sans-serif;
+}
+
+  
+  .glassmorphism {
+  background: rgba(255, 255, 255, 0.1);  /* Light, semi-transparent background */
+  backdrop-filter: blur(15px);            /* Apply blur for the glass effect */
+  border-radius: 20px;                   /* Rounded corners for the box */
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 800px;                      /* Limit the width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  position: relative;
+  z-index: 1;
+}
+
+  .intro {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+
+  .silhouette {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .silhouette:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .silhouette-links {
+  position: relative; /* <-- THIS is the key fix */
+  width: 100%;
+  height: 500px; /* Optional: adjust as needed to make space for positioned images */
+}
+
+.intro {
+  font-size: clamp(1.2rem, 2.5vw, 2rem); /* Responsive size */
+  font-weight: 500;
+  margin-bottom: 40px;
+  padding: 0 20px; /* Give it breathing room on small screens */
+  text-align: center;
+  word-wrap: break-word;
+}
+/*-- mobile --*/
+
+@media (max-width: 768px) {
+  .silhouette-wrapper {
+    position: static !important; /* Let them flow naturally */
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .silhouette-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: auto; /* remove fixed height */
+  }
+
+  .silhouette {
+    width: 100px;
+    height: 100px;
+  }
+
+  .glassmorphism {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+  }
+}
+
+  
+  /* Remove any lingering span labels */
+.silhouette-wrapper span {
+  display: none;
+}
+  
+</style>
