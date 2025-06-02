@@ -15,7 +15,7 @@ format: html
   <!-- Image 1 -->
   <div class="silhouette-wrapper" style="top: 10px; left: 20px; position: absolute;">
     <div class="tooltip">About</div>
-    <a href="about.html">
+    <a href="about.html" title="About">
       <img src="images/seastar.png" alt="About" class="silhouette">
     </a>
   </div>
