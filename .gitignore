@@ -16,7 +16,6 @@ research_files/figure-html/widgets/widget_unnamed-chunk-2.html
 .Rproj.user/
 .quarto/
 research_files/
-*.html
 *.json
 lock_file
 /.quarto/_freeze/

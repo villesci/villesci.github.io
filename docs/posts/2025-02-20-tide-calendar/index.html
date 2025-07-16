@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrew Villeneuve">
+<meta name="dcterms.date" content="2025-02-20">
+<meta name="description" content="A workflow and code to add tidal fieldwork to a digital calendar">
+
+<title>When is it time to do intertidal fieldwork? – Andrew Villeneuve</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bahamafull.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-df479d6c4d77d0e0dfbcb5361179d7fd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-S82TX4CM9T"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
+</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: images/bahama.jpg;
+      }
+</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="When is it time to do intertidal fieldwork? – Andrew Villeneuve">
+<meta property="og:description" content="A workflow and code to add tidal fieldwork to a digital calendar">
+<meta property="og:image" content="https://villesci.github.io/posts/2025-02-20-tide-calendar/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:site_name" content="Andrew Villeneuve">
+<meta name="twitter:title" content="When is it time to do intertidal fieldwork? – Andrew Villeneuve">
+<meta name="twitter:description" content="A workflow and code to add tidal fieldwork to a digital calendar">
+<meta name="twitter:image" content="https://villesci.github.io/posts/2025-02-20-tide-calendar/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Andrew Villeneuve</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/villesci"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/villesci.bsky.social"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> Bluesky</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">When is it time to do intertidal fieldwork?</h1>
+                  <div>
+        <div class="description">
+          A workflow and code to add tidal fieldwork to a digital calendar
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">tides</div>
+                <div class="quarto-category">fieldwork</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://villesci.github.io/">Andrew Villeneuve</a> <a href="https://orcid.org/0000-0001-7303-5931" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://quantmarineecolab.github.io/">
+              PhD Candidate, Quantitative Marine Ecology Lab, University of New Hampshire
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 20, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Ask any intertidal ecologist what they think of first when planning fieldwork, and they will respond with “when are the low tides?” Indeed, we love studying intertidal systems because they are such an accessible window into the marine world, while adding the dynamics of tidal cycles onto how species respond to their environment and other organisms.</p>
+<p>What any intertidal ecologist will also tell you is that tides wait for no one. The tides we often seek to access to the lowest tidal elevations for longer periods of time do not abide by the frivolous 9-5 schedule humans like to keep. Many an intertidal ecologist has stories of working at 3:30 AM in a cold drizzle because that simply is the best time to work for the next few weeks.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="kent.jpg" class="img-fluid figure-img"></p>
+<figcaption>Anyone know when the tide is comin’ back in?</figcaption>
+</figure>
+</div>
+<p>Recently, another grad student and myself were trying to figure out how many days each week for the oncoming summer could we count on for decent field work. Normally, one might need to scroll through a tide app or the <a href="https://tidesandcurrents.noaa.gov/tide_predictions.html">NOAA CO-OPS tide predictions</a> website to identify these times, which can be tedious if one is trying to plan an entire field season. I decided there had to be a better way to automate this process, and of course there is - using R! Below, we will 1) collect tide prediction data, 2) filter times and tide heights during which we want to do field work, and 3) create an .ics calendar file that we can later add to commonly used internet calendars, like Outlook and Google Calendar.</p>
+<p><em>Important note: the data we produce below is NOT intended for navigation purposes, ESPECIALLY for the predictions from subordinate stations!!</em></p>
+<section id="getting-tide-prediction-data" class="level1">
+<h1>Getting Tide prediction data</h1>
+<p>There are many methods for downloading tide prediction data. The <code>rnoaa</code> <span class="citation" data-cites="rnoaa">(<a href="#ref-rnoaa" role="doc-biblioref">Chamberlain 2021</a>)</span>, <code>rtide</code> <span class="citation" data-cites="rtide">(<a href="#ref-rtide" role="doc-biblioref">Thorley, Miller, and Fleishman 2021</a>)</span>, and <code>MarineTides</code> <span class="citation" data-cites="MarineTides">(<a href="#ref-MarineTides" role="doc-biblioref">Strom 2025</a>)</span> packages are three convenient in-R methods to download data.</p>
+<ul>
+<li><p><code>rnoaa</code> provides access to harmonic-only sites, which are great if those are close enough to your field site</p></li>
+<li><p><code>rtide</code> provides a faster interface that directly uses the tidal harmonics, not requiring an internet connection, and works over more sites. It draws on the same dataset as <a href="https://flaterco.com/xtide/">XTide</a>, a UNIX-based program with a very extensive set of tide stations. However, the package authors have only included harmonics stations in the dataset.</p></li>
+<li><p><code>MarineTides</code> has the most extensive database of tide sites, including subordinate sites, in both the US and internationally. It also draws on the same dataset as <a href="https://flaterco.com/xtide/">XTide</a>.</p></li>
+</ul>
+<p>As a note, the authors of <code>rtide</code> also created a <a href="https://poissonconsulting.shinyapps.io/rtide/">shiny app</a> from which you can download tide data using rtide with a GUI!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install the packages if you have not already</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(remotes)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"arestrom/MarineTides"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rnoaa"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rtide"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rnoaa)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MarineTides)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rtide)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(data.table)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ical)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(glue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="rnoaa" class="level2">
+<h2 class="anchored" data-anchor-id="rnoaa"><code>rnoaa</code></h2>
+<p>First, let’s download data using <code>rnoaa</code>. I am most interested in tides in Great Bay, NH, but sadly the closest site in the CO_OPS harmonics database is Seavey Island in the Piscataqua River. We lookup the station ID on the CO_OPS website, and add our dates of interest (we will use the same dates for all three R methods). Unfortunately, rnoaa only lets us download 31 days of data at a time, so we will need to set up a function to download each month.</p>
+<p><strong>NOTE</strong> It looks like <code>rnoaa</code> is not being supported, and some functions are broken :( This code still works, but hopefully they come up with a replacement package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dl_months<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">date_index=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">begin_dates=</span><span class="fu">c</span>(<span class="dv">20250501</span>,<span class="dv">20250601</span>,<span class="dv">20250701</span>,<span class="dv">20250801</span>,<span class="dv">20250901</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">end_dates=</span><span class="fu">c</span>(<span class="dv">20250530</span>,<span class="dv">20250630</span>,<span class="dv">20250731</span>,<span class="dv">20250831</span>,<span class="dv">20250930</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>site_id<span class="ot">=</span><span class="dv">8419870</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rnoaa_func<span class="ot">&lt;-</span><span class="cf">function</span>(time_df){</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  rnoaa_output<span class="ot">&lt;-</span><span class="fu">coops_search</span>(<span class="at">station_name =</span> site_id,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">begin_date =</span> time_df<span class="sc">$</span>begin_dates,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">end_date=</span>time_df<span class="sc">$</span>end_dates,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">product =</span> <span class="st">"predictions"</span>, <span class="co">#we want tide PREDICTIONs. If we watned past heights, could use "hourly_height")</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">datum =</span> <span class="st">"MLLW"</span>, <span class="co">#MLLW datum, which is standard at Seavey</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">units =</span> <span class="st">"metric"</span>)<span class="sc">$</span>predictions<span class="sc">%&gt;%</span><span class="co"># we will convert this to feet for us Americans later :)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">datetime=</span>t,<span class="at">tide_height=</span>v)<span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">datetime=</span><span class="fu">with_tz</span>(<span class="fu">as.POSIXct</span>(datetime,<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>,<span class="at">tz=</span><span class="st">"GMT"</span>)),<span class="at">tz=</span><span class="st">"America/New_York"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  rnoaa_output_seavey<span class="ot">&lt;-</span>dl_months<span class="sc">%&gt;%</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(date_index)<span class="sc">%&gt;%</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_modify</span>(<span class="sc">~</span><span class="fu">rnoaa_func</span>(.x))<span class="sc">%&gt;%</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+   2.86    0.33    6.20 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  date_index datetime            tide_height tz              
+       &lt;int&gt; &lt;dttm&gt;                    &lt;dbl&gt; &lt;chr&gt;           
+1          1 2025-04-30 20:00:00       0.019 America/New_York
+2          1 2025-04-30 20:06:00       0.016 America/New_York
+3          1 2025-04-30 20:12:00       0.018 America/New_York
+4          1 2025-04-30 20:18:00       0.023 America/New_York
+5          1 2025-04-30 20:24:00       0.032 America/New_York
+6          1 2025-04-30 20:30:00       0.046 America/New_York</code></pre>
+</div>
+</div>
+<p>Note that the output of rnoaa defaults to every 6 minutes (10 obs/hour), which is an odd way to slice data IMO. You could always go back and select every 15 minutes, or interpolate to every minute. Also note that the datetime comes back to us in GMT only, so we must force a time zone conversion to eastern time. This does mean you won’t get the full last day of your time series due to the shift in the timezone, so worth adding an extra day just in case</p>
+</section>
+<section id="rtide" class="level2">
+<h2 class="anchored" data-anchor-id="rtide"><code>rtide</code></h2>
+<p>Let’s try to do the same with <code>rtide</code>, getting closer to our field site if we can. Unfortunately, the Dover site is way upstream in the Cocheco River and not very relevant to us. So, let’s get the Seavey Island data again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stations<span class="ot">&lt;-</span>rtide<span class="sc">::</span><span class="fu">tide_stations</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stations[<span class="fu">str_detect</span>(stations, <span class="st">"New Hampshire"</span>)] <span class="co">#some tidyverse magic to search for our state. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Dover, Cocheco River, Piscataqua River, New Hampshire"
+[2] "Fort Point, Portsmouth Harbor, New Hampshire"         
+[3] "Seavey Island, Portsmouth Harbor, New Hampshire"      </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(rtide_output_seavey<span class="ot">&lt;-</span><span class="fu">tide_height</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">stations =</span> <span class="st">"Seavey Island, Portsmouth Harbor, New Hampshire"</span> ,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">minutes =</span> <span class="dv">6</span>L, <span class="co">#nice! We can select our frequency. TO keep it standard in this post, let's do every 6mins</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2025-05-01"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2025-09-30"</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tz =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">harmonics =</span> rtide<span class="sc">::</span>harmonics</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  86.39    4.45   96.90 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Station                                         DateTime            TideHeight
+  &lt;chr&gt;                                           &lt;dttm&gt;                   &lt;dbl&gt;
+1 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:00:00       2.13
+2 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:06:00       2.20
+3 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:12:00       2.27
+4 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:18:00       2.34
+5 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:24:00       2.40
+6 Seavey Island, Portsmouth Harbor, New Hampshire 2025-05-01 00:30:00       2.46</code></pre>
+</div>
+</div>
+</section>
+<section id="marinetides" class="level2">
+<h2 class="anchored" data-anchor-id="marinetides"><code>MarineTides</code></h2>
+<p><code>MarineTides</code> is a very robust r package for getting ride information because 1) it uses data.table and is thus faster, and 2) allows the user to download subordiante data! This to me is critical, as it allows us to get a much closer station to our field site. Unfortunately, it only returns tide high and lows for subordinate sites, rather than predictions on a minute-basis.</p>
+<p>I do know the CO-OPS name for the subordinate site of interest is at Dover Point, so let’s get data from both Seavey Island and Dover Point</p>
+<p>Below we get the tide data from Seavey Island</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_seavey<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Seavey Island"</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data_interval =</span> <span class="st">"6-min"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seavey Island is a reference station. Tide heights are
+calculated from Seavey Island harmonic constituents. 
+
+Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+   2.49    0.09    3.47 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   station_code  station_name reference_station_code tide_type
+         &lt;char&gt;        &lt;char&gt;                 &lt;char&gt;    &lt;char&gt;
+1:      8419870 Seavey Island                8419870         P
+2:      8419870 Seavey Island                8419870         P
+3:      8419870 Seavey Island                8419870         P
+4:      8419870 Seavey Island                8419870         P
+5:      8419870 Seavey Island                8419870         P
+6:      8419870 Seavey Island                8419870         P
+             tide_time   tide_level
+                &lt;POSc&gt;      &lt;units&gt;
+1: 2025-05-01 00:00:00 2.098570 [m]
+2: 2025-05-01 00:06:00 2.166778 [m]
+3: 2025-05-01 00:12:00 2.233378 [m]
+4: 2025-05-01 00:18:00 2.298212 [m]
+5: 2025-05-01 00:24:00 2.361124 [m]
+6: 2025-05-01 00:30:00 2.421967 [m]</code></pre>
+</div>
+</div>
+<p>Let’s do it again, but for a subordinate site Dover Point.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(MarineTides_output_dover<span class="ot">&lt;-</span>MarineTides<span class="sc">::</span><span class="fu">tide_level</span>(<span class="at">tide_station=</span><span class="st">"Dover Point"</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">start_date=</span><span class="st">"2025-05-01"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">end_date=</span><span class="st">"2025-09-30"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">tide_unit =</span> <span class="st">"meters"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">timezone =</span> <span class="st">"America/New_York"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dover Point is a subordinate station. The reference station, 
+Portland, is located 76.35 km. away. Tide levels are 
+calculated from Portland harmonic constituents at one 
+minute increments. Values for high and low tide are extracted, 
+then time and height offset corrections are applied to obtain the 
+Dover Point predictions. 
+
+Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in MarineTides::tide_level(tide_station = "Dover Point", start_date = "2025-05-01", : 
+For subordinate stations, only high and low tide values will be computed.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+   0.99    0.11    1.11 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   station_code station_name reference_station_code tide_type
+         &lt;char&gt;       &lt;char&gt;                 &lt;char&gt;    &lt;char&gt;
+1:      8421897  Dover Point                8418150         H
+2:      8421897  Dover Point                8418150         L
+3:      8421897  Dover Point                8418150         H
+4:      8421897  Dover Point                8418150         L
+5:      8421897  Dover Point                8418150         H
+6:      8421897  Dover Point                8418150         L
+             tide_time      tide_level
+                &lt;POSc&gt;         &lt;units&gt;
+1: 2025-05-01 03:33:00  2.40556719 [m]
+2: 2025-05-01 09:57:00 -0.27604658 [m]
+3: 2025-05-01 16:18:00  2.04071289 [m]
+4: 2025-05-01 22:12:00  0.08293358 [m]
+5: 2025-05-02 04:33:00  2.28938917 [m]
+6: 2025-05-02 10:57:00 -0.15398555 [m]</code></pre>
+</div>
+</div>
+<p>So not only is this fast, but it gets us information on both harmonic and subordinate sites! So, I know why the programmers of <code>MarineTides</code> did not give us the capacity to predict tides from subordinate sites - we can only set subordinate site offsets based on the timing of high or low tides. If we tried to predict a subordinate station, we basically would just shift the time and height based on the offset. <em>BUT</em> we could do it, as long as we acknowledge that the tide harmonics are not calculated for these sites, and thus the shape of the tidal series in between extreme are not known. To quote the XTide developer David Flater, “<em>All subordinate station predictions are approximate</em>”</p>
+<p>Quick gut check to make sure our timezones are correct, and to see if any one method seems to depart from the other! They all look good, note again <code>rnoaa</code> has an earlier start date due to that GMT data fetch.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="xtide" class="level2">
+<h2 class="anchored" data-anchor-id="xtide">XTide</h2>
+<p><a href="https://flaterco.com/xtide/">XTide</a> is an awesome UNIX tide prediction program that I use for much of our intertidal work because it provides predictions over harmonic <em>and</em> subordinate stations. Nifty!</p>
+<p>To install, follow the instructions on the <a href="https://flaterco.com/xtide/installation.html">XTide installation page</a> and the <a href="https://flaterco.com/xtide/ports.html">Port page</a> for non-UNIX systems. It is a little involved, especially on Windows machines. I ended up installing a Windows Subsystem for Linux (WSL) to run Ubuntu. Here is another possibility using a <a href="https://www.vogons.org/viewtopic.php?t=104374">BIOS builder</a>. Note that you might want to download additional files, like the global shapefiles, if you want to use the GUI application as well as Xtide from the command line. I am not anywhere close to knowing what I am doing when it comes to Linux, so the help pages and google are your friends here.</p>
+<p>Once you have Xtide downloaded, you can play around with the GUI which is fun!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="xtide_screen1.jpg" class="img-fluid figure-img" width="1000"></p>
+<figcaption>Starting screen of Xtide</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="xtide_screen2.jpg" class="img-fluid figure-img" width="1000"></p>
+<figcaption>Dover Point subordinate station in Xtide showing various data products</figcaption>
+</figure>
+</div>
+<p>You can even directly download the data from these windows. But, I prefer just being able to get my data through command line. Take a look at the <a href="https://flaterco.com/xtide/tty.html">command line options</a>, as well as the <a href="https://flaterco.com/xtide/modes.html">data types</a> we can request. To translate this code into english, we are requesting data from</p>
+<ul>
+<li><p>Dover Point between</p></li>
+<li><p>May 1st, 2025 and</p></li>
+<li><p>September 30th, 2025 in</p></li>
+<li><p>.csv format. The data type will be</p></li>
+<li><p>“medium rare,” which gives us datetime stamps along with tide height, and it will give it to us every</p></li>
+<li><p>15 minutes. Save the file at the location</p></li>
+<li><p>“xtide/2025summer_dover.csv”, which is a pre-existing, empty .csv file in my root Linux directory.</p></li>
+</ul>
+<div class="cell">
+<pre class="code cell-code"><code>tide -l "Dover Point, Piscataqua River, New Hampshire" -b "2025-05-01 00:00" -e "2025-09-30 00:00" -f c -m m -s "00:15" -o "2025summer_dover.csv"</code></pre>
+</div>
+<p>Also, maybe you just want an .ics file of tide hight and lows? Simple!</p>
+<div class="cell">
+<pre class="code cell-code"><code>tide -l "Dover Point, Piscataqua River, New Hampshire" -b "2025-05-01 00:00" -e "2025-09-30 00:00" -f i -m c -o "xtide/2025summer_dover.ics"</code></pre>
+</div>
+<p>Once we run the medium rare code (first code block), we have the requested tide predictions at our subordinate site. We are now ready to move on to creating a custom intertidal fieldwork calendar in R.</p>
+</section>
+</section>
+<section id="intertidal-field-calendar-in-r" class="level1">
+<h1>Intertidal Field Calendar in R</h1>
+<p>Once we have the tidal data from a site we want, we can begin creating a field calendar. When I created this code, I had 3 goals:</p>
+<ol type="1">
+<li><p>Remove times and days of week that we don’t want to do field work from consideration. Maybe I’m getting soft (or I am no longer doing intertidal field work for my dissertation), but I’d like to not schedule field work during the weekends, before 8 AM, or after 6 PM.</p></li>
+<li><p>I want the length of the calendar event to start and end as soon as tide conditions at my chosen site are conducive. For example, I want to start tidal work as soon as the tide dips below 1ft at Dover Point, and stop field work once the tide rises back to 1ft.</p></li>
+<li><p>I want my calendar event to contain information about the length of time the tide is below my chosen height (1ft), as well as the time of dead low and the length of the low tide.</p></li>
+</ol>
+<p>Let’s get started. I ended up using data I downloaded from XTide, so it may be formatted differently than if you use another source. One important feature we implemented is an additional time offset from the subordinate station (physical oceanographers cringe here) based on our field observations of when low tide occurs at Adams Point compared to Dover Point. We add 45 minutes to the entire tide series to make it approximate our actual field site.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"2025summer_dover.csv"</span>,<span class="at">col.names=</span><span class="fu">c</span>(<span class="st">"site"</span>,<span class="st">"date"</span>,<span class="st">"time"</span>,<span class="st">"tide"</span>),<span class="at">colClasses =</span> <span class="fu">c</span>(<span class="st">"character"</span>,<span class="st">"Date"</span>,<span class="cn">NA</span>,<span class="st">"numeric"</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dover_2025 <span class="ot">&lt;-</span> dover_2025 <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clean_time =</span> <span class="fu">sub</span>(<span class="st">" EDT"</span>, <span class="st">""</span>, time),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">datetime =</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(date, clean_time), <span class="at">format=</span><span class="st">"%Y-%m-%d %I:%M %p"</span>, <span class="at">tz=</span><span class="st">"America/New_York"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>clean_time) </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#in our case, Adam's Point (our field site) is 45 minutes after DOver Point</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>datetime<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>datetime<span class="sc">+</span><span class="fu">minutes</span>(<span class="dv">45</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>time<span class="ot">&lt;-</span><span class="fu">hms</span>(<span class="fu">strftime</span>(dover_2025<span class="sc">$</span>datetime,<span class="at">format=</span><span class="st">"%H:%M:%S"</span>))</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#This is a little tricky, but we need to group by tide cycle rather than date, in case there are more than two low tides that fit our parameters. We accomplish this by looking for when our timeseries switches signs of the first derivative, which we interpret as a maxima, or high tide. </span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ht_date<span class="ot">&lt;-</span>dover_2025[<span class="fu">which</span>(<span class="fu">diff</span>(<span class="fu">sign</span>(<span class="fu">diff</span>(dover_2025<span class="sc">$</span>tide)))<span class="sc">==-</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>,<span class="st">"datetime"</span>]</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#assign status where 1 is HT and 0 is everything else</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>status<span class="ot">&lt;-</span><span class="fu">ifelse</span>(dover_2025<span class="sc">$</span>datetime <span class="sc">%in%</span> ht_date,<span class="st">"1"</span>,<span class="st">"0"</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#starting from zero, assign status incremently</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>dover_2025 <span class="ot">&lt;-</span> dover_2025 <span class="sc">%&gt;%</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">tide_cycle =</span> <span class="fu">cumsum</span>(status <span class="sc">==</span> <span class="dv">1</span>)  <span class="co"># Increment when ht == 1</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>dover_2025<span class="sc">$</span>tide_f<span class="ot">&lt;-</span>dover_2025<span class="sc">$</span>tide<span class="sc">/</span><span class="fl">0.3048</span> <span class="co">#meters to feet</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s extract the information I want from this tidal series to go into a calendar. I decided to filter intertidal fieldwork based on:</p>
+<ul>
+<li><p>start time</p></li>
+<li><p>end time</p></li>
+<li><p>day of week</p></li>
+<li><p>highest tide height we are willing to accept for fieldwork</p></li>
+<li><p>minimum required time in intertidal</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>start_time<span class="ot">&lt;-</span><span class="st">"08:00:00"</span> <span class="co">#start time</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>end_time<span class="ot">&lt;-</span><span class="st">"18:00:00"</span> <span class="co">#quitting time</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>work_days<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Monday"</span>,<span class="st">"Tuesday"</span>,<span class="st">"Wednesday"</span>,<span class="st">"Thursday"</span>,<span class="st">"Friday"</span>)<span class="co">#days we want to work</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>workable_tide_height<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co">#height, here in feet, below which we can work</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>minimum_workable_session<span class="ot">&lt;-</span><span class="dv">30</span> <span class="co">#time in minutes</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>dover_summ<span class="ot">&lt;-</span>dover_2025<span class="sc">%&gt;%</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tide_cycle)<span class="sc">%&gt;%</span><span class="co">#stats by each day</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(time<span class="sc">&gt;</span><span class="fu">hms</span>(start_time) <span class="sc">&amp;</span> time<span class="sc">&lt;</span><span class="fu">hms</span>(end_time))<span class="sc">%&gt;%</span><span class="co">#filter out times we don't want to work</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">weekdays</span>(date) <span class="sc">%in%</span> work_days)<span class="sc">%&gt;%</span><span class="co">#include  days of week we can work</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(tide_f<span class="sc">&lt;=</span>workable_tide_height)<span class="sc">%&gt;%</span><span class="co">#filter our tide times that are too high for us to work</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"total_mins"</span><span class="ot">=</span><span class="fu">difftime</span>(<span class="fu">max</span>(datetime),<span class="fu">min</span>(datetime),<span class="at">units=</span><span class="st">"mins"</span>),<span class="co">#total time we can work in the intertidal, in minutes, given above filters</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min_ht"</span><span class="ot">=</span><span class="fu">min</span>(tide_f),<span class="co">#low tide height</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"low_tide_time"</span><span class="ot">=</span>datetime[<span class="fu">which.min</span>(tide_f)],<span class="co">#timing of the low tide</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_start"</span><span class="ot">=</span>datetime[<span class="dv">1</span>],<span class="co">#timestamp when tide goes below our threshold</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"fieldwork_end"</span><span class="ot">=</span><span class="fu">last</span>(datetime),<span class="co">#timestamp when tide goes above our threshold</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"workable_tide_height"</span><span class="ot">=</span>workable_tide_height<span class="co">#print this here for use later</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>)<span class="sc">%&gt;%</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(total_mins<span class="sc">&gt;</span>minimum_workable_session)<span class="sc">%&gt;%</span><span class="co">#remove sessions that are less than our minimum requirement</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dover_summ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  tide_cycle total_mins min_ht low_tide_time       fieldwork_start    
+       &lt;int&gt; &lt;drtn&gt;      &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;             
+1          1 180 mins   -3.00  2025-05-01 10:45:00 2025-05-01 09:15:00
+2          3 150 mins   -1.68  2025-05-02 11:45:00 2025-05-02 10:30:00
+3         24  60 mins    0.530 2025-05-13 08:45:00 2025-05-13 08:15:00
+4         26  60 mins    0.580 2025-05-14 09:15:00 2025-05-14 08:45:00
+5         28  45 mins    0.758 2025-05-15 09:45:00 2025-05-15 09:30:00
+6         42  45 mins    0.747 2025-05-22 15:30:00 2025-05-22 15:00:00
+# ℹ 2 more variables: fieldwork_end &lt;dttm&gt;, workable_tide_height &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>I’d be remiss if I didn’t try some fun data viz in ggplot. I wish we could make a calendar like this! But good for getting broad strokes on what days have the biggest tides.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dover_summ, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">wday</span>(low_tide_time, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">week_start =</span> <span class="dv">1</span>),  <span class="co"># Ensures Monday starts first</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> <span class="fu">week</span>(low_tide_time), </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> total_mins)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="fu">month</span>(low_tide_time, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>), <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span>  <span class="co"># Split by month</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Day of Week"</span>, </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Week of Year"</span>, </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Minutes of Low Tide Exposure"</span>,<span class="at">title=</span><span class="st">"Adams Point Tides &lt;1ft and &gt;30min duration"</span>) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now that we have the required summary statistics, let’s create our .ics file using the <span class="citation" data-cites="ical">(<a href="#ref-ical" role="doc-biblioref">Meissner 2019</a>)</span> package. I did use a LLM to help me create the code from here on out, so trust but verify if you do this yourself. The function below takes as input our calendar parameters (date, start time of field work, end time of field work, the minimum tide height, and the total amount of time available below our threshold for field work. In the “DESCRIPTION” field, I filled out some information that will print the minimum height and total time of field work, as well as information relevant to our field work such as the time offset I used. The “LOCATION” tab can be filled out with a description or an address, which some online calendars will recognize and provide a geotagged location!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>create_ics_event <span class="ot">&lt;-</span> <span class="cf">function</span>(date, start_time, end_time, min_ht, total_mins,workable_tide_height) {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Assign categories based on tide depth. Some online calendars will allow the .ics file to control the color of the event, but in my experience with google calendar and outlook this is not possible. </span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  category <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Red"</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="dv">0</span>  <span class="sc">~</span> <span class="st">"Orange"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    min_ht <span class="sc">&lt;</span> <span class="fl">0.5</span> <span class="sc">~</span> <span class="st">"Yellow"</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>       <span class="sc">~</span> <span class="st">"Blue"</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glue</span>(<span class="st">"BEGIN:VEVENT</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="st">DTSTART:{format(start_time, '%Y%m%dT%H%M%S')}</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="st">DTEND:{format(end_time, '%Y%m%dT%H%M%S')}</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="st">SUMMARY:Fieldwork - Low Tide Monitoring</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="st">DESCRIPTION:Low tide reached {min_ht} meters. Exposure lasted {total_mins}. Event start and stop indicate</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="st">when tide drops below or rises above {workable_tide_height}ft. Tide data from Dover Point Tide Station, plus a 45 minute offset. </span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="st">LOCATION:Adam's Point</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="st">CATEGORIES:{category}</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="st">END:VEVENT"</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can apply the function to our summary dataframe, and write the formatted file to an .ics file</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ics_events <span class="ot">&lt;-</span> dover_summ <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_start =</span> fieldwork_start, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">event_end =</span> fieldwork_end</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">event =</span> <span class="fu">create_ics_event</span>(date, event_start, event_end, min_ht, total_mins,workable_tide_height)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(event)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a single ICS file - this is needed to tell the calendar program that we are uploading an entire calendar</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>ics_content <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BEGIN:VCALENDAR"</span>, <span class="st">"VERSION:2.0"</span>, ics_events, <span class="st">"END:VCALENDAR"</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to a .ics file</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(ics_content, <span class="st">"fieldwork_schedule_2025.ics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-notes" class="level1">
+<h1>Use notes</h1>
+<p>We now have a .ics file that contains intertidal field survey times that meet our criteria which we can now upload to any online calendar! An important note, you should first create a blank calendar before uploading the .ics file into this new calendar. If you upload the .ics straight to your primary calendar, it is next to impossible to delete all of these events at once.</p>
+<p>In (new) Outlook:</p>
+<ol type="1">
+<li><p>Select the Calendar tab</p></li>
+<li><p>On the left side ribbon, below the monthly calendar overview, select “Add Calendar”</p></li>
+<li><p>Select “Create blank calendar”</p></li>
+<li><p>Name the field calendar how you want, and add it to your root account calendar. Select “save”</p></li>
+<li><p>Select “Add Calendar” again</p></li>
+<li><p>Select “Upload from file”</p></li>
+<li><p>Browse towards your saved .ics file, <em>then make sure you select the blank field calendar you just created</em></p></li>
+<li><p>Select “Import.”</p></li>
+<li><p>You are done! You now have fieldwork events in your calendar.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="outlook.jpg" class="img-fluid figure-img" width="700"></p>
+<figcaption>Intertidal field sessions uploaded into Outlook Calendar</figcaption>
+</figure>
+</div>
+<p>In Google Calendar:</p>
+<ol type="1">
+<li><p>In the main calendar view, select the “+” button next to “Other Calendars” on the left hand ribbon</p></li>
+<li><p>Select “Create new calendar”</p></li>
+<li><p>Add an appropriate name and description. Select “Create Calendar”</p></li>
+<li><p>In the main calendar view, select the “+” button next to “Other Calendars” on the left hand ribbon and “Import”</p></li>
+<li><p>Select the .ics file from your computer, <em>then make sure you select the blank field calendar you just created.</em></p></li>
+<li><p>Select “Import”</p></li>
+</ol>
+<p>Now you’re done, but with a different giant tech monopoly!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="josie.JPEG" class="img-fluid figure-img" width="250"></p>
+<figcaption>Drilling rock anchors is best when not underwater</figcaption>
+</figure>
+</div>
+<p>Thanks for reading! Do let me know if you have any comments or suggestions - I’d love to hear them. I may create a shiny app to automatically create the .ics file in the future, if this is something you would like drop a comment below.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-rnoaa" class="csl-entry" role="listitem">
+Chamberlain, Scott. 2021. <span>“Rnoaa: ’NOAA’ Weather Data from r.”</span> <a href="https://CRAN.R-project.org/package=rnoaa">https://CRAN.R-project.org/package=rnoaa</a>.
+</div>
+<div id="ref-ical" class="csl-entry" role="listitem">
+Meissner, Peter. 2019. <span>“Ical: ’iCalendar’ Parsing.”</span> <a href="https://CRAN.R-project.org/package=ical">https://CRAN.R-project.org/package=ical</a>.
+</div>
+<div id="ref-MarineTides" class="csl-entry" role="listitem">
+Strom, Are. 2025. <span>“MarineTides: Tide Prediction.”</span> <a href="https://github.com/arestrom/MarineTides">https://github.com/arestrom/MarineTides</a>.
+</div>
+<div id="ref-rtide" class="csl-entry" role="listitem">
+Thorley, Joe, Luke Miller, and Abram Fleishman. 2021. <span>“Rtide: Tide Heights.”</span> <a href="https://CRAN.R-project.org/package=rtide">https://CRAN.R-project.org/package=rtide</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/villesci\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="villesci/villesci.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
