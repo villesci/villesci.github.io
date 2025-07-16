@@ -17,7 +17,7 @@ I recently came back home after a conference biathlon over a period of three wee
 
 [EFI](https://ecoforecast.org/), the organization on which I serve as an early career and student co-chair, put on tremendously fun small conference at Virginia Tech, nestled in the Blue Ridge Mountains of southwestern Virginia. EFI serves a really forward-looking group of ecologists who think beyond building models of how ecological systems work, and seek to test their predictions in the real world. In my mind, the centerpieces of EFI are the forecasting challenges, which include the [NEON](https://projects.ecoforecast.org/neon4cast-ci/) and [FLARE](https://flare-forecast.org/) (Forecasting Lakes and Reservoir Ecosystems) - true examples of ecological prediction at its best, leveraging ensemble modeling created by teams across the world to predict, in real-time, a range of environmental and biological parameters.
 
-![NEON Flux tower, Mountain Lake LTER](images/neon.JPEG){width="4in"}
+![NEON Flux tower, Mountain Lake LTER](neon.JPEG){width="4in"}
 
 These challenges, and the conference overall, really opened my eyes to how the analytical divisions we often slot ourselves into when performing ecological modelling should really be viewed as just a range of techniques for attempting to describe and predict patterns in nature. Time-series analysis methods (ARIMA, lagged regressive techniques) are just another side of the die that also include mechanistic, biophysical/ecophysiological models, black box machine learning, and cutting edge hierarchical Bayesian analysis. Each method has its adopters, and strengths and weaknesses, but ultimately all modelling approaches may be a valid way of describing ecological patterns.
 
@@ -27,7 +27,7 @@ I really enjoyed listening to a keynote by Dr. Wendy Parker (VT), who works on t
 
 Finally, one of my biggest takeaways is the importance of a robust cyberinfrastructure for iterative forecasting. If one can get continuous data streams, or at least automated packet deliveries, the time lag for model scoring, and by extension development of better models, is much reduced. Having server or cloud-based systems that can automate much of the data cleaning, analysis, and visualization greatly extends the reach of a forecasting system beyond a single group of researchers. There are so many awesome tools now, including Github actions and FAAS (functions as a service) that enable ecologists to speed up the modeling cycle exponentially.
 
-![My poster presentation at EFI 2025](images/efi.JPEG){width="4in"}
+![My poster presentation at EFI 2025](efi.JPEG){width="4in"}
 
 Of course, the next best part about the conference was its location in the Blue Ridge, an area of the country close to my heart. It's hard to go wrong with a post-conference hike and communal square dance!
 
@@ -35,18 +35,18 @@ Of course, the next best part about the conference was its location in the Blue 
 
 Within three days of returning from Blacksburg, I got on a flight to Paris to begin the weeklong FADEX program put together by the French Embassy to the United States. I was lucky enough to be selected for this program along with 10 other American PhD students in the ocean sciences to travel to France to tour labs and meet French students and researchers. The program was designed to end in Nice during the One Ocean Science Congress (OOC), itself the immediate scientific entrée to the UN Ocean Conference (UNOC). Given the retreat of the current US regime from funding some of the best institutions and researchers in the world (I am restraining my editorializing), I was particularly interested to see how French and European scientific organs are filling the scientific power vacuum.
 
-![Maison de l'Océan, Paris - Prince Albert Ier's monument to oceanography. What an incredible lecture hall!](images/IMG_5622.JPEG){width="4in"}
+![Maison de l'Océan, Paris - Prince Albert Ier's monument to oceanography. What an incredible lecture hall!](IMG_5622.JPEG){width="4in"}
 
 After meeting with researchers at the Maison de l'Océan (Prince Albert I of Monaco's urban temple to the ocean sciences) and Muséum national d'Histoire Naturelle in Paris (and some sightseeing amidst a historic Paris-Milan football match), we took the high-speed train to Brest, where IFREMER and the Université de Bretagne Occidentale have major marine labs. I was struck during this visit by the French system of research neighborhoods, or teams, which may accomodate several PIs within a single umbrella lab. After a quick, scenic 24 hours in Brest, we took high speed rail to Nice to begin the OOS Congress.
 
-![OOS 2025 - Port Lympia, Nice.](images/oos.JPEG){width="4in"}
+![OOS 2025 - Port Lympia, Nice.](oos.JPEG){width="4in"}
 
 OOS was a complete change of pace from the EFI conference - from 100 to over three thousand attendees, and from niche ecological topics to wide-ranging, high-impact ocean science. After battling through an extensive security zone, each day I would enter the congress grounds directly on Port Lympia. Watching my fellow American FADEX attendees give their talks in the *big* conference tent was a pretty unreal experience!
 
 Some of the other highlights of the OOS were the public-facing ocean exposition called *La Baleine* (the whale), an impressive display of ocean-themed exhibits in a massive conference center, and the achingly beautiful special art event held at the Nice Opera House. We had the opportunity to meet with the (sadly) small group of US politicos attending OOS/UNOC, including Sen. Sheldon Whitehouse (RI) and the mayor of New Orleans. In better times, I hope to see a much stronger and dedicated US delegation in attendance. As a final part of our FADEX program, we met French doctoral students at the Sorbonne's Laboratoire Oceanographique de Villefranche-sur-mer.
 
-![FADEX students meeting with Sen. Sheldon Whitehouse, a climate champion in the US senate, at the Villa Massena.](images/sheldon.jpg){width="6in" height="5in"}
+![FADEX students meeting with Sen. Sheldon Whitehouse, a climate champion in the US senate, at the Villa Massena.](sheldon.jpg){width="6in" height="5in"}
 
-![View of Villefranche-sur-Mer, the location of perhaps one of the most scenic marine labs (Sorbonne-LOV) in the world.](images/villefrance.JPEG){width="6in"}
+![View of Villefranche-sur-Mer, the location of perhaps one of the most scenic marine labs (Sorbonne-LOV) in the world.](villefrance.JPEG){width="6in"}
 
 I am deeply grateful for the Embassy of France in the United States for providing this incredible opportunity. I was heartened and inspired to see a large-scale investment (and trust!) in not only the sciences, but efforts to combat climate change and degradation of the world's oceans.
