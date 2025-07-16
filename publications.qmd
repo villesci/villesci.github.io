@@ -21,10 +21,10 @@ source("_common.R")
 
 
 # Update local copy of "pubs" Google sheet
-write_csv(get_pubs(), here::here('data', 'pubs.csv'))
+#write_csv(get_pubs(), here::here('data', 'pubs.csv'))
 
 # Get local copy of pubs
-pubs <- read_csv(here::here('data', 'pubs.csv'))
+#pubs <- read_csv(here::here('data', 'pubs.csv'))
 
 # Get pubs from Google sheet
 pubs <- get_pubs()
