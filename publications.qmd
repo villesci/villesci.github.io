@@ -12,6 +12,8 @@ format:
     title-block-banner-color: body
 ---
 
+# Published
+
 ```{r setup,echo=F,warning=F,message=F}
 library(animation)
 library(gsheet)
@@ -21,10 +23,10 @@ source("_common.R")
 
 
 # Update local copy of "pubs" Google sheet
-#write_csv(get_pubs(), here::here('data', 'pubs.csv'))
+write_csv(get_pubs(), here::here('data', 'pubs.csv'))
 
 # Get local copy of pubs
-#pubs <- read_csv(here::here('data', 'pubs.csv'))
+pubs <- read_csv(here::here('data', 'pubs.csv'))
 
 # Get pubs from Google sheet
 pubs <- get_pubs()
@@ -32,5 +34,6 @@ pubs <- get_pubs()
 
 `r make_pub_list(pubs, "peer_reviewed")`
 
+# Preprints
 
-
+1.  **Villeneuve, Andrew R.**; Baker-Médard, Merrill; Randriamanantsoa, Bemahafaly; White, Easton R. (2025). "Unequal Thermal Risks in a Socioeconomically Important Tropical Reef Fishery." [10.32942/X2CW68](https://doi.org/10.32942/X2CW68)
