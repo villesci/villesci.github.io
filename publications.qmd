@@ -6,14 +6,22 @@ format: html
 ::: {#pub-updated .small .text-muted}
 :::
 
-::: {#pub-list}
+::: {#pub-sections}
 :::
 
 ```{=html}
 <script>
 async function loadPublications() {
-  const listEl = document.getElementById("pub-list");
+  const sectionsEl = document.getElementById("pub-sections");
   const updatedEl = document.getElementById("pub-updated");
+
+  // Type -> section heading / icon. Anything not listed falls into "other".
+  const TYPE_META = {
+    "journal-article": { label: "Peer-Reviewed Publications", icon: "bi-journal-check" },
+    "preprint":        { label: "Preprints",                  icon: "bi-file-earmark-text" },
+    "other":           { label: "Other",                      icon: "bi-bookmark" },
+  };
+  const TYPE_ORDER = ["journal-article", "preprint", "other"];
 
   try {
     // Works when _data is published with site output.
@@ -28,36 +36,73 @@ async function loadPublications() {
     }
 
     if (!items.length) {
-      listEl.innerHTML = "<p>No publications found.</p>";
+      sectionsEl.innerHTML = "<p>No publications found.</p>";
       return;
     }
 
-    const ol = document.createElement("ol");
-    ol.className = "publication-list";
-
+    // Group by type, preserving each item's existing (year-descending) order.
+    const groups = {};
     items.forEach((p) => {
-      const li = document.createElement("li");
-
-      const authors = (p.authors || []).join(", ");
-      const year = p.year ? ` (${p.year}).` : ".";
-      const journal = p.journal ? ` <em>${p.journal}</em>.` : "";
-      const doiLink = p.doi_url
-        ? ` <a href="${p.doi_url}" target="_blank" rel="noopener">doi:${p.doi}</a>.`
-        : "";
-      const urlLink = p.url
-        ? ` <a href="${p.url}" target="_blank" rel="noopener">Link</a>.`
-        : "";
-
-      li.innerHTML = `
-        <strong>${p.title ?? "Untitled"}</strong><br>
-        ${authors}${year}${journal}${doiLink}${urlLink}
-      `;
-      ol.appendChild(li);
+      const key = TYPE_ORDER.includes(p.type) ? p.type : "other";
+      (groups[key] = groups[key] || []).push(p);
     });
 
-    listEl.appendChild(ol);
+    TYPE_ORDER.forEach((key) => {
+      const groupItems = groups[key];
+      if (!groupItems || !groupItems.length) return;
+
+      const meta = TYPE_META[key];
+
+      const section = document.createElement("section");
+      section.className = "pub-section";
+
+      const heading = document.createElement("h2");
+      heading.innerHTML = `<i class="bi ${meta.icon} me-2" aria-hidden="true"></i>${meta.label}`;
+      section.appendChild(heading);
+
+      const list = document.createElement("div");
+      list.className = "pub-cards";
+
+      groupItems.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "pub-card";
+
+        const authors = (p.authors || []).join(", ");
+        const year = p.year ? ` (${p.year}).` : ".";
+        const journal = p.journal ? ` <em>${p.journal}</em>.` : "";
+
+        const buttons = [];
+        if (p.doi_url) {
+          buttons.push(
+            `<a class="btn btn-sm btn-outline-secondary" href="${p.doi_url}" target="_blank" rel="noopener">
+               <i class="bi bi-box-arrow-up-right me-1" aria-hidden="true"></i>DOI
+             </a>`
+          );
+        }
+        if (p.url && p.url !== p.doi_url) {
+          buttons.push(
+            `<a class="btn btn-sm btn-outline-secondary" href="${p.url}" target="_blank" rel="noopener">
+               <i class="bi bi-link-45deg me-1" aria-hidden="true"></i>Link
+             </a>`
+          );
+        }
+
+        card.innerHTML = `
+          <div class="pub-icon"><i class="bi ${meta.icon}" aria-hidden="true"></i></div>
+          <div class="pub-body">
+            <div class="pub-title">${p.title ?? "Untitled"}</div>
+            <div class="pub-meta">${authors}${year}${journal}</div>
+            ${buttons.length ? `<div class="pub-buttons">${buttons.join("")}</div>` : ""}
+          </div>
+        `;
+        list.appendChild(card);
+      });
+
+      section.appendChild(list);
+      sectionsEl.appendChild(section);
+    });
   } catch (err) {
-    listEl.innerHTML = `<p>Could not load publications data.</p>`;
+    sectionsEl.innerHTML = `<p>Could not load publications data.</p>`;
     console.error(err);
   }
 }

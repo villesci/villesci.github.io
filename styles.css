@@ -147,5 +147,75 @@ nav.navbar {
 .silhouette-wrapper span {
   display: none;
 }
-  
+
+/* Publications page: type-grouped citation cards */
+.pub-section + .pub-section {
+  margin-top: 2rem;
+}
+
+.pub-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.pub-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pub-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-color: #cfd8e3;
+}
+
+.pub-icon {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #eef2f6;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.pub-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pub-title {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.2rem;
+}
+
+.pub-meta {
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.pub-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .pub-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 </style>
