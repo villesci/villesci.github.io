@@ -72,10 +72,12 @@
       "doi": "10.1111/1365-2656.14120",
       "doi_url": "https://doi.org/10.1111/1365-2656.14120",
       "url": "https://doi.org/10.1111/1365-2656.14120",
-      "type": "journal-article"
+      "type": "journal-article",
+      "preprint_doi": "10.32942/x29w4w",
+      "preprint_url": "https://doi.org/10.32942/x29w4w"
     },
     {
-      "title": "Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate species ",
+      "title": "Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate species ",
       "authors": [
         "Andrew Villeneuve",
         "Easton White"
@@ -85,20 +87,7 @@
       "doi": "10.5194/oos2025-740",
       "doi_url": "https://doi.org/10.5194/oos2025-740",
       "url": "https://doi.org/10.5194/oos2025-740",
-      "type": "preprint"
-    },
-    {
-      "title": "Predicting organismal response to marine heatwaves using mechanistic thermal landscape models",
-      "authors": [
-        "Andrew Villeneuve",
-        "Easton White"
-      ],
-      "year": 2024,
-      "journal": null,
-      "doi": "10.32942/x29w4w",
-      "doi_url": "https://doi.org/10.32942/x29w4w",
-      "url": "https://doi.org/10.32942/x29w4w",
-      "type": "preprint"
+      "type": "conference-paper"
     },
     {
       "title": "Greater evolutionary divergence of thermal limits within marine than terrestrial species",
@@ -118,7 +107,9 @@
       "doi": "10.1038/s41558-022-01534-y",
       "doi_url": "https://doi.org/10.1038/s41558-022-01534-y",
       "url": "https://doi.org/10.1038/s41558-022-01534-y",
-      "type": "journal-article"
+      "type": "journal-article",
+      "preprint_doi": "10.21203/rs.3.rs-987225/v1",
+      "preprint_url": "https://doi.org/10.21203/rs.3.rs-987225/v1"
     },
     {
       "title": "Limited plasticity in thermally tolerant ectotherm populations: evidence for a trade-off",
@@ -139,26 +130,6 @@
       "doi_url": "https://doi.org/10.1098/rspb.2021.0765",
       "url": "https://doi.org/10.1098/rspb.2021.0765",
       "type": "journal-article"
-    },
-    {
-      "title": "Greater local adaptation to temperature in the ocean than on land",
-      "authors": [
-        "Matthew Sasaki",
-        "Jordanna Barley",
-        "Sarah Gignoux-Wolfsohn",
-        "Cynthia Hays",
-        "Morgan Kelly",
-        "Alysha Putnam",
-        "Seema Sheth",
-        "Andrew Villeneuve",
-        "Brian Cheng"
-      ],
-      "year": 2021,
-      "journal": null,
-      "doi": "10.21203/rs.3.rs-987225/v1",
-      "doi_url": "https://doi.org/10.21203/rs.3.rs-987225/v1",
-      "url": "https://doi.org/10.21203/rs.3.rs-987225/v1",
-      "type": "preprint"
     },
     {
       "title": "Environment and phenology shape local adaptation in thermal performance",
@@ -219,7 +190,7 @@
       "journal": null,
       "doi": null,
       "doi_url": null,
-      "url": null,
+      "url": "https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf",
       "type": "journal-article"
     }
   ]

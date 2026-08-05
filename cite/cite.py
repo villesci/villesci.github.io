@@ -4,6 +4,7 @@ import os
 import re
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List
 
 import requests
@@ -11,6 +12,7 @@ import yaml
 
 ORCID_API = "https://pub.orcid.org/v3.0"
 CROSSREF_API = "https://api.crossref.org/works"
+OVERRIDES_PATH = Path(__file__).parent / "overrides.yaml"
 
 
 def safe_get(d: Dict[str, Any], *keys, default=None):
@@ -111,6 +113,62 @@ def sort_key(w: Dict[str, Any]):
     return (w.get("year") or 0, w.get("month") or 0, w.get("day") or 0, (w.get("title") or "").lower())
 
 
+def doi_key(doi: str | None) -> str:
+    return normalize_doi(doi) or ""
+
+
+def load_overrides() -> Dict[str, Any]:
+    """Manual corrections layered on top of the auto-fetched ORCID/CrossRef
+    data (see cite/overrides.yaml). Re-applied on every run so they survive
+    the next scheduled refresh."""
+    empty = {"type_overrides": {}, "superseded_by": {}, "exclude": set()}
+    if not OVERRIDES_PATH.exists():
+        return empty
+    with open(OVERRIDES_PATH, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f) or {}
+    return {
+        "type_overrides": {
+            doi_key(k): v for k, v in (raw.get("type_overrides") or {}).items()
+        },
+        "superseded_by": {
+            doi_key(k): doi_key(v) for k, v in (raw.get("superseded_by") or {}).items()
+        },
+        "exclude": {doi_key(d) for d in (raw.get("exclude") or [])},
+        "url_overrides": dict(raw.get("url_overrides") or {}),
+    }
+
+
+def apply_overrides(items: List[Dict[str, Any]], overrides: Dict[str, Any]) -> List[Dict[str, Any]]:
+    by_doi = {doi_key(it.get("doi")): it for it in items if it.get("doi")}
+
+    # Force a specific type (e.g. a conference abstract ORCID mis-tagged as "preprint").
+    for it in items:
+        override_type = overrides["type_overrides"].get(doi_key(it.get("doi")))
+        if override_type:
+            it["type"] = override_type
+
+    # Attach a manual link for entries with no DOI/URL at all (old ORCID
+    # records that predate DOIs, etc.), matched by exact title text.
+    for it in items:
+        if it.get("url"):
+            continue
+        manual_url = overrides["url_overrides"].get((it.get("title") or "").strip())
+        if manual_url:
+            it["url"] = manual_url
+
+    # A preprint that has since been published: attach a "preprint" link to
+    # the published entry, then drop the standalone preprint from the list.
+    drop = set(overrides["exclude"])
+    for preprint_doi, published_doi in overrides["superseded_by"].items():
+        drop.add(preprint_doi)
+        target = by_doi.get(published_doi)
+        if target:
+            target["preprint_doi"] = preprint_doi
+            target["preprint_url"] = f"https://doi.org/{preprint_doi}"
+
+    return [it for it in items if doi_key(it.get("doi")) not in drop]
+
+
 def normalize_orcid_id(raw: str) -> str:
     """Accept a bare ORCID iD or a full https://orcid.org/... URL, with
     stray quotes/whitespace tolerated, and return just the iD."""
@@ -153,6 +211,8 @@ def main():
                 "type": w.get("type"),
             }
         )
+
+    items = apply_overrides(items, load_overrides())
 
     items.sort(key=sort_key, reverse=True)
 

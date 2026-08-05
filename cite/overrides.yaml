@@ -1,0 +1,28 @@
+# Manual corrections layered onto the auto-fetched ORCID/CrossRef data.
+# Re-applied by cite.py on every run, so these survive the next scheduled
+# refresh instead of being wiped out. DOIs are matched case-insensitively
+# and without the https://doi.org/ prefix.
+
+# Force a specific type when ORCID's own classification is wrong
+# (e.g. a conference abstract that ORCID tagged as "preprint").
+# Recognized types in publications.qmd: journal-article, preprint,
+# conference-paper (falls back to "Other" if unrecognized).
+type_overrides:
+  10.5194/oos2025-740: conference-paper
+
+# Preprints that have since been published in peer-reviewed form.
+# key: preprint DOI, value: DOI of the published version.
+# The preprint entry is removed from the list; the published entry gets a
+# "Preprint" button linking back to it instead.
+superseded_by:
+  10.32942/x29w4w: 10.1111/1365-2656.14120           # -> Villeneuve & White 2025, J Animal Ecology
+  10.21203/rs.3.rs-987225/v1: 10.1038/s41558-022-01534-y  # -> Sasaki et al. 2022, Nature Climate Change
+
+# DOIs to drop entirely (duplicates, withdrawn works, etc.)
+exclude: []
+
+# Manual link for entries with no DOI/URL at all (old ORCID records that
+# predate DOIs, etc.). Matched by exact title text as it appears in
+# _data/publications.json. Shows as a "Link" button in place of "DOI".
+url_overrides:
+  "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar": "https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf"

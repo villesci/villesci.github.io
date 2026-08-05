@@ -17,11 +17,24 @@ async function loadPublications() {
 
   // Type -> section heading / icon. Anything not listed falls into "other".
   const TYPE_META = {
-    "journal-article": { label: "Peer-Reviewed Publications", icon: "bi-journal-check" },
-    "preprint":        { label: "Preprints",                  icon: "bi-file-earmark-text" },
-    "other":           { label: "Other",                      icon: "bi-bookmark" },
+    "journal-article":  { label: "Peer-Reviewed Publications", icon: "bi-journal-check" },
+    "preprint":         { label: "Preprints",                  icon: "bi-file-earmark-text" },
+    "conference-paper": { label: "Conference Presentations",   icon: "bi-easel2" },
+    "other":            { label: "Other",                      icon: "bi-bookmark" },
   };
-  const TYPE_ORDER = ["journal-article", "preprint", "other"];
+  const TYPE_ORDER = ["journal-article", "preprint", "conference-paper", "other"];
+
+  // Turns a journal name into the filename this entry's cover thumbnail
+  // would need, e.g. "Journal of Animal Ecology" -> "journal-of-animal-ecology".
+  // Drop a matching .jpg/.png into images/journal-covers/ and it's picked up
+  // automatically; otherwise the type icon is shown instead.
+  function slugify(s) {
+    return (s || "")
+      .toLowerCase()
+      .normalize("NFKD").replace(new RegExp("[\\u0300-\\u036f]", "g"), "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
 
   try {
     // Works when _data is published with site output.
@@ -86,15 +99,55 @@ async function loadPublications() {
              </a>`
           );
         }
+        if (p.preprint_url) {
+          buttons.push(
+            `<a class="btn btn-sm btn-outline-secondary" href="${p.preprint_url}" target="_blank" rel="noopener">
+               <i class="bi bi-file-earmark-text me-1" aria-hidden="true"></i>Preprint
+             </a>`
+          );
+        }
 
-        card.innerHTML = `
-          <div class="pub-icon"><i class="bi ${meta.icon}" aria-hidden="true"></i></div>
-          <div class="pub-body">
-            <div class="pub-title">${p.title ?? "Untitled"}</div>
-            <div class="pub-meta">${authors}${year}${journal}</div>
-            ${buttons.length ? `<div class="pub-buttons">${buttons.join("")}</div>` : ""}
-          </div>
+        // Icon container built with real DOM nodes (not an HTML string) so
+        // the fallback-icon markup never has to be quote-escaped into an
+        // inline event-handler attribute.
+        const iconEl = document.createElement("div");
+        iconEl.className = "pub-icon";
+
+        function showFallbackIcon() {
+          iconEl.innerHTML = `<i class="bi ${meta.icon}" aria-hidden="true"></i>`;
+        }
+
+        // Try a curated cover thumbnail first (images/journal-covers/<slug>.jpg|png);
+        // fall back to the type icon if it's missing or fails to load.
+        const slug = slugify(p.journal);
+        if (slug) {
+          const img = document.createElement("img");
+          img.alt = "";
+          img.loading = "lazy";
+          img.src = `/images/journal-covers/${slug}.jpg`;
+          img.addEventListener("error", () => {
+            if (img.dataset.triedPng) {
+              showFallbackIcon();
+            } else {
+              img.dataset.triedPng = "1";
+              img.src = `/images/journal-covers/${slug}.png`;
+            }
+          });
+          iconEl.appendChild(img);
+        } else {
+          showFallbackIcon();
+        }
+
+        const bodyEl = document.createElement("div");
+        bodyEl.className = "pub-body";
+        bodyEl.innerHTML = `
+          <div class="pub-title">${p.title ?? "Untitled"}</div>
+          <div class="pub-meta">${authors}${year}${journal}</div>
+          ${buttons.length ? `<div class="pub-buttons">${buttons.join("")}</div>` : ""}
         `;
+
+        card.appendChild(iconEl);
+        card.appendChild(bodyEl);
         list.appendChild(card);
       });
 

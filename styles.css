@@ -178,15 +178,22 @@ nav.navbar {
 
 .pub-icon {
   flex: 0 0 auto;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  width: 44px;
+  height: 58px;
+  border-radius: 8px;
   background: #eef2f6;
   color: #2c3e50;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.pub-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .pub-body {
