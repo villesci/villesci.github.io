@@ -1,0 +1,43 @@
+---
+title: 'Publications'
+page-layout: full
+title-block-banner: true
+
+format:
+  html:
+    page-layout: full
+    title-block-banner: "images/coral.jpg"
+    title-block-style: default
+    title-block-categories: false
+    title-block-banner-color: body
+---
+
+# Published
+
+```{r setup,echo=F,warning=F,message=F}
+library(animation)
+library(gsheet)
+library(markdown)
+library(tidyverse)
+source("_common.R")
+
+
+# Update local copy of "pubs" Google sheet
+write_csv(get_pubs(), here::here('data', 'pubs.csv'))
+
+# Get local copy of pubs
+pubs <- read_csv(here::here('data', 'pubs.csv'))
+
+# Get pubs from Google sheet
+pubs <- get_pubs()
+```
+
+`r make_pub_list(pubs, "peer_reviewed")`
+
+# Accepted
+
+`r make_pub_list(pubs, "accepted")`
+
+# Preprints
+
+`r make_pub_list(pubs, "preprint")`

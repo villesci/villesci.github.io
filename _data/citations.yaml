@@ -1,0 +1,162 @@
+- authors:
+  - Andrew Villeneuve
+  - Easton White
+  date: '2025-03-25'
+  file: orcid.yaml
+  id: doi:10.5194/oos2025-740
+  link: https://doi.org/g9hf87
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Copernicus GmbH
+  title: Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate
+    species
+  year: 2025
+- authors:
+  - Andrew R. Villeneuve
+  - Easton R. White
+  date: '2024-06-08'
+  file: orcid.yaml
+  id: doi:10.1111/1365-2656.14120
+  link: https://doi.org/gtxzmg
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Journal of Animal Ecology
+  title: Predicting organismal response to marine heatwaves using dynamic thermal
+    tolerance landscape models
+  year: 2024
+- authors:
+  - Andrew Villeneuve
+  - Easton White
+  date: '2024-01-23'
+  file: orcid.yaml
+  id: doi:10.32942/X29W4W
+  link: https://doi.org/gtg9gs
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: California Digital Library (CDL)
+  title: Predicting organismal response to marine heatwaves using mechanistic thermal
+    landscape models
+  year: 2024
+- authors:
+  - Matthew Sasaki
+  - Jordanna M. Barley
+  - Sarah Gignoux-Wolfsohn
+  - Cynthia G. Hays
+  - Morgan W. Kelly
+  - Alysha B. Putnam
+  - Seema N. Sheth
+  - Andrew R. Villeneuve
+  - Brian S. Cheng
+  date: '2022-12-01'
+  file: orcid.yaml
+  id: doi:10.1038/s41558-022-01534-y
+  link: https://doi.org/grcwk2
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Nature Climate Change
+  title: Greater evolutionary divergence of thermal limits within marine than terrestrial
+    species
+  year: 2022
+- authors:
+  - Matthew Sasaki
+  - Jordanna Barley
+  - Sarah Gignoux-Wolfsohn
+  - Cynthia Hays
+  - Morgan Kelly
+  - Alysha Putnam
+  - Seema Sheth
+  - Andrew Villeneuve
+  - Brian Cheng
+  date: '2021-10-29'
+  file: orcid.yaml
+  id: doi:10.21203/rs.3.rs-987225/v1
+  link: https://doi.org/g9hf88
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Research Square Platform LLC
+  title: Greater local adaptation to temperature in the ocean than on land
+  year: 2021
+- authors:
+  - Jordanna M. Barley
+  - Brian S. Cheng
+  - Matthew Sasaki
+  - Sarah Gignoux-Wolfsohn
+  - Cynthia G. Hays
+  - Alysha B. Putnam
+  - Seema Sheth
+  - Andrew R. Villeneuve
+  - Morgan Kelly
+  date: '2021-09-08'
+  file: orcid.yaml
+  id: doi:10.1098/rspb.2021.0765
+  link: https://doi.org/gmtph7
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: 'Proceedings of the Royal Society B: Biological Sciences'
+  title: 'Limited plasticity in thermally tolerant ectotherm populations: evidence
+    for a trade-off'
+  year: 2021
+- authors:
+  - Andrew R. Villeneuve
+  - Lisa M. Komoroske
+  - Brian S. Cheng
+  date: '2021-07-28'
+  file: orcid.yaml
+  id: doi:10.1098/rspb.2021.0741
+  link: https://doi.org/gmkfj3
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: 'Proceedings of the Royal Society B: Biological Sciences'
+  title: Environment and phenology shape local adaptation in thermal performance
+  year: 2021
+- authors:
+  - Andrew R Villeneuve
+  - Lisa M Komoroske
+  - Brian S Cheng
+  date: '2021-01-01'
+  file: orcid.yaml
+  id: doi:10.1093/conphys/coab039
+  link: https://doi.org/gms4bs
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Conservation Physiology
+  title: Diminished warming tolerance and plasticity in low-latitude populations of
+    a marine gastropod
+  year: 2021
+- authors:
+  - Andrew Robert Villeneuve
+  - Ian Thornhill
+  - Jacqualyn Eales
+  date: '2019-03-05'
+  file: orcid.yaml
+  id: doi:10.1007/s10452-019-09683-7
+  link: https://doi.org/gwddw8
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Aquatic Ecology
+  title: 'Upstream migration and altitudinal distribution patterns of Nereina punctulata
+    (Gastropoda: Neritidae) in Dominica, West Indies'
+  year: 2019
+- authors:
+  - Nathaniel T. Wheelwright
+  - Liam U. Taylor
+  - Benjamin M. West
+  - Erin R. Voss
+  - Sabine Y. Berzins
+  - Andrew R. Villeneuve
+  - Hannah R. LeBlanc
+  - Victor B. Leos
+  - Samuel J. Mayne
+  - Sarah A. McCarthy
+  - Shan J. Nagar
+  - Jenna S. Watling
+  date: '2017-03-01'
+  file: orcid.yaml
+  id: doi:10.1656/045.024.s705
+  link: https://doi.org/gcrfvw
+  orcid: 0000-0001-7303-5931
+  plugin: orcid.py
+  publisher: Northeastern Naturalist
+  title: Pupation Site Selection and Enemy Avoidance in the Introduced Pine Sawfly
+    (<i>Diprion similis</i>)
+  year: 2017

@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - _data/publications.json
 
 website:
   open-graph: true

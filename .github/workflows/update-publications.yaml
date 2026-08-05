@@ -1,0 +1,50 @@
+name: update-publications
+run-name: update publications data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: "cite/requirements.txt"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r cite/requirements.txt
+
+      - name: Generate publications
+        env:
+          ORCID_ID: ${{ secrets.ORCID_ID }}
+          EMAIL_FOR_POLITE_POOLING: ${{ secrets.EMAIL_FOR_POLITE_POOLING }}
+        run: python cite/cite.py
+
+      - name: Check changed files
+        id: changed
+        uses: tj-actions/verify-changed-files@v18
+        with:
+          files: |
+            _data/publications.json
+            _data/publications.yml
+
+      - name: Commit updates
+        if: steps.changed.outputs.files_changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update publications data"
+          file_pattern: "_data/publications.json _data/publications.yml"
