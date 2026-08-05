@@ -174,20 +174,33 @@ items:
   url: https://doi.org/10.1007/s10452-019-09683-7
   type: journal-article
 - title: Pupation Site Selection and Enemy Avoidance in the Introduced Pine Sawfly
-    (Diprion similis)
-  authors: []
+    (<i>Diprion similis</i>)
+  authors:
+  - Nathaniel T. Wheelwright
+  - Liam U. Taylor
+  - Benjamin M. West
+  - Erin R. Voss
+  - Sabine Y. Berzins
+  - Andrew R. Villeneuve
+  - Hannah R. LeBlanc
+  - Victor B. Leos
+  - Samuel J. Mayne
+  - Sarah A. McCarthy
+  - Shan J. Nagar
+  - Jenna S. Watling
   year: 2017
-  journal: null
+  journal: Northeastern Naturalist
   doi: 10.1656/045.024.s705
   doi_url: https://doi.org/10.1656/045.024.s705
-  url: null
+  url: https://doi.org/10.1656/045.024.s705
   type: journal-article
 - title: Habitat selection and population density of the world’s smallest chameleon,
-    brookesia micra, on Nosy Hara, Madagascar
-  authors: []
+    <i>Brookesia micra</i>, on Nosy Hara, Madagascar
+  authors:
+  - Andrew R. Villeneuve
   year: 2017
-  journal: null
+  journal: Herpetological Conservation and Biology
   doi: null
   doi_url: null
-  url: null
+  url: https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf
   type: journal-article

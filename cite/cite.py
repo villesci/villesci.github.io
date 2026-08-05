@@ -2,7 +2,9 @@
 from __future__ import annotations
 import os
 import re
+import sys
 import json
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
@@ -81,11 +83,30 @@ def enrich_crossref(works: List[Dict[str, Any]], email: str | None = None) -> Li
         doi = w.get("doi")
         if not doi:
             continue
+
+        # Retry transient failures (rate limiting, timeouts, 5xx) a couple of
+        # times before giving up -- a single blip here used to silently leave
+        # journal/authors/title blank for the rest of that entry's life,
+        # since nothing else ever re-attempts the lookup.
+        msg = None
+        for attempt in range(3):
+            try:
+                r = s.get(f"{CROSSREF_API}/{doi}", timeout=30)
+                if r.status_code == 200:
+                    msg = r.json().get("message", {})
+                    break
+                if r.status_code in (429, 500, 502, 503, 504):
+                    time.sleep(2 * (attempt + 1))
+                    continue
+                break  # permanent error (e.g. 404 - bad/unregistered DOI)
+            except requests.RequestException:
+                time.sleep(2 * (attempt + 1))
+
+        if msg is None:
+            print(f"Warning: CrossRef lookup failed for DOI {doi}; keeping ORCID data only", file=sys.stderr)
+            continue
+
         try:
-            r = s.get(f"{CROSSREF_API}/{doi}", timeout=30)
-            if r.status_code != 200:
-                continue
-            msg = r.json().get("message", {})
             authors = []
             for a in msg.get("author", []):
                 given = a.get("given", "")
@@ -97,6 +118,13 @@ def enrich_crossref(works: List[Dict[str, Any]], email: str | None = None) -> Li
             container = msg.get("container-title", [])
             journal = container[0] if container else None
 
+            # CrossRef preserves inline markup (e.g. <i>Genus species</i> for
+            # taxon names) that ORCID's plain-text title strips out, so prefer
+            # it when available. publications.qmd renders p.title as HTML.
+            titles = msg.get("title") or []
+            if titles and titles[0]:
+                w["title"] = titles[0]
+
             date_parts = safe_get(msg, "issued", "date-parts", default=[])
             if (not w.get("year")) and date_parts and date_parts[0]:
                 w["year"] = int(date_parts[0][0])
@@ -104,8 +132,8 @@ def enrich_crossref(works: List[Dict[str, Any]], email: str | None = None) -> Li
             w["authors"] = authors
             w["journal"] = journal
             w["url"] = w.get("url") or msg.get("URL")
-        except Exception:
-            continue
+        except Exception as e:
+            print(f"Warning: failed to parse CrossRef response for DOI {doi}: {e}", file=sys.stderr)
     return works
 
 
@@ -135,6 +163,7 @@ def load_overrides() -> Dict[str, Any]:
         },
         "exclude": {doi_key(d) for d in (raw.get("exclude") or [])},
         "url_overrides": dict(raw.get("url_overrides") or {}),
+        "manual_fields": dict(raw.get("manual_fields") or {}),
     }
 
 
@@ -155,6 +184,20 @@ def apply_overrides(items: List[Dict[str, Any]], overrides: Dict[str, Any]) -> L
         manual_url = overrides["url_overrides"].get((it.get("title") or "").strip())
         if manual_url:
             it["url"] = manual_url
+
+    # Fill in metadata CrossRef has no way to supply -- usually because the
+    # entry has no DOI to look up, so enrich_crossref() never touches it.
+    # Matched by exact ORCID title text; only fills fields that are still
+    # empty, so it never clobbers auto-fetched data. This is also how a
+    # correctly-formatted (e.g. italicized) title gets attached for entries
+    # ORCID only ever gives us as plain text.
+    for it in items:
+        manual = overrides["manual_fields"].get((it.get("title") or "").strip())
+        if not manual:
+            continue
+        for field, value in manual.items():
+            if not it.get(field):
+                it[field] = value
 
     # A preprint that has since been published: attach a "preprint" link to
     # the published entry, then drop the standalone preprint from the list.

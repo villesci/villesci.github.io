@@ -26,3 +26,15 @@ exclude: []
 # _data/publications.json. Shows as a "Link" button in place of "DOI".
 url_overrides:
   "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar": "https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf"
+
+# Metadata CrossRef has no way to supply, usually because the entry has no
+# DOI to look up (old ORCID records that predate DOIs). Matched by exact
+# ORCID title text. Only fields the record is still missing get filled in --
+# this never overwrites an auto-fetched value. Also used to attach a
+# correctly formatted (e.g. italicized) title, since ORCID only ever gives
+# us plain text and there's no CrossRef record to pull markup from instead.
+manual_fields:
+  "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar":
+    journal: "Herpetological Conservation and Biology"
+    authors: ["Andrew R. Villeneuve"]
+    title: "Habitat selection and population density of the world’s smallest chameleon, <i>Brookesia micra</i>, on Nosy Hara, Madagascar"

@@ -160,7 +160,7 @@
       "type": "journal-article"
     },
     {
-      "title": "Upstream migration and altitudinal distribution patterns of Nereina punctulata (Gastropoda: Neritidae) in Dominica, West Indies",
+      "title": "Upstream migration and altitudinal distribution patterns of <i>Nereina punctulata</i> (Gastropoda: Neritidae) in Dominica, West Indies",
       "authors": [
         "Andrew Robert Villeneuve",
         "Ian Thornhill",
@@ -174,20 +174,35 @@
       "type": "journal-article"
     },
     {
-      "title": "Pupation Site Selection and Enemy Avoidance in the Introduced Pine Sawfly (Diprion similis)",
-      "authors": [],
+      "title": "Pupation Site Selection and Enemy Avoidance in the Introduced Pine Sawfly (<i>Diprion similis</i>)",
+      "authors": [
+        "Nathaniel T. Wheelwright",
+        "Liam U. Taylor",
+        "Benjamin M. West",
+        "Erin R. Voss",
+        "Sabine Y. Berzins",
+        "Andrew R. Villeneuve",
+        "Hannah R. LeBlanc",
+        "Victor B. Leos",
+        "Samuel J. Mayne",
+        "Sarah A. McCarthy",
+        "Shan J. Nagar",
+        "Jenna S. Watling"
+      ],
       "year": 2017,
-      "journal": null,
+      "journal": "Northeastern Naturalist",
       "doi": "10.1656/045.024.s705",
       "doi_url": "https://doi.org/10.1656/045.024.s705",
-      "url": null,
+      "url": "https://doi.org/10.1656/045.024.s705",
       "type": "journal-article"
     },
     {
-      "title": "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar",
-      "authors": [],
+      "title": "Habitat selection and population density of the world’s smallest chameleon, <i>Brookesia micra</i>, on Nosy Hara, Madagascar",
+      "authors": [
+        "Andrew R. Villeneuve"
+      ],
       "year": 2017,
-      "journal": null,
+      "journal": "Herpetological Conservation and Biology",
       "doi": null,
       "doi_url": null,
       "url": "https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf",
