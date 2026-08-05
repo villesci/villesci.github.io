@@ -17,9 +17,12 @@ research_files/figure-html/widgets/widget_unnamed-chunk-2.html
 .quarto/
 research_files/
 *.json
+!_data/publications.json
+!docs/_data/publications.json
 lock_file
 /.quarto/_freeze/
 /.quarto/xref/
 _cite
-_data
 .venv
+
+**/*.quarto_ipynb

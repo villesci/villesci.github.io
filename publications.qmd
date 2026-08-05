@@ -1,39 +1,67 @@
 ---
-title: 'Publications'
-page-layout: full
-title-block-banner: true
-
-format:
-  html:
-    page-layout: full
-    title-block-banner: "images/coral.jpg"
-    title-block-style: default
-    title-block-categories: false
-    title-block-banner-color: body
+title: "Publications"
+format: html
 ---
 
-# Published
+::: {#pub-updated .small .text-muted}
+:::
 
-```{r setup,echo=F,warning=F,message=F}
-library(animation)
-library(gsheet)
-library(markdown)
-library(tidyverse)
-source("_common.R")
+::: {#pub-list}
+:::
 
+```{=html}
+<script>
+async function loadPublications() {
+  const listEl = document.getElementById("pub-list");
+  const updatedEl = document.getElementById("pub-updated");
 
-# Update local copy of "pubs" Google sheet
-write_csv(get_pubs(), here::here('data', 'pubs.csv'))
+  try {
+    // Works when _data is published with site output.
+    const res = await fetch("/_data/publications.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
 
-# Get local copy of pubs
-pubs <- read_csv(here::here('data', 'pubs.csv'))
+    const items = data.items || [];
+    if (data.updated_at) {
+      const dt = new Date(data.updated_at);
+      updatedEl.textContent = `Last updated: ${dt.toLocaleString()}`;
+    }
 
-# Get pubs from Google sheet
-pubs <- get_pubs()
+    if (!items.length) {
+      listEl.innerHTML = "<p>No publications found.</p>";
+      return;
+    }
+
+    const ol = document.createElement("ol");
+    ol.className = "publication-list";
+
+    items.forEach((p) => {
+      const li = document.createElement("li");
+
+      const authors = (p.authors || []).join(", ");
+      const year = p.year ? ` (${p.year}).` : ".";
+      const journal = p.journal ? ` <em>${p.journal}</em>.` : "";
+      const doiLink = p.doi_url
+        ? ` <a href="${p.doi_url}" target="_blank" rel="noopener">doi:${p.doi}</a>.`
+        : "";
+      const urlLink = p.url
+        ? ` <a href="${p.url}" target="_blank" rel="noopener">Link</a>.`
+        : "";
+
+      li.innerHTML = `
+        <strong>${p.title ?? "Untitled"}</strong><br>
+        ${authors}${year}${journal}${doiLink}${urlLink}
+      `;
+      ol.appendChild(li);
+    });
+
+    listEl.appendChild(ol);
+  } catch (err) {
+    listEl.innerHTML = `<p>Could not load publications data.</p>`;
+    console.error(err);
+  }
+}
+
+loadPublications();
+</script>
 ```
-
-`r make_pub_list(pubs, "peer_reviewed")`
-
-# Preprints
-
-1.  **Villeneuve, Andrew R.**; Baker-Médard, Merrill; Randriamanantsoa, Bemahafaly; White, Easton R. (2025). "Unequal Thermal Risks in a Socioeconomically Important Tropical Reef Fishery." [10.32942/X2CW68](https://doi.org/10.32942/X2CW68)

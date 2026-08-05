@@ -85,10 +85,8 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Publications – Andrew Villeneuve">
-<meta property="og:description" content="">
 <meta property="og:site_name" content="Andrew Villeneuve">
 <meta name="twitter:title" content="Publications – Andrew Villeneuve">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -122,7 +120,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page"> 
+    <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
@@ -174,56 +172,22 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </header>
 
 
-<p>#| echo: false #| output: asis import json from pathlib import Path from html import escape</p>
-<section id="try-common-locations" class="level1">
-<h1>Try common locations</h1>
-<p>candidates = [ Path(“docs/publications.json”), Path(“_data/publications.json”), Path(“publications.json”),]</p>
-<p>pub_path = next((p for p in candidates if p.exists()), None)</p>
-if pub_path is None: print(“
-<p>
-<strong>No publications data file found.</strong>
-</p>
-“) print(”
-<p>
-Expected one of: docs/publications.json, _data/publications.json, publications.json
-</p>
-<p>“) else: data = json.loads(pub_path.read_text(encoding=”utf-8”)) items = data.get(“items”, []) updated = data.get(“updated_at”)</p>
-<pre><code>if updated:
-    print(f"&lt;p&gt;&lt;em&gt;Last updated: {escape(updated)}&lt;/em&gt;&lt;/p&gt;")
-
-if not items:
-    print("&lt;p&gt;No publications found.&lt;/p&gt;")
-else:
-    print("&lt;ol&gt;")
-    for p in items:
-        title = escape(p.get("title") or "Untitled")
-        authors = ", ".join(p.get("authors") or [])
-        authors = escape(authors) if authors else ""
-        year = p.get("year")
-        journal = escape(p.get("journal") or "")
-        doi = p.get("doi")
-        doi_url = p.get("doi_url")
-        url = p.get("url")
-
-        line = f"&lt;li&gt;&lt;strong&gt;{title}&lt;/strong&gt;&lt;br&gt;"
-        if authors:
-            line += f"{authors}"
-        if year:
-            line += f" ({year})."
-        else:
-            line += "."
-        if journal:
-            line += f" &lt;em&gt;{journal}&lt;/em&gt;."
-        if doi and doi_url:
-            line += f' &lt;a href="{escape(doi_url)}" target="_blank" rel="noopener"&gt;doi:{escape(doi)}&lt;/a&gt;.'
-        if url:
-            line += f' &lt;a href="{escape(url)}" target="_blank" rel="noopener"&gt;Link&lt;/a&gt;.'
-        line += "&lt;/li&gt;"
-        print(line)
-    print("&lt;/ol&gt;")</code></pre>
+<div id="pubs-list"></div>
+<script>
+fetch("/_data/publications.yml")
+  .then(() => {
+    // Placeholder note:
+    // Most Quarto setups do not serve YAML directly in browser.
+    // Keep rendering server-side with Lua/Quarto, or convert to JSON in pipeline.
+  });
+</script>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;!-- Publications are generated via _data/publications.yml --&gt;</code></pre>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
