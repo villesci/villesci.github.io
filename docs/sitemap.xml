@@ -1,52 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://villesci.github.io/research.html</loc>
-    <lastmod>2025-05-07T18:19:55.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts.html</loc>
-    <lastmod>2025-02-28T22:59:16.248Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2025-02-20-tide-calendar/index.html</loc>
-    <lastmod>2025-04-02T14:47:33.081Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2024-22-10-News/index.html</loc>
-    <lastmod>2025-02-28T22:59:16.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2023-04-13-first-post/index.html</loc>
-    <lastmod>2025-02-28T22:59:16.249Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/about.html</loc>
-    <lastmod>2026-01-27T15:01:49.746Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/index.html</loc>
-    <lastmod>2026-01-27T14:58:39.906Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2023-10-03-field season wrapup/index.html</loc>
-    <lastmod>2025-02-28T22:59:16.303Z</lastmod>
-  </url>
-  <url>
-    <loc>https://villesci.github.io/posts/2024-6-11- New JAE Article/index.html</loc>
-    <lastmod>2025-02-28T22:59:16.425Z</lastmod>
+    <loc>https://villesci.github.io/publications.html</loc>
+    <lastmod>2026-08-05T18:36:06.000Z</lastmod>
   </url>
   <url>
     <loc>https://villesci.github.io/posts/2025-06-20/index.html</loc>
-    <lastmod>2025-07-16T12:53:43.967Z</lastmod>
+    <lastmod>2025-07-16T12:53:44.000Z</lastmod>
   </url>
   <url>
-    <loc>https://villesci.github.io/publications.html</loc>
-    <lastmod>2026-08-05T18:35:34.000Z</lastmod>
+    <loc>https://villesci.github.io/posts/2024-6-11- New JAE Article/index.html</loc>
+    <lastmod>2025-02-28T22:59:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://villesci.github.io/publications2.html</loc>
-    <lastmod>2026-08-05T18:29:00.000Z</lastmod>
+    <loc>https://villesci.github.io/posts/2023-10-03-field season wrapup/index.html</loc>
+    <lastmod>2025-02-28T22:59:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/research.html</loc>
+    <lastmod>2025-05-07T18:19:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/index.html</loc>
+    <lastmod>2026-08-05T18:51:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/about.html</loc>
+    <lastmod>2026-01-27T15:01:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/posts.html</loc>
+    <lastmod>2025-02-28T22:59:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/posts/2023-04-13-first-post/index.html</loc>
+    <lastmod>2025-02-28T22:59:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/posts/2024-22-10-News/index.html</loc>
+    <lastmod>2025-02-28T22:59:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://villesci.github.io/posts/2025-02-20-tide-calendar/index.html</loc>
+    <lastmod>2025-04-02T14:47:34.000Z</lastmod>
   </url>
   <url>
     <loc>https://villesci.github.io/publications_old.html</loc>

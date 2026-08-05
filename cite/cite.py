@@ -111,10 +111,23 @@ def sort_key(w: Dict[str, Any]):
     return (w.get("year") or 0, w.get("month") or 0, w.get("day") or 0, (w.get("title") or "").lower())
 
 
+def normalize_orcid_id(raw: str) -> str:
+    """Accept a bare ORCID iD or a full https://orcid.org/... URL, with
+    stray quotes/whitespace tolerated, and return just the iD."""
+    candidate = raw.strip().strip("'\"").strip()
+    match = re.search(r"\d{4}-\d{4}-\d{4}-\d{3}[\dX]", candidate, flags=re.I)
+    if not match:
+        raise SystemExit(
+            f"ORCID_ID does not look like a valid ORCID iD: {candidate!r}"
+        )
+    return match.group(0)
+
+
 def main():
-    orcid_id = os.getenv("ORCID_ID")
-    if not orcid_id:
+    raw_orcid_id = os.getenv("ORCID_ID")
+    if not raw_orcid_id:
         raise SystemExit("Missing ORCID_ID")
+    orcid_id = normalize_orcid_id(raw_orcid_id)
     email = os.getenv("EMAIL_FOR_POLITE_POOLING")
 
     headers = {

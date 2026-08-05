@@ -85,10 +85,8 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Publications – Andrew Villeneuve">
-<meta property="og:description" content="">
 <meta property="og:site_name" content="Andrew Villeneuve">
 <meta name="twitter:title" content="Publications – Andrew Villeneuve">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -174,56 +172,68 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 </header>
 
 
-<p>#| echo: false #| output: asis import json from pathlib import Path from html import escape</p>
-<section id="try-common-locations" class="level1">
-<h1>Try common locations</h1>
-<p>candidates = [ Path(“docs/publications.json”), Path(“_data/publications.json”), Path(“publications.json”),]</p>
-<p>pub_path = next((p for p in candidates if p.exists()), None)</p>
-if pub_path is None: print(“
-<p>
-<strong>No publications data file found.</strong>
-</p>
-“) print(”
-<p>
-Expected one of: docs/publications.json, _data/publications.json, publications.json
-</p>
-<p>“) else: data = json.loads(pub_path.read_text(encoding=”utf-8”)) items = data.get(“items”, []) updated = data.get(“updated_at”)</p>
-<pre><code>if updated:
-    print(f"&lt;p&gt;&lt;em&gt;Last updated: {escape(updated)}&lt;/em&gt;&lt;/p&gt;")
+<div id="pub-updated" class="small text-muted">
 
-if not items:
-    print("&lt;p&gt;No publications found.&lt;/p&gt;")
-else:
-    print("&lt;ol&gt;")
-    for p in items:
-        title = escape(p.get("title") or "Untitled")
-        authors = ", ".join(p.get("authors") or [])
-        authors = escape(authors) if authors else ""
-        year = p.get("year")
-        journal = escape(p.get("journal") or "")
-        doi = p.get("doi")
-        doi_url = p.get("doi_url")
-        url = p.get("url")
+</div>
+<div id="pub-list">
 
-        line = f"&lt;li&gt;&lt;strong&gt;{title}&lt;/strong&gt;&lt;br&gt;"
-        if authors:
-            line += f"{authors}"
-        if year:
-            line += f" ({year})."
-        else:
-            line += "."
-        if journal:
-            line += f" &lt;em&gt;{journal}&lt;/em&gt;."
-        if doi and doi_url:
-            line += f' &lt;a href="{escape(doi_url)}" target="_blank" rel="noopener"&gt;doi:{escape(doi)}&lt;/a&gt;.'
-        if url:
-            line += f' &lt;a href="{escape(url)}" target="_blank" rel="noopener"&gt;Link&lt;/a&gt;.'
-        line += "&lt;/li&gt;"
-        print(line)
-    print("&lt;/ol&gt;")</code></pre>
+</div>
+<script>
+async function loadPublications() {
+  const listEl = document.getElementById("pub-list");
+  const updatedEl = document.getElementById("pub-updated");
+
+  try {
+    // Works when _data is published with site output.
+    const res = await fetch("/_data/publications.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    const items = data.items || [];
+    if (data.updated_at) {
+      const dt = new Date(data.updated_at);
+      updatedEl.textContent = `Last updated: ${dt.toLocaleString()}`;
+    }
+
+    if (!items.length) {
+      listEl.innerHTML = "<p>No publications found.</p>";
+      return;
+    }
+
+    const ol = document.createElement("ol");
+    ol.className = "publication-list";
+
+    items.forEach((p) => {
+      const li = document.createElement("li");
+
+      const authors = (p.authors || []).join(", ");
+      const year = p.year ? ` (${p.year}).` : ".";
+      const journal = p.journal ? ` <em>${p.journal}</em>.` : "";
+      const doiLink = p.doi_url
+        ? ` <a href="${p.doi_url}" target="_blank" rel="noopener">doi:${p.doi}</a>.`
+        : "";
+      const urlLink = p.url
+        ? ` <a href="${p.url}" target="_blank" rel="noopener">Link</a>.`
+        : "";
+
+      li.innerHTML = `
+        <strong>${p.title ?? "Untitled"}</strong><br>
+        ${authors}${year}${journal}${doiLink}${urlLink}
+      `;
+      ol.appendChild(li);
+    });
+
+    listEl.appendChild(ol);
+  } catch (err) {
+    listEl.innerHTML = `<p>Could not load publications data.</p>`;
+    console.error(err);
+  }
+}
+
+loadPublications();
+</script>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
