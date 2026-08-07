@@ -248,7 +248,15 @@ async function loadPublications() {
         const card = document.createElement("div");
         card.className = "pub-card";
 
-        const authors = (p.authors || []).join(", ");
+        // Bold the site owner's own name in the author list, regardless of
+        // which variant ORCID/CrossRef gave for a given entry (with/without
+        // middle initial, "R." vs "R" vs "Robert", etc.).
+        function isSelf(name) {
+          return /^andrew\s+(?:\S+\s+)*villeneuve$/i.test((name || "").trim());
+        }
+        const authors = (p.authors || [])
+          .map((a) => (isSelf(a) ? `<strong>${a}</strong>` : a))
+          .join(", ");
         const year = p.year ? ` (${p.year}).` : ".";
         const journal = p.journal ? ` <em>${p.journal}</em>.` : "";
 
@@ -292,12 +300,17 @@ async function loadPublications() {
         //   2. <slug>-<year>-<volume> - same journal, different volume art
         //   3. <slug>-<year>          - same journal, different year's art
         //   4. <slug>                 - the journal's default cover
+        //   5. <type>                 - generic per-type art (preprint.jpg,
+        //                               conference-paper.jpg, ...) for entries
+        //                               with no journal to key off of
         const slug = slugify(p.journal);
         const stems = [];
         if (p.cover) stems.push(p.cover);
         if (slug && p.year && p.volume) stems.push(`${slug}-${p.year}-${p.volume}`);
         if (slug && p.year) stems.push(`${slug}-${p.year}`);
         if (slug) stems.push(slug);
+        const typeSlug = slugify(p.type);
+        if (typeSlug) stems.push(typeSlug);
 
         if (stems.length) {
           const img = document.createElement("img");

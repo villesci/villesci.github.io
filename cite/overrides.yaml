@@ -52,3 +52,10 @@ manual_fields:
     cover: "proceedings-of-the-royal-society-b-biological-sciences-2021a"
   "Environment and phenology shape local adaptation in thermal performance":
     cover: "proceedings-of-the-royal-society-b-biological-sciences-2021b"
+
+  # Conference papers have no "journal" to key art off of, and this one's
+  # logo (Ocean Sciences Meeting) is specific to this conference rather than
+  # conference papers generally -- everything else of type "conference-paper"
+  # falls back to the generic images/journal-covers/conference-paper.jpg.
+  "Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate species":
+    cover: "oos"

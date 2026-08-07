@@ -3,6 +3,10 @@ project:
   output-dir: docs
   resources:
     - _data/publications.json
+    # Journal cover thumbnails are loaded dynamically via JS (img.src set in
+    # code, not a static <img src>), so Quarto's static-asset scanner never
+    # sees them as "used" and won't copy them into docs/ on its own.
+    - images/journal-covers/
 
 website:
   open-graph: true
