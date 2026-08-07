@@ -131,6 +131,7 @@ def enrich_crossref(works: List[Dict[str, Any]], email: str | None = None) -> Li
 
             w["authors"] = authors
             w["journal"] = journal
+            w["volume"] = msg.get("volume")
             w["url"] = w.get("url") or msg.get("URL")
         except Exception as e:
             print(f"Warning: failed to parse CrossRef response for DOI {doi}: {e}", file=sys.stderr)
@@ -248,6 +249,7 @@ def main():
                 "authors": w.get("authors", []),
                 "year": w.get("year"),
                 "journal": w.get("journal"),
+                "volume": w.get("volume"),
                 "doi": doi,
                 "doi_url": f"https://doi.org/{doi}" if doi else None,
                 "url": w.get("url"),

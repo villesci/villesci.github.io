@@ -33,8 +33,22 @@ url_overrides:
 # this never overwrites an auto-fetched value. Also used to attach a
 # correctly formatted (e.g. italicized) title, since ORCID only ever gives
 # us plain text and there's no CrossRef record to pull markup from instead.
+#
+# Also handy for journal cover art: set "volume" here if CrossRef didn't
+# supply one, or set "cover" directly to force a specific image filename
+# stem (e.g. "journal-of-animal-ecology-2020b") when the auto-computed
+# <slug>-<year>-<volume>/<slug>-<year>/<slug> lookup can't tell two
+# same-year entries in the same journal apart. See
+# images/journal-covers/README.md.
 manual_fields:
   "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar":
     journal: "Herpetological Conservation and Biology"
     authors: ["Andrew R. Villeneuve"]
     title: "Habitat selection and population density of the world’s smallest chameleon, <i>Brookesia micra</i>, on Nosy Hara, Madagascar"
+
+  # Two 2021 RSPB B papers with no CrossRef volume to tell them apart by --
+  # pin each to its own cover image explicitly.
+  "Limited plasticity in thermally tolerant ectotherm populations: evidence for a trade-off":
+    cover: "proceedings-of-the-royal-society-b-biological-sciences-2021a"
+  "Environment and phenology shape local adaptation in thermal performance":
+    cover: "proceedings-of-the-royal-society-b-biological-sciences-2021b"

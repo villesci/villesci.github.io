@@ -285,23 +285,46 @@ async function loadPublications() {
           iconEl.innerHTML = `<i class="bi ${meta.icon}" aria-hidden="true"></i>`;
         }
 
-        // Try a curated cover thumbnail first (images/journal-covers/<slug>.jpg|png);
-        // fall back to the type icon if it's missing or fails to load.
+        // Try a curated cover thumbnail first (images/journal-covers/), most
+        // specific filename first, falling back to the type icon if nothing
+        // matches. Candidates, in order:
+        //   1. p.cover               - explicit override (cite/overrides.yaml)
+        //   2. <slug>-<year>-<volume> - same journal, different volume art
+        //   3. <slug>-<year>          - same journal, different year's art
+        //   4. <slug>                 - the journal's default cover
         const slug = slugify(p.journal);
-        if (slug) {
+        const stems = [];
+        if (p.cover) stems.push(p.cover);
+        if (slug && p.year && p.volume) stems.push(`${slug}-${p.year}-${p.volume}`);
+        if (slug && p.year) stems.push(`${slug}-${p.year}`);
+        if (slug) stems.push(slug);
+
+        if (stems.length) {
           const img = document.createElement("img");
           img.alt = "";
           img.loading = "lazy";
-          img.src = `/images/journal-covers/${slug}.jpg`;
-          img.addEventListener("error", () => {
-            if (img.dataset.triedPng) {
+
+          let stemIdx = 0;
+          let triedPng = false;
+          function tryNext() {
+            if (stemIdx >= stems.length) {
               showFallbackIcon();
-            } else {
-              img.dataset.triedPng = "1";
-              img.src = `/images/journal-covers/${slug}.png`;
+              return;
             }
+            const ext = triedPng ? "png" : "jpg";
+            img.src = `/images/journal-covers/${stems[stemIdx]}.${ext}`;
+          }
+          img.addEventListener("error", () => {
+            if (!triedPng) {
+              triedPng = true;
+            } else {
+              triedPng = false;
+              stemIdx += 1;
+            }
+            tryNext();
           });
           iconEl.appendChild(img);
+          tryNext();
         } else {
           showFallbackIcon();
         }

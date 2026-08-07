@@ -14,8 +14,25 @@ single hyphen, no leading/trailing hyphens. For example:
 | Nature Climate Change             | `nature-climate-change.jpg`       |
 | Proceedings of the Royal Society B: Biological Sciences | `proceedings-of-the-royal-society-b-biological-sciences.jpg` |
 
-`.jpg` is tried first, then `.png`. If neither exists, the entry just shows
-its type icon — nothing breaks.
+**Publishing in the same journal again, in a different year/volume?** If you
+want that entry to use different cover art than the journal's default image,
+drop in a more specific file and it's picked up automatically — the page
+tries these from most to least specific, per entry:
+
+1. `<slug>-<year>-<volume>.jpg` — e.g. `journal-of-animal-ecology-2024-93.jpg`
+   (volume comes from CrossRef when available)
+2. `<slug>-<year>.jpg` — e.g. `journal-of-animal-ecology-2024.jpg`
+3. `<slug>.jpg` — the plain, journal-wide default
+
+If two entries land in the same journal *and* year and volume isn't known,
+there's no automatic way to tell them apart by filename alone. Name the
+image whatever you like (e.g. `journal-of-animal-ecology-2024a.jpg`,
+`...2024b.jpg`) and point that specific entry at it with a `cover` override
+in [`cite/overrides.yaml`](../../cite/overrides.yaml)'s `manual_fields`
+(set it to the filename stem, no extension).
+
+`.jpg` is tried first, then `.png`, at each step above. If nothing matches,
+the entry just shows its type icon — nothing breaks.
 
 There is no reliable, ToS-safe way to auto-crawl publisher sites for cover
 art (no universal API, and scraping issue pages is fragile and often against
