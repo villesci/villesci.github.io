@@ -1,4 +1,4 @@
-updated_at: '2026-08-05T19:16:34.159993+00:00'
+updated_at: '2026-08-07T14:46:29.907005+00:00'
 source:
   orcid_id: 0000-0001-7303-5931
 items:
@@ -10,6 +10,7 @@ items:
   - Easton White
   year: 2026
   journal: null
+  volume: null
   doi: 10.32942/x2cw9d
   doi_url: https://doi.org/10.32942/x2cw9d
   url: https://doi.org/10.32942/x2cw9d
@@ -36,6 +37,7 @@ items:
   - Brian S. Cheng
   year: 2026
   journal: Ecological Monographs
+  volume: '96'
   doi: 10.1002/ecm.70071
   doi_url: https://doi.org/10.1002/ecm.70071
   url: https://doi.org/10.1002/ecm.70071
@@ -48,6 +50,7 @@ items:
   - Easton White
   year: 2025
   journal: null
+  volume: null
   doi: 10.32942/x2cw68
   doi_url: https://doi.org/10.32942/x2cw68
   url: https://doi.org/10.32942/x2cw68
@@ -59,10 +62,13 @@ items:
   - Easton R. White
   year: 2025
   journal: Journal of Animal Ecology
+  volume: '94'
   doi: 10.1111/1365-2656.14120
   doi_url: https://doi.org/10.1111/1365-2656.14120
   url: https://doi.org/10.1111/1365-2656.14120
   type: journal-article
+  preprint_doi: 10.32942/x29w4w
+  preprint_url: https://doi.org/10.32942/x29w4w
 - title: Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate
     species 
   authors:
@@ -70,21 +76,12 @@ items:
   - Easton White
   year: 2025
   journal: null
+  volume: null
   doi: 10.5194/oos2025-740
   doi_url: https://doi.org/10.5194/oos2025-740
   url: https://doi.org/10.5194/oos2025-740
-  type: preprint
-- title: Predicting organismal response to marine heatwaves using mechanistic thermal
-    landscape models
-  authors:
-  - Andrew Villeneuve
-  - Easton White
-  year: 2024
-  journal: null
-  doi: 10.32942/x29w4w
-  doi_url: https://doi.org/10.32942/x29w4w
-  url: https://doi.org/10.32942/x29w4w
-  type: preprint
+  type: conference-paper
+  cover: oos
 - title: Greater evolutionary divergence of thermal limits within marine than terrestrial
     species
   authors:
@@ -99,10 +96,13 @@ items:
   - Brian S. Cheng
   year: 2022
   journal: Nature Climate Change
+  volume: '12'
   doi: 10.1038/s41558-022-01534-y
   doi_url: https://doi.org/10.1038/s41558-022-01534-y
   url: https://doi.org/10.1038/s41558-022-01534-y
   type: journal-article
+  preprint_doi: 10.21203/rs.3.rs-987225/v1
+  preprint_url: https://doi.org/10.21203/rs.3.rs-987225/v1
 - title: 'Limited plasticity in thermally tolerant ectotherm populations: evidence
     for a trade-off'
   authors:
@@ -117,27 +117,12 @@ items:
   - Morgan Kelly
   year: 2021
   journal: 'Proceedings of the Royal Society B: Biological Sciences'
+  volume: '288'
   doi: 10.1098/rspb.2021.0765
   doi_url: https://doi.org/10.1098/rspb.2021.0765
   url: https://doi.org/10.1098/rspb.2021.0765
   type: journal-article
-- title: Greater local adaptation to temperature in the ocean than on land
-  authors:
-  - Matthew Sasaki
-  - Jordanna Barley
-  - Sarah Gignoux-Wolfsohn
-  - Cynthia Hays
-  - Morgan Kelly
-  - Alysha Putnam
-  - Seema Sheth
-  - Andrew Villeneuve
-  - Brian Cheng
-  year: 2021
-  journal: null
-  doi: 10.21203/rs.3.rs-987225/v1
-  doi_url: https://doi.org/10.21203/rs.3.rs-987225/v1
-  url: https://doi.org/10.21203/rs.3.rs-987225/v1
-  type: preprint
+  cover: proceedings-of-the-royal-society-b-biological-sciences-2021a
 - title: Environment and phenology shape local adaptation in thermal performance
   authors:
   - Andrew R. Villeneuve
@@ -145,10 +130,12 @@ items:
   - Brian S. Cheng
   year: 2021
   journal: 'Proceedings of the Royal Society B: Biological Sciences'
+  volume: '288'
   doi: 10.1098/rspb.2021.0741
   doi_url: https://doi.org/10.1098/rspb.2021.0741
   url: https://doi.org/10.1098/rspb.2021.0741
   type: journal-article
+  cover: proceedings-of-the-royal-society-b-biological-sciences-2021b
 - title: Diminished warming tolerance and plasticity in low-latitude populations of
     a marine gastropod
   authors:
@@ -157,6 +144,7 @@ items:
   - Brian S Cheng
   year: 2021
   journal: Conservation Physiology
+  volume: '9'
   doi: 10.1093/conphys/coab039
   doi_url: https://doi.org/10.1093/conphys/coab039
   url: https://doi.org/10.1093/conphys/coab039
@@ -169,6 +157,7 @@ items:
   - Jacqualyn Eales
   year: 2019
   journal: Aquatic Ecology
+  volume: '53'
   doi: 10.1007/s10452-019-09683-7
   doi_url: https://doi.org/10.1007/s10452-019-09683-7
   url: https://doi.org/10.1007/s10452-019-09683-7
@@ -190,16 +179,18 @@ items:
   - Jenna S. Watling
   year: 2017
   journal: Northeastern Naturalist
+  volume: '24'
   doi: 10.1656/045.024.s705
   doi_url: https://doi.org/10.1656/045.024.s705
   url: https://doi.org/10.1656/045.024.s705
   type: journal-article
 - title: Habitat selection and population density of the world’s smallest chameleon,
-    <i>Brookesia micra</i>, on Nosy Hara, Madagascar
+    brookesia micra, on Nosy Hara, Madagascar
   authors:
   - Andrew R. Villeneuve
   year: 2017
   journal: Herpetological Conservation and Biology
+  volume: null
   doi: null
   doi_url: null
   url: https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf
