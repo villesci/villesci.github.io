@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-10T14:17:16.196878+00:00",
+  "updated_at": "2026-08-05T19:16:34.159993+00:00",
   "source": {
     "orcid_id": "0000-0001-7303-5931"
   },
@@ -13,7 +13,6 @@
       ],
       "year": 2026,
       "journal": null,
-      "volume": null,
       "doi": "10.32942/x2cw9d",
       "doi_url": "https://doi.org/10.32942/x2cw9d",
       "url": "https://doi.org/10.32942/x2cw9d",
@@ -42,7 +41,6 @@
       ],
       "year": 2026,
       "journal": "Ecological Monographs",
-      "volume": "96",
       "doi": "10.1002/ecm.70071",
       "doi_url": "https://doi.org/10.1002/ecm.70071",
       "url": "https://doi.org/10.1002/ecm.70071",
@@ -58,7 +56,6 @@
       ],
       "year": 2025,
       "journal": null,
-      "volume": null,
       "doi": "10.32942/x2cw68",
       "doi_url": "https://doi.org/10.32942/x2cw68",
       "url": "https://doi.org/10.32942/x2cw68",
@@ -72,7 +69,6 @@
       ],
       "year": 2025,
       "journal": "Journal of Animal Ecology",
-      "volume": "94",
       "doi": "10.1111/1365-2656.14120",
       "doi_url": "https://doi.org/10.1111/1365-2656.14120",
       "url": "https://doi.org/10.1111/1365-2656.14120",
@@ -81,19 +77,17 @@
       "preprint_url": "https://doi.org/10.32942/x29w4w"
     },
     {
-      "title": "Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate species ",
+      "title": "Forecasting the impacts of Marine Heatwaves on habitat-forming invertebrate species ",
       "authors": [
         "Andrew Villeneuve",
         "Easton White"
       ],
       "year": 2025,
       "journal": null,
-      "volume": null,
       "doi": "10.5194/oos2025-740",
       "doi_url": "https://doi.org/10.5194/oos2025-740",
       "url": "https://doi.org/10.5194/oos2025-740",
-      "type": "conference-paper",
-      "cover": "oos"
+      "type": "conference-paper"
     },
     {
       "title": "Greater evolutionary divergence of thermal limits within marine than terrestrial species",
@@ -110,7 +104,6 @@
       ],
       "year": 2022,
       "journal": "Nature Climate Change",
-      "volume": "12",
       "doi": "10.1038/s41558-022-01534-y",
       "doi_url": "https://doi.org/10.1038/s41558-022-01534-y",
       "url": "https://doi.org/10.1038/s41558-022-01534-y",
@@ -133,12 +126,10 @@
       ],
       "year": 2021,
       "journal": "Proceedings of the Royal Society B: Biological Sciences",
-      "volume": "288",
       "doi": "10.1098/rspb.2021.0765",
       "doi_url": "https://doi.org/10.1098/rspb.2021.0765",
       "url": "https://doi.org/10.1098/rspb.2021.0765",
-      "type": "journal-article",
-      "cover": "proceedings-of-the-royal-society-b-biological-sciences-2021a"
+      "type": "journal-article"
     },
     {
       "title": "Environment and phenology shape local adaptation in thermal performance",
@@ -149,12 +140,10 @@
       ],
       "year": 2021,
       "journal": "Proceedings of the Royal Society B: Biological Sciences",
-      "volume": "288",
       "doi": "10.1098/rspb.2021.0741",
       "doi_url": "https://doi.org/10.1098/rspb.2021.0741",
       "url": "https://doi.org/10.1098/rspb.2021.0741",
-      "type": "journal-article",
-      "cover": "proceedings-of-the-royal-society-b-biological-sciences-2021b"
+      "type": "journal-article"
     },
     {
       "title": "Diminished warming tolerance and plasticity in low-latitude populations of a marine gastropod",
@@ -165,14 +154,13 @@
       ],
       "year": 2021,
       "journal": "Conservation Physiology",
-      "volume": "9",
       "doi": "10.1093/conphys/coab039",
       "doi_url": "https://doi.org/10.1093/conphys/coab039",
       "url": "https://doi.org/10.1093/conphys/coab039",
       "type": "journal-article"
     },
     {
-      "title": "Upstream migration and altitudinal distribution patterns of Nereina punctulata (Gastropoda: Neritidae) in Dominica, West Indies",
+      "title": "Upstream migration and altitudinal distribution patterns of <i>Nereina punctulata</i> (Gastropoda: Neritidae) in Dominica, West Indies",
       "authors": [
         "Andrew Robert Villeneuve",
         "Ian Thornhill",
@@ -180,7 +168,6 @@
       ],
       "year": 2019,
       "journal": "Aquatic Ecology",
-      "volume": "53",
       "doi": "10.1007/s10452-019-09683-7",
       "doi_url": "https://doi.org/10.1007/s10452-019-09683-7",
       "url": "https://doi.org/10.1007/s10452-019-09683-7",
@@ -204,20 +191,18 @@
       ],
       "year": 2017,
       "journal": "Northeastern Naturalist",
-      "volume": "24",
       "doi": "10.1656/045.024.s705",
       "doi_url": "https://doi.org/10.1656/045.024.s705",
       "url": "https://doi.org/10.1656/045.024.s705",
       "type": "journal-article"
     },
     {
-      "title": "Habitat selection and population density of the world’s smallest chameleon, brookesia micra, on Nosy Hara, Madagascar",
+      "title": "Habitat selection and population density of the world’s smallest chameleon, <i>Brookesia micra</i>, on Nosy Hara, Madagascar",
       "authors": [
         "Andrew R. Villeneuve"
       ],
       "year": 2017,
       "journal": "Herpetological Conservation and Biology",
-      "volume": null,
       "doi": null,
       "doi_url": null,
       "url": "https://www.herpconbio.org/Volume_12/Issue_2/Villeneuve_2017.pdf",
