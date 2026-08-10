@@ -267,10 +267,11 @@ def main():
         "items": items,
     }
 
-    os.makedirs("_data", exist_ok=True)
-
-    with open("_data/publications.json", "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
+    output_roots = [Path("_data"), Path("docs/_data")]
+    for root in output_roots:
+        root.mkdir(parents=True, exist_ok=True)
+        with open(root / "publications.json", "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
 
     # optional YAML mirror if you still want Jekyll data access
     with open("_data/publications.yml", "w", encoding="utf-8") as f:
