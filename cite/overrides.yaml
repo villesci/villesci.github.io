@@ -49,9 +49,9 @@ manual_fields:
   # Two 2021 RSPB B papers with no CrossRef volume to tell them apart by --
   # pin each to its own cover image explicitly.
   "Limited plasticity in thermally tolerant ectotherm populations: evidence for a trade-off":
-    cover: "proceedings-of-the-royal-society-b-biological-sciences-2021a"
-  "Environment and phenology shape local adaptation in thermal performance":
     cover: "proceedings-of-the-royal-society-b-biological-sciences-2021b"
+  "Environment and phenology shape local adaptation in thermal performance":
+    cover: "proceedings-of-the-royal-society-b-biological-sciences-2021a"
 
   # Conference papers have no "journal" to key art off of, and this one's
   # logo (Ocean Sciences Meeting) is specific to this conference rather than
