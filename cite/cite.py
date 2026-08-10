@@ -13,6 +13,12 @@ ORCID_API = "https://pub.orcid.org/v3.0"
 CROSSREF_API = "https://api.crossref.org/works"
 
 
+def normalize_orcid_id(raw: str) -> str:
+    value = raw.strip()
+    value = re.sub(r"^https?://orcid\.org/", "", value, flags=re.I)
+    return value.rstrip("/")
+
+
 def safe_get(d: Dict[str, Any], *keys, default=None):
     cur = d
     for k in keys:
@@ -112,9 +118,10 @@ def sort_key(w: Dict[str, Any]):
 
 
 def main():
-    orcid_id = os.getenv("ORCID_ID")
-    if not orcid_id:
+    orcid_id_raw = os.getenv("ORCID_ID")
+    if not orcid_id_raw:
         raise SystemExit("Missing ORCID_ID")
+    orcid_id = normalize_orcid_id(orcid_id_raw)
     email = os.getenv("EMAIL_FOR_POLITE_POOLING")
 
     headers = {
