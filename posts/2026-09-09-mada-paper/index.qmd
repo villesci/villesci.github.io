@@ -1,0 +1,14 @@
+---
+title: "New paper! Thermal Risks to Gleaning Fisheries in Madagascar, "
+description: "Published in Cell Reports Sustainability"
+author:
+  - name: Andrew Villeneuve
+    url: https://villesci.github.io/
+    orcid: 0000-0001-7303-5931
+    affiliation: Postdoctoral Scholar, Friday Harbor Labs, University of Washington
+    affiliation-url: https://fhl.uw.edu/
+date: 09-09-2026
+categories: [publication, heatwaves] # self-defined categories
+---
+
+Imagine you are a small-scale fisher in southwestern Madagascar. You can't afford a pirogue. You can't afford a motor. Instead, you are a gleaner - a fisher who walks out
