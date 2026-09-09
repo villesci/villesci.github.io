@@ -298,7 +298,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rtide"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rnoaa)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#require(rnoaa) broken as of 9/9/2026</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(MarineTides)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(rtide)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(data.table)</span>
@@ -318,38 +318,127 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>site_id<span class="ot">=</span><span class="dv">8419870</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rnoaa_func<span class="ot">&lt;-</span><span class="cf">function</span>(time_df){</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  rnoaa_output<span class="ot">&lt;-</span><span class="fu">coops_search</span>(<span class="at">station_name =</span> site_id,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">begin_date =</span> time_df<span class="sc">$</span>begin_dates,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">end_date=</span>time_df<span class="sc">$</span>end_dates,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">product =</span> <span class="st">"predictions"</span>, <span class="co">#we want tide PREDICTIONs. If we watned past heights, could use "hourly_height")</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">datum =</span> <span class="st">"MLLW"</span>, <span class="co">#MLLW datum, which is standard at Seavey</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">units =</span> <span class="st">"metric"</span>)<span class="sc">$</span>predictions<span class="sc">%&gt;%</span><span class="co"># we will convert this to feet for us Americans later :)</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">datetime=</span>t,<span class="at">tide_height=</span>v)<span class="sc">%&gt;%</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">datetime=</span><span class="fu">with_tz</span>(<span class="fu">as.POSIXct</span>(datetime,<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>,<span class="at">tz=</span><span class="st">"GMT"</span>)),<span class="at">tz=</span><span class="st">"America/New_York"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  rnoaa_output_seavey<span class="ot">&lt;-</span>dl_months<span class="sc">%&gt;%</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(date_index)<span class="sc">%&gt;%</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_modify</span>(<span class="sc">~</span><span class="fu">rnoaa_func</span>(.x))<span class="sc">%&gt;%</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#function from the github - appears that rnoaa is broken as of 9/9/2026</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>coops_search <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">begin_date =</span> <span class="cn">NULL</span>, <span class="at">end_date =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">station_name =</span> <span class="cn">NULL</span>, product, <span class="at">datum =</span> <span class="cn">NULL</span>, <span class="at">units =</span> <span class="st">"metric"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">time_zone =</span> <span class="st">"gmt"</span>, <span class="at">application =</span> <span class="st">"rnoaa"</span>, ...) {</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  water_level_products <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"water_level"</span>, <span class="st">"hourly_height"</span>, <span class="st">"high_low"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"daily_mean"</span>, <span class="st">"monthly_mean"</span>, <span class="st">"one_minute_water_level"</span>, <span class="st">"predictions"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (product <span class="sc">%in%</span> water_level_products <span class="sc">&amp;</span> <span class="fu">length</span>(datum) <span class="sc">&lt;</span> <span class="dv">1</span>) {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Must specify a datum for water level products"</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check for duration longer than NOAA will return</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  group1_products <span class="ot">&lt;-</span> <span class="fu">c</span>(           <span class="co"># sub-hourly products with 31 day max</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"water_level"</span>,  <span class="st">"air_temperature"</span>,  <span class="st">"water_temperature"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"wind"</span>, <span class="st">"air_pressure"</span>, <span class="st">"air_gap"</span>, <span class="st">"conductivity"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"visibility"</span>, <span class="st">"humidity"</span>, <span class="st">"salinity"</span>, <span class="st">"one_minute_water_level"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"predictions"</span>, <span class="st">"currents"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  group2_products <span class="ot">&lt;-</span> <span class="fu">c</span>(   <span class="co"># hourly to sub-daily products with 1 year max</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hourly_height"</span>, <span class="st">"high_low"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  group3_products <span class="ot">&lt;-</span> <span class="fu">c</span>(      <span class="co"># daily or longer products with 10 year max</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"daily_mean"</span>, <span class="st">"monthly_mean"</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (product <span class="sc">%in%</span> group1_products) {</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    maxdur <span class="ot">&lt;-</span> <span class="dv">31</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (product <span class="sc">%in%</span> group2_products) {</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    maxdur <span class="ot">&lt;-</span> <span class="dv">366</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (product <span class="sc">%in%</span> group3_products) {</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    maxdur <span class="ot">&lt;-</span> <span class="dv">3653</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> maxdur <span class="ot">&lt;-</span> <span class="dv">365000</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(begin_date) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(end_date)) {</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    bd <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(begin_date), <span class="at">format =</span> <span class="st">"%Y%m%d"</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    ed <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as.character</span>(end_date), <span class="at">format =</span> <span class="st">"%Y%m%d"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    req_dur <span class="ot">&lt;-</span> ed <span class="sc">-</span> bd</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (req_dur <span class="sc">&gt;</span> maxdur) {</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="fu">paste</span>(<span class="st">"The maximum duration the NOAA API allows in a"</span>,</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"single call for</span><span class="sc">\n</span><span class="st">"</span>, product, <span class="st">" is "</span>, maxdur,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>                 <span class="st">" days</span><span class="sc">\n</span><span class="st">"</span>, begin_date, <span class="st">" to "</span>, end_date, <span class="st">" is "</span>,</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                 req_dur, <span class="st">" days</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">sep=</span><span class="st">""</span>), <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    } <span class="co"># if (req_dur &gt; maxdur)</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  } <span class="co"># if (!is.null(begin_date...</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bottom check for too long of duration</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">&lt;-</span> <span class="fu">noaa_compact</span>(<span class="fu">list</span>(<span class="at">begin_date =</span> begin_date, <span class="at">end_date =</span> end_date,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                            <span class="at">station =</span> station_name, <span class="at">product =</span> product,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                            <span class="at">datum =</span> datum, <span class="at">units =</span> units, <span class="at">time_zone =</span> time_zone,</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                            <span class="at">application =</span> application, <span class="at">format =</span> <span class="st">"json"</span>))</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">coops_GET</span>(<span class="fu">coops_base</span>(), args, ...)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.null</span>(<span class="fu">nrow</span>(res<span class="sc">$</span>data)) <span class="sc">&amp;&amp;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.null</span>(<span class="fu">nrow</span>(res<span class="sc">$</span>predictions)) <span class="sc">&amp;&amp;</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.null</span>(<span class="fu">nrow</span>(res<span class="sc">$</span>datums))</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  ) {</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"No data was found"</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(product <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"monthly_mean"</span>, <span class="st">"datums"</span>, <span class="st">"predictions"</span>))) {</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    tz <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">tolower</span>(time_zone) <span class="sc">==</span> <span class="st">"gmt"</span>) <span class="st">"GMT"</span> <span class="cf">else</span> <span class="fu">time_zone</span>(res<span class="sc">$</span>metadata)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    res[[<span class="fu">length</span>(res)]]<span class="sc">$</span>t <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(res[[<span class="fu">length</span>(res)]]<span class="sc">$</span>t, <span class="at">tz =</span> tz)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (product <span class="sc">==</span> <span class="st">"monthly_mean"</span>) {</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    res[[<span class="fu">length</span>(res)]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">apply</span>(res[[<span class="fu">length</span>(res)]], <span class="dv">2</span>, as.numeric))</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>  res[[<span class="fu">length</span>(res)]][,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(res[[<span class="fu">length</span>(res)]][,<span class="dv">2</span>])</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>coops_base <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="st">"https://tidesandcurrents.noaa.gov/api/datagetter"</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>coops_GET <span class="ot">&lt;-</span> <span class="cf">function</span>(url, args, ...) {</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  cli <span class="ot">&lt;-</span> crul<span class="sc">::</span>HttpClient<span class="sc">$</span><span class="fu">new</span>(url, <span class="at">opts =</span> <span class="fu">list</span>(...))</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> cli<span class="sc">$</span><span class="fu">get</span>(<span class="at">query =</span> args)</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>  res<span class="sc">$</span><span class="fu">raise_for_status</span>()</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(res<span class="sc">$</span><span class="fu">parse</span>(<span class="st">"UTF-8"</span>))</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>time_zone <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> geonames<span class="sc">::</span><span class="fu">GNtimezone</span>(<span class="at">lat =</span> <span class="fu">as.numeric</span>(x<span class="sc">$</span>lat), <span class="at">lng =</span> <span class="fu">as.numeric</span>(x<span class="sc">$</span>lon))</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.character</span>(out<span class="sc">$</span>timezoneId)</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>noaa_compact <span class="ot">&lt;-</span> <span class="cf">function</span>(l) <span class="fu">Filter</span>(<span class="fu">Negate</span>(is.null), l)</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>rnoaa_func<span class="ot">&lt;-</span><span class="cf">function</span>(time_df){</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>  rnoaa_output<span class="ot">&lt;-</span><span class="fu">coops_search</span>(<span class="at">station_name =</span> site_id,</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>             <span class="at">begin_date =</span> time_df<span class="sc">$</span>begin_dates,</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>             <span class="at">end_date=</span>time_df<span class="sc">$</span>end_dates,</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>             <span class="at">product =</span> <span class="st">"predictions"</span>, <span class="co">#we want tide PREDICTIONs. If we watned past heights, could use "hourly_height")</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>             <span class="at">datum =</span> <span class="st">"MLLW"</span>, <span class="co">#MLLW datum, which is standard at Seavey</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>             <span class="at">units =</span> <span class="st">"metric"</span>)<span class="sc">$</span>predictions<span class="sc">%&gt;%</span><span class="co"># we will convert this to feet for us Americans later :)</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">datetime=</span>t,<span class="at">tide_height=</span>v)<span class="sc">%&gt;%</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">datetime=</span><span class="fu">with_tz</span>(<span class="fu">as.POSIXct</span>(datetime,<span class="at">format=</span><span class="st">"%Y-%m-%d %H:%M"</span>,<span class="at">tz=</span><span class="st">"GMT"</span>)),<span class="at">tz=</span><span class="st">"America/New_York"</span>)</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>  rnoaa_output_seavey<span class="ot">&lt;-</span>dl_months<span class="sc">%&gt;%</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(date_index)<span class="sc">%&gt;%</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_modify</span>(<span class="sc">~</span><span class="fu">rnoaa_func</span>(.x))<span class="sc">%&gt;%</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   2.86    0.33    6.20 </code></pre>
+   0.53    0.07    1.89 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rnoaa_output_seavey)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   date_index datetime            tide_height tz              
        &lt;int&gt; &lt;dttm&gt;                    &lt;dbl&gt; &lt;chr&gt;           
-1          1 2025-04-30 20:00:00       0.019 America/New_York
-2          1 2025-04-30 20:06:00       0.016 America/New_York
-3          1 2025-04-30 20:12:00       0.018 America/New_York
-4          1 2025-04-30 20:18:00       0.023 America/New_York
-5          1 2025-04-30 20:24:00       0.032 America/New_York
-6          1 2025-04-30 20:30:00       0.046 America/New_York</code></pre>
+1          1 2025-04-30 20:00:00       0     America/New_York
+2          1 2025-04-30 20:06:00      -0.001 America/New_York
+3          1 2025-04-30 20:12:00       0.001 America/New_York
+4          1 2025-04-30 20:18:00       0.008 America/New_York
+5          1 2025-04-30 20:24:00       0.019 America/New_York
+6          1 2025-04-30 20:30:00       0.034 America/New_York</code></pre>
 </div>
 </div>
 <p>Note that the output of rnoaa defaults to every 6 minutes (10 obs/hour), which is an odd way to slice data IMO. You could always go back and select every 15 minutes, or interpolate to every minute. Also note that the datetime comes back to us in GMT only, so we must force a time zone conversion to eastern time. This does mean you won’t get the full last day of your time series due to the shift in the timezone, so worth adding an extra day just in case</p>
@@ -377,7 +466,7 @@ gtag('config', 'G-S82TX4CM9T', { 'anonymize_ip': true});
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  86.39    4.45   96.90 </code></pre>
+  20.66    1.14   22.39 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rtide_output_seavey)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -414,7 +503,7 @@ Tides will be predicted from 2025-05-01 to 2025-09-30</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   2.49    0.09    3.47 </code></pre>
+   0.94    0.00    0.94 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_seavey)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -460,7 +549,7 @@ For subordinate stations, only high and low tide values will be computed.</code>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.99    0.11    1.11 </code></pre>
+   0.41    0.01    0.42 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MarineTides_output_dover)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
