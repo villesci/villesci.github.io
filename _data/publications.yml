@@ -1,4 +1,4 @@
-updated_at: '2026-09-07T03:49:38.966077+00:00'
+updated_at: '2026-09-14T04:13:43.480363+00:00'
 source:
   orcid_id: 0000-0001-7303-5931
 items:
@@ -15,6 +15,21 @@ items:
   doi_url: https://doi.org/10.32942/x2cw9d
   url: https://doi.org/10.32942/x2cw9d
   type: preprint
+- title: Asymmetric thermal risks across Malagasy macrotidal reef zones threaten socioeconomic
+    outcomes for local fisheries
+  authors:
+  - Andrew R. Villeneuve
+  - Merrill Baker-Médard
+  - Bemahafaly Randriamanantsoa
+  - Olivia Fortunato-Jackson
+  - Easton R. White
+  year: 2026
+  journal: Cell Reports Sustainability
+  volume: null
+  doi: 10.1016/j.crsus.2026.100825
+  doi_url: https://doi.org/10.1016/j.crsus.2026.100825
+  url: https://doi.org/10.1016/j.crsus.2026.100825
+  type: journal-article
 - title: Adaptation to warm environments with a fast pace of life in a marine predatory
     snail
   authors:
