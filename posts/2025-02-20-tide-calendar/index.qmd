@@ -258,7 +258,7 @@ ggplot(data=all,aes(x=datetime,y=tide_height,color=package))+geom_line()+labs(ti
 
 [XTide](https://flaterco.com/xtide/) is an awesome UNIX tide prediction program that I use for much of our intertidal work because it provides predictions over harmonic *and* subordinate stations. Nifty!
 
-To install, follow the instructions on the [XTide installation page](https://flaterco.com/xtide/installation.html) and the [Port page](https://flaterco.com/xtide/ports.html) for non-UNIX systems. It is a little involved, especially on Windows machines. I ended up installing a Windows Subsystem for Linux (WSL) to run Ubuntu. Here is another possibility using a [BIOS builder](https://www.vogons.org/viewtopic.php?t=104374). Note that you might want to download additional files, like the global shapefiles, if you want to use the GUI application as well as Xtide from the command line. I am not anywhere close to knowing what I am doing when it comes to Linux, so the help pages and google are your friends here.
+To install, follow the instructions on the [XTide installation page](https://flaterco.com/xtide/installation.html) and the [Port page](https://flaterco.com/xtide/ports.html) for non-UNIX systems. It is a little involved, especially on Windows machines. I ended up installing a Windows Subsystem for Linux (WSL) to run Ubuntu. Here is another possibility using a [BIOS builder](https://www.vogons.org/viewtopic.php?t=104374). Note that you might want to download additional files, like the global shapefiles, if you want to use the GUI application as well as Xtide from the command line.
 
 Once you have Xtide downloaded, you can play around with the GUI which is fun!
 
@@ -358,7 +358,7 @@ minimum_workable_session<-30 #time in minutes
 dover_summ<-dover_2025%>%
   group_by(tide_cycle)%>%#stats by each day
   dplyr::filter(time>hms(start_time) & time<hms(end_time))%>%#filter out times we don't want to work
-    dplyr::filter(weekdays(date) %in% work_days)%>%#include  days of week we can work
+    dplyr::filter(weekdays(datetime) %in% work_days)%>%#include  days of week we can work
   dplyr::filter(tide_f<=workable_tide_height)%>%#filter our tide times that are too high for us to work
   summarise("total_mins"=difftime(max(datetime),min(datetime),units="mins"),#total time we can work in the intertidal, in minutes, given above filters
             "min_ht"=min(tide_f),#low tide height
@@ -477,4 +477,14 @@ Now you're done, but with a different giant tech monopoly!
 
 ![Drilling rock anchors is best when not underwater](josie.JPEG){width="250"}
 
-Thanks for reading! Do let me know if you have any comments or suggestions - I'd love to hear them. I may create a shiny app to automatically create the .ics file in the future, if this is something you would like drop a comment below.
+# Skip the code: try the app
+
+Don't want to run any R? I turned this workflow into a Shiny app. Pick a tide station, the days and hours you can work, your maximum tide height, and your minimum working period, and it will draw monthly tide calendars and give you a downloadable .ics file (plus PDFs of each month).
+
+::: callout-tip
+## [Open the Intertidal Fieldwork Calendar app](https://villesci.shinyapps.io/tide-calendar/)
+:::
+
+The app uses `rtide` harmonic stations only, so subordinate stations (like Dover Point above) are not available there. The app code is in this post's [`tide-app` folder](https://github.com/villesci/villesci.github.io/tree/python_citation/posts/2025-02-20-tide-calendar/tide-app).
+
+Thanks for reading! Do let me know if you have any comments or suggestions - I'd love to hear them.

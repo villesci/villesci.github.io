@@ -12,6 +12,20 @@ format:
 ---
 
 ::: panel-tabset
+# Predicting Ectotherm Response to Environmental Variation
+
+My research operates on three axes, integrating fundamental organism biology for predicting biological and ecological patterns across scales
+
+1)  Develop Organismal Models of How Ectotherms Work: How do synergistic and antagonistic processes like thermal injury and repair drive performance and mortality in variable environments?
+
+2)  Scale Individual Performance Ecologically: Build forecasting tools to predict marine ectotherm mortality and population dynamics in the environment.
+
+3)  Evolutionary Basis of Thermal Performance: How do organisms in variable environments evolve?
+
+# ![A Stommel diagram, indicating my research reach across spatial and temporal scales.](figures/scale_diagram.jpg)Applications
+
+In an era of ecological, climatological, and social uncertainty and change, it is imperative that biological and ecological theory is developed and bent to the applied needs of resource management. To that end, my research aims
+
 ## Current Research
 
 ### Forecasting organismal responses to heatwaves
