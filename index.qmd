@@ -13,35 +13,59 @@ format: html
 
 <div class="silhouette-links">
   <!-- Image 1 -->
-  <div class="silhouette-wrapper" style="top: 10px; left: 20px; position: absolute;">
-    <div class="tooltip">About</div>
+  <div class="silhouette-wrapper" style="top: 70px; left: 6%; position: absolute;">
+    <svg class="ring-label" viewBox="0 0 180 180" aria-hidden="true">
+      <defs><path id="arc1" d="M 14,90 A 76,76 0 0 1 166,90"/></defs>
+      <text><textPath href="#arc1" startOffset="50%" text-anchor="middle">About</textPath></text>
+    </svg>
     <a href="about.html" title="About">
-      <img src="images/seastar.png" alt="About" class="silhouette">
+      <img src="images/seastar.PNG" alt="About" class="silhouette">
     </a>
   </div>
 
   <!-- Image 2 -->
-  <div class="silhouette-wrapper" style="top: 150px; left: 200px; position: absolute;">
-    <div class="tooltip">Research</div>
-    <a href="research.html">
+  <div class="silhouette-wrapper" style="top: 210px; left: 24%; position: absolute;">
+    <svg class="ring-label" viewBox="0 0 180 180" aria-hidden="true">
+      <defs><path id="arc2" d="M 14,90 A 76,76 0 0 1 166,90"/></defs>
+      <text><textPath href="#arc2" startOffset="50%" text-anchor="middle">Research</textPath></text>
+    </svg>
+    <a href="research.html" title="Research">
       <img src="images/shawl.PNG" alt="Research" class="silhouette">
     </a>
   </div>
 
   <!-- Image 3 -->
-  <div class="silhouette-wrapper" style="top: 40px; left: 600px; position: absolute;">
-    <div class="tooltip">Publications</div>
-    <a href="publications.html">
+  <div class="silhouette-wrapper" style="top: 80px; left: 45%; position: absolute;">
+    <svg class="ring-label" viewBox="0 0 180 180" aria-hidden="true">
+      <defs><path id="arc3" d="M 14,90 A 76,76 0 0 1 166,90"/></defs>
+      <text><textPath href="#arc3" startOffset="50%" text-anchor="middle">Publications</textPath></text>
+    </svg>
+    <a href="publications.html" title="Publications">
       <img src="images/uro2.png" alt="Publications" class="silhouette">
     </a>
   </div>
 
   <!-- Image 4 -->
-  <div class="silhouette-wrapper" style="top: 180px; left: 700px; position: absolute;">
-    <div class="tooltip">Contact</div>
-    <a href="posts.html">
-      <img src="images/crab.png" alt="Contact" class="silhouette">
+  <div class="silhouette-wrapper" style="top: 220px; left: 64%; position: absolute;">
+    <svg class="ring-label" viewBox="0 0 180 180" aria-hidden="true">
+      <defs><path id="arc4" d="M 14,90 A 76,76 0 0 1 166,90"/></defs>
+      <text><textPath href="#arc4" startOffset="50%" text-anchor="middle">Blog</textPath></text>
+    </svg>
+    <a href="posts.html" title="Blog">
+      <img src="images/crab.png" alt="Blog" class="silhouette">
     </a>
   </div>
+
+  <!-- Image 5 -->
+  <div class="silhouette-wrapper" style="top: 90px; left: 82%; position: absolute;">
+    <svg class="ring-label" viewBox="0 0 180 180" aria-hidden="true">
+      <defs><path id="arc5" d="M 14,90 A 76,76 0 0 1 166,90"/></defs>
+      <text><textPath href="#arc5" startOffset="50%" text-anchor="middle">Products</textPath></text>
+    </svg>
+    <a href="products.html" title="Products and Ephemera">
+      <img src="images/acanthodoris.png" alt="Products and Ephemera" class="silhouette">
+    </a>
+  </div>
+
 </div>
 ```

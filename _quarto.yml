@@ -29,6 +29,8 @@ website:
         text: Publications
       - href: posts.qmd
         text: Blog
+      - href: products.qmd
+        text: Products and Ephemera
     right:
       - icon: github
         href: "https://github.com/villesci"

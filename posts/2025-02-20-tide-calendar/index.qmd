@@ -9,6 +9,7 @@ author:
     affiliation-url: https://quantmarineecolab.github.io/
 date: 02-20-2025
 categories: [R,tides,fieldwork] # self-defined categories
+toc: true
 bibliography: references.bib
 ---
 
@@ -482,7 +483,7 @@ Now you're done, but with a different giant tech monopoly!
 Don't want to run any R? I turned this workflow into a Shiny app. Pick a tide station, the days and hours you can work, your maximum tide height, and your minimum working period, and it will draw monthly tide calendars and give you a downloadable .ics file (plus PDFs of each month).
 
 ::: callout-tip
-## [Open the Intertidal Fieldwork Calendar app](https://villesci.shinyapps.io/tide-calendar/)
+## [Open the Intertidal Fieldwork Calendar app](https://01a0c633-84db-74c3-25ac-3c08d83ba41c.share.connect.posit.cloud/)
 :::
 
 The app uses `rtide` harmonic stations only, so subordinate stations (like Dover Point above) are not available there. The app code is in this post's [`tide-app` folder](https://github.com/villesci/villesci.github.io/tree/python_citation/posts/2025-02-20-tide-calendar/tide-app).

@@ -81,22 +81,27 @@ find_sessions <- function(station, from, to, tz,
 #' Calendar-style tile plot for one or more months of `sessions`.
 plot_tide_calendar <- function(sessions, station, ncol = 1) {
   u <- sessions$units[1]
+  # white text on the dark (low) end of the viridis fill, black on the light end
+  sessions$txt <- ifelse(scales::rescale(sessions$min_ht) < 0.45, "white", "black")
   ggplot(sessions, aes(x = wday_slot, y = week_row, fill = min_ht,
                        group = paste(date, format(low_tide_time, "%H:%M")))) +
     geom_tile(color = "white", linewidth = 0.4) +
     scale_fill_viridis_c(na.value = "transparent") +
     scale_x_discrete(drop = FALSE) +
+    scale_color_identity() +
     scale_y_reverse(breaks = NULL) +
     facet_wrap(~ month_lab, scales = "free_y", ncol = ncol) +
-    geom_text(aes(label = paste0(round(total_mins), " min")), size = 3.5, vjust = -0.2) +
-    geom_text(aes(label = format(low_tide_time, "%H:%M")), size = 3.5, vjust = 1.4) +
-    geom_text(aes(label = day(low_tide_time)), size = 3.5, hjust = 1.3, vjust = -2.2) +
+    # Four stacked lines per tile (offsets are in tile-height units; y axis is reversed)
+    geom_text(aes(color = txt, y = week_row - 0.30, label = day(low_tide_time)), size = 3.2, fontface = "bold") +
+    geom_text(aes(color = txt, y = week_row - 0.10, label = paste0(round(total_mins), " min")), size = 3.2) +
+    geom_text(aes(color = txt, y = week_row + 0.10, label = format(low_tide_time, "%H:%M")), size = 3.2) +
+    geom_text(aes(color = txt, y = week_row + 0.30, label = paste0(round(min_ht, 2), " ", u)), size = 3.2) +
     labs(
       x = NULL, y = NULL,
       fill = glue("Min tide\nheight ({u})"),
       title = glue("{station}: workable low tides"),
       subtitle = glue("Tide below {sessions$height_max[1]} {u}; sessions > minimum length. ",
-                      "Tile: day (top-left), minutes workable, time of low tide.")
+                      "Tile: day, minutes workable, time and height of low tide.")
     ) +
     theme_minimal() +
     theme(

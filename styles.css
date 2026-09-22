@@ -226,3 +226,70 @@ nav.navbar {
 }
 
 </style>
+/* Homepage: curved hover label that arcs over each circular image */
+.silhouette-wrapper {
+  width: 120px;
+  height: 120px;
+}
+
+.ring-label {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  overflow: visible;
+  pointer-events: none;   /* keep hover/click on the image itself */
+  opacity: 0;
+  transform: rotate(-8deg);
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.ring-label text {
+  fill: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  stroke: rgba(0, 0, 0, 0.55);   /* keeps text legible over the photo */
+  stroke-width: 3px;
+  paint-order: stroke;
+}
+
+.silhouette-wrapper:hover .ring-label,
+.silhouette-wrapper:focus-within .ring-label {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 768px) {
+  .silhouette-wrapper {
+    position: relative !important;  /* anchor for the ring label */
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+  }
+  .ring-label {
+    opacity: 1;                     /* no hover on touch screens */
+    transform: none;
+  }
+}
+
+/* Products page: clickable app screenshot with a button underneath */
+.app-preview {
+  text-align: center;
+  margin: 1.5rem 0 2rem;
+}
+.app-preview img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.app-preview a:hover img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+.app-preview .btn {
+  margin-top: 1rem;
+}

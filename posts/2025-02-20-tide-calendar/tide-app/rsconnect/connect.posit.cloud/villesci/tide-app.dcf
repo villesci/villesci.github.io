@@ -1,0 +1,12 @@
+name: tide-app
+title: tide-app
+username: villesci
+account: villesci
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a0c633-84db-74c3-25ac-3c08d83ba41c
+bundleId:
+url: https://connect.posit.cloud/villesci/content/01a0c633-84db-74c3-25ac-3c08d83ba41c
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
