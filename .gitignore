@@ -26,3 +26,5 @@ _cite
 .venv
 
 **/*.quarto_ipynb
+
+Rplots.pdf
